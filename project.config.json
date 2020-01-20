@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -13,9 +13,9 @@
 		"coverView": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.10.0",
-	"appid": "wx667696731f3be043",
-	"projectname": "MDY",
+	"libVersion": "2.3.0",
+	"appid": "wxfe8d2659f87aacca",
+	"projectname": "GitDemo",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
