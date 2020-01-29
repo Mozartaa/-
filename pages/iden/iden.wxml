@@ -1,0 +1,21 @@
+<view class='tittle'>
+  <view class='words'>身份选择</view>
+</view>
+
+<view class='iden'>
+  <view class='identity'>
+    <image src='../../images/cap.png'></image>
+  </view>
+  <view class='idenwords'>你的身份是</view>
+</view>
+
+<view class='choose'>
+  <view class='stu'>
+    <image src='../../images/stu.png'></image>
+    <button bindtap="jumpTostuidenPage">学生</button>
+  </view>
+  <view class='tea'>
+    <image src='../../images/tea.png'></image>
+    <button bindtap="jumpToteaidenPage">教师</button>
+  </view>
+</view>

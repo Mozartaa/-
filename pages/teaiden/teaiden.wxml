@@ -1,0 +1,55 @@
+<view class='tittle'>
+  <view class='wordstop'>教师身份认证</view>
+</view>
+
+<view class='name'>
+ <view class='words'>姓名:</view>
+ <view class='in'>
+ <input class="input" name="words1" placeholder="请输入姓名"
+    bindinput ="nameInput"/>
+ </view>
+</view>
+ <view class='line'></view>
+
+ <view class='school'>
+ <view class='words'>学校:</view>
+ <view class='in'>
+ <input class="input" name="words1" placeholder="请输入学校"
+    bindinput ="schoolInput"/>
+ </view>
+</view>
+ <view class='line'></view>
+
+  <view class='tittletea'>
+ <view class='words'>职称:</view>
+ <view class='in'>
+ <input class="input" name="words1" placeholder="请输入职称"
+    bindinput ="tittleteaInput"/>
+ </view>
+</view>
+ <view class='line'></view>
+
+ <view class='college'>
+ <view class='words'>院系:</view>
+ <view class='in'>
+ <input class="input" name="words1" placeholder="请输入院系"
+    bindinput ="collegeInput"/>
+ </view>
+</view>
+ <view class='line'></view>
+
+ <view class='research'>
+ <view class='words'>研究方向:</view>
+ <view class='in'>
+ <input class="input" name="words1" placeholder="请输入主要研究方向"
+    bindinput ="researchInput"/>
+ </view>
+</view>
+ <view class='line'></view>
+
+ <view class='picwords'>请上传教工卡人像面照片:</view>
+
+<view class='pic'>
+   <image class='pic1' src="../../images/pic.png"></image>
+   <view class="pic1word">教工卡照片</view>
+</view>

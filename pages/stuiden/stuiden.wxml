@@ -1,0 +1,57 @@
+<view class='tittle'>
+  <view class='wordstop'>学生身份认证</view>
+</view>
+<form bindsubmit='onFormSubmitTap'>
+<view class='name'>
+  <view class='words'>姓名:</view>
+  <view class='in'>
+    <input class="input" value="秦" name="name" placeholder="请输入姓名" />
+  </view>
+</view>
+<view class='line'></view>
+
+<view class='school'>
+  <view class='words'>学校:</view>
+  <view class='in'>
+    <input class="input" name="school" placeholder="请输入学校" />
+  </view>
+</view>
+<view class='line'></view>
+
+<view class='stuid'>
+  <view class='words'>学号:</view>
+  <view class='in'>
+    <input class="input" name="studentNumber" placeholder="请输入学号" value='216'/>
+  </view>
+</view>
+<view class='line'></view>
+
+<view class='college'>
+  <view class='words'>院系:</view>
+  <view class='in'>
+    <input class="input" name="college" placeholder="请输入院系"  />
+  </view>
+</view>
+<view class='line'></view>
+
+<view class='major'>
+  <view class='words'>专业:</view>
+  <view class='in'>
+    <input class="input" name="major" placeholder="请输入专业" />
+  </view>
+</view>
+<view class='line'></view>
+
+<view class='picwords'>请上传一卡通人像面照片:</view>
+<view class='image-group-list'>
+<view class='image-group'wx:for="{{images}}" wx:key="{{images[index]}}"style='width:{{imageSize}}px;height:{{imageSize}}px'>
+      <image src='{{item}}' data-index="{{index}}" bindtap='onImageTap'></image>
+      <view class='close-btn' data-index="{{index}}" bindtap='onRemoveImageTap'></view>
+    </view>
+<view wx:if="{{images.length<1}}"class='pic'style='width:{{imageSize}}px;height:{{imageSize}}px' bind:tap="onAddImageTap">
+  <image class='pic1' src="../../images/pic.png"></image>
+  <view class="pic1word">一卡通照片</view>
+</view>
+</view>
+<button type="primary" form-type="submit">完成</button>
+</form>

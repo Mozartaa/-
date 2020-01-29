@@ -1,0 +1,94 @@
+.tittle{
+  width: 100%;
+  height:45px;
+  background-color: rgba(51, 43, 43, 0.111);
+  display: flex;
+  box-shadow: -4px 4px 10px rgba(51, 43, 43, 10);
+}
+.wordstop{
+  margin-left: 15px;
+  margin-top:10.5px;
+}
+.words{
+  font-size: 20px;
+  margin-left: 15px;
+  margin-top:35px;
+}
+
+.name{
+  margin-top:10px;
+  margin-left: 15px;
+  display: flex;
+}
+.in{
+  margin-left: 20px;
+  margin-top:10px;
+  width: 60%;
+  height: 20px;
+  background-color: white;
+}
+ .words1{
+   font-size: 20px;
+   margin-left: 10px;
+   color: #d3d3d3;
+} 
+.line
+{
+  margin-top:5px;
+  width: 95%;
+  height: 1px;
+  margin-left: 2.5%;
+  background-color: #d3d3d3;
+}
+.school{
+  margin-top:5px;
+  margin-left: 15px;
+  display: flex;
+}
+.tittletea{
+  margin-top:5px;
+  margin-left: 15px;
+  display: flex;
+}
+.college{
+  margin-top:5px;
+  margin-left: 15px;
+  display: flex;
+}
+.research{
+  margin-top:5px;
+  margin-left: 15px;
+  display: flex;
+}
+
+.picwords{
+  margin-top:30px;
+  margin-left: 15px;
+}
+.pic{
+  width: 200px;
+  height: 100px;
+  margin-top:20px;
+  margin-left: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10rpx;
+  background-color: rgb(241, 240, 240);
+  box-shadow: -3px 8px 10px rgba(66, 63, 63, 0.842);
+}
+
+.pic1{
+  margin-left: 75px;
+  height: 45px;
+  width: 45px;
+}
+.pic1word{
+  margin-left: 60px;
+  font-size: 15px;
+  color: rgba(51, 43, 43, 0.637);
+}
+.input{
+  margin-top:30px;
+  font-size: 18px;
+}

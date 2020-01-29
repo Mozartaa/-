@@ -1,1 +1,24 @@
-<searchbar></searchbar>
+<view class="searchbar">
+  <navigator wx:if="{{isnavigator}}" url='/pages/search/search' class='search-navigator'></navigator>
+  <view wx:else class="search-input-group">
+    <input confirm-type='search'calss="search-input" placeholder="Search"bindfocus='onFocusEvent' bindblur='onBlurEvent' bindconfirm='onConfirmEvent'confirm-type='搜索'></input>
+  </view>
+</view>
+<view class='line'> </view>
+
+<!-- 老师信息栏
+<view class='teaformation'>
+<view class='name'>教师姓名:董小姐</view>
+<view class='dep'>研究方向：巴拉巴拉小魔仙巴拉巴拉小魔仙巴巴拉小魔仙</view>
+<view class='homepage'>http://balabalababalalababababalalalal.com</view>
+</view> -->
+
+<scroll-view class='scroll-view-y' scroll-y="{{true}}">
+  <view  bindtap='onDetailTap' data-index='{{index}}'wx:for="{{messages}}" wx:key="{{message.id}}" wx:for-item="message" class='teaformation'>
+    <view class='name'>教师姓名:{{message.username}}</view>
+    <view class='dep'>研究方向：{{message.department}}</view>
+    <view class='homepage' wx:if="{{message.perHomepage != null}}">{{message.perHomepage}}</view>
+  </view>
+</scroll-view>
+
+<view class='mask' wx:if="{{mask}}"></view>

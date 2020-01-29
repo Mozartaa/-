@@ -1,8 +1,14 @@
 {
   "pages": [
+    
     "pages/search/search",
+    "pages/login/login",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/stuiden/stuiden",
+    "pages/teaiden/teaiden",
+    "pages/iden/iden"
+    
    
   ],
   "window": {
@@ -17,18 +23,21 @@
       {
         "pagePath": "pages/search/search",
         "text": "发现",
-        "iconPath":"images/find.png"
+        "iconPath":"images/all.png",
+        "selectedIconPath":"images/all_selected.png"
         
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/stuiden/stuiden",
         "text": "招募令",
-        "iconPath": "images/message.png"
+        "iconPath": "images/message.png",
+        "selectedIconPath": "images/message_selected.png"
       },
       {
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/iden/iden",
         "text": "我的",
-        "iconPath": "images/me.png"
+        "iconPath": "images/me.png",
+        "selectedIconPath": "images/me_selected.png"
       }
     ]
   }
