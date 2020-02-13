@@ -1,0 +1,99 @@
+<!--pages/detail.wxml-->
+<scroll-view>
+    <view class="detail">
+      <image src="{{proList.img}}"></image>
+    </view>
+    <view class="content">
+      <view class="icon">
+        <image src="../../images/technology.png"></image>
+        <text class="text">项目名称 | 实验室名称</text>
+      </view>
+      <view class="item-list">
+        <view class="list-text">{{proList.projectName}}</view>
+      </view>
+
+      <view class="icon">
+        <image src="../../images/product.png"></image>
+        <text class="text">研究方向</text>
+      </view>
+      <view class="item-list">
+        <view class="list-text">{{proList.field}}</view>
+      </view>
+
+      <view class="icon">
+        <image src="../../images/product.png"></image>
+        <text class="text">项目简介</text>
+      </view>
+      <view class="item-list">
+        <view class="list-text">{{proList.discription}}</view>
+      </view>
+
+      <view class="icon">
+        <image src="../../images/market.png"></image>
+        <text class="text">项目酬金</text>
+      </view>
+      <view class="item-list">
+        <view class="list-text">{{proList.bonus}}</view>
+      </view>
+
+      <view class="icon">
+        <image src="../../images/product.png"></image>
+        <text class="text">启动时间</text>
+      </view>
+      <view class="item-list">
+        <view class="list-text">{{proList.startTime}}</view>
+      </view>
+      <view class="icon">
+        <image src="../../images/product.png"></image>
+        <text class="text">项目时长</text>
+      </view>
+      <view class="item-list">
+        <view class="list-text">{{proList.proLen}}</view>
+      </view>
+
+      <view class="icon">
+        <image src="../../images/product.png"></image>
+        <text class="text">招募要求</text>
+      </view>
+      <view class="item-list">
+        <view class="list-text">{{proList.request}}</view>
+      </view>
+
+      <view class="icon">
+        <image src="../../images/product.png"></image>
+        <text class="text">招募名额</text>
+      </view>
+      <view class="item-list">
+        <view class="list-text">{{proList.places}}</view>
+      </view>
+
+      <view class="icon">
+        <image src="../../images/product.png"></image>
+        <text class="text">招募类型</text>
+      </view>
+      <view class="item-list">
+        <view class="list-text">{{proList.proType}}</view>
+      </view>
+
+      <view class="icon">
+        <image src="../../images/product.png"></image>
+        <text class="text">报名截止时间</text>
+      </view>
+      <view class="item-list">
+        <view class="list-text">{{proList.rgstDDL}}</view>
+      </view>
+      
+      <view class="icon">
+        <image src="../../images/product.png"></image>
+        <text class="text">报名方式</text>
+      </view>
+      <view class="item-list">
+        <view class="list-text">{{proList.rgstMethod}}</view>
+      </view>
+
+      <view class="back-btn" bindtap='bindBack'>
+          <text class="back-btn-text">返回</text>
+      </view>
+
+    </view>
+</scroll-view>

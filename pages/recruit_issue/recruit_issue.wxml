@@ -1,0 +1,89 @@
+
+ <view class='words'>项目名称/实验室名称:</view>
+ <view class='in'>
+    <input class="input"  placeholder="请输入项目名称或实验室名称"
+    bindinput ="nameInput"/>
+ </view>
+ <view class='line'></view>
+
+ 
+ <view class='words'>项目简介:</view>
+ <view class='in'>
+    <input class="input" name="words1" placeholder="请输入项目简介"
+    bindinput ="schoolInput"/>
+ </view>
+ <view class='line'></view>
+
+ <view class='words'>项目开始时间:</view>
+ <view class='in'>
+    <input class="input" name="words1" placeholder="请输入项目开始时间"
+    bindinput ="stuidInput"/>
+ </view>
+ <view class='line'></view>
+
+  <view class='words'>项目时长:</view>
+ <view class='in'>
+    <input class="input" name="words1" placeholder="请输入项目时长"
+    bindinput ="schoolInput"/>
+ </view>
+ <view class='line'></view>
+
+ <view class='words'>报名截止时间:</view>
+ <view class='in'>
+   <input class="input" name="words1" placeholder="报名截止时间"
+    bindinput ="collegeInput"/>
+ </view>
+ <view class='line'></view>
+
+ <view class='words'>招募要求:</view>
+ <view class='in'>
+ <input class="input" name="words1" placeholder="请输入招募要求"
+    bindinput ="majorInput"/>
+ </view>
+ <view class='line'></view>
+
+ <view class='words'>招募名额:</view>
+ <view class='in'>
+ <input class="input" name="words1" placeholder="请输入招募名额"
+    bindinput ="majorInput"/>
+ </view>
+ <view class='line'></view>
+
+  <view class='words'>招募类型:</view>
+ <view class='in'>
+ <input class="input" name="words1" placeholder="请输入招募类型"
+    bindinput ="majorInput"/>
+ </view>
+ <view class='line'></view>
+
+  <view class='words'>研究方向:</view>
+ <view class='in'>
+ <input class="input" name="words1" placeholder="请输入研究方向"
+    bindinput ="majorInput"/>
+ </view>
+ <view class='line'></view>
+
+  <view class='words'>项目酬金:</view>
+ <view class='in'>
+ <input class="input" name="words1" placeholder="请输入项目酬金"
+    bindinput ="majorInput"/>
+ </view>
+ <view class='line'></view>
+
+  <view class='words'>报名方式:</view>
+ <view class='in'>
+ <input class="input" name="words1" placeholder="请输入报名方式"
+    bindinput ="majorInput"/>
+ </view>
+ <view class='line'></view>
+
+ <view class='words'>项目配图:</view>
+
+<view class='pic'>
+   <image class='pic1' src="../../images/pic.png"></image>
+   <view class="pic1word">点击上传项目配图</view>
+</view>
+
+<view class='sub'>
+  <view class='subwords'>发布</view>
+</view>

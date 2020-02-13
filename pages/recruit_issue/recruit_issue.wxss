@@ -1,0 +1,73 @@
+page{
+  background-color: rgba(41, 36, 36, 0.842)
+}
+
+.words{
+  font-size: 20px;
+  margin-left: 15px;
+  margin-top:35px;
+  color:white;
+}
+
+.input{
+  margin-top:20px;
+  font-size: 18px;
+  color:rgb(241, 240, 240);
+}
+.in{
+  margin-left: 15px;
+  margin-top:0px;
+  height: 8px;
+}
+.line
+{
+  margin-top:15px;
+  width: 95%;
+  height: 3px;
+  margin-left: 2.5%;
+  background-color: #4bd6c4;
+}
+
+.picwords{
+  margin-top:30px;
+  margin-left: 15px;
+}
+.pic{
+  width: 250px;
+  height: 120px;
+  margin-top:20px;
+  margin-left: 17%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 15rpx;
+  background-color: rgb(241, 240, 240);
+  box-shadow: -3px 8px 10px rgba(66, 63, 63, 0.842);
+}
+
+.pic1{
+  margin-left: 100px;
+  height: 45px;
+  width: 45px;
+}
+.pic1word{
+  margin-left: 60px;
+  font-size: 15px;
+  color: rgba(51, 43, 43, 0.637);
+}
+
+.sub{
+  background-color:  #4bd6c4;
+  width: 100px;
+  height: 50px;
+  border-radius: 15px;
+  margin-left: 37%;
+  margin-top:30px;
+  margin-bottom:30px;
+}
+.subwords{
+  color: rgba(41, 36, 36, 0.842)e;
+  padding: 10px;
+  margin-left: 21px;
+  font-size: 20px;
+}

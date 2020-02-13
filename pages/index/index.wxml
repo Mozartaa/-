@@ -1,13 +1,68 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<!-- <searchbar isnavigator="{{true}}"></searchbar>
+ -->
+<image class='logo' src='../../images/logo.png'></image>
+<view class="searchbar">
+  <navigator class='search-navigator' url='/pages/index-search/index-search'></navigator>
+  <!-- <navigator wx:if="{{isnavigator}}" url='/pages/search/search' class='search-navigator'></navigator> -->
+  <!-- <view wx:else class="search-input-group">
+    <input calss="search-input" placeholder="Search"></input>
+  </view> -->
+</view>
+<view class='hot'>
+  <view class='inner inner1'>
+    <view class='hotwords'>热词榜</view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+  <view class='inner inner2'>
+    <view class='item'>
+      <image src='../../images/1.png'></image>
+      <text class='w1'>AAA</text>
+    </view>
+    <view class='item'>
+      <image src='../../images/2.png'></image>
+      <text class='w2'>AAA</text>
+    </view>
+    <view class='item'>
+      <image src='../../images/3.png'></image>
+      <text class='w1'>AAA</text>
+    </view>
+    <view class='item'>
+      <image src='../../images/4.png'></image>
+      <text class='w2'>AAA</text>
+    </view>
+    <view class='item'>
+      <image src='../../images/5.png'></image>
+      <text class='w1'>AAA</text>
+    </view>
+    <view class='item'>
+      <image src='../../images/6.png'></image>
+      <text class='w2'>AAA</text>
+    </view>
+    <view class='item'>
+      <image src='../../images/7.png'></image>
+      <text class='w1'>AAAAAA</text>
+    </view>
+    <view class='item'>
+      <image src='../../images/8.png'></image>
+      <text class='w2'>AAAAA</text>
+    </view>
+    <view class='item'>
+      <image src='../../images/9.png'></image>
+      <text class='w1'>AAA</text>
+    </view>
+    <view class='item'>
+      <image src='../../images/10.png'></image>
+      <text class='w2'>AAA</text>
+    </view>
   </view>
 </view>
+<!-- <view class="nav">
+  <navigator class='ff'>
+    <image class='ff1' src='../../images/find.png'></image>
+  </navigator>
+  <navigator class='ff'>
+    <image class='ff2' src='../../images/message.png'></image>
+  </navigator>
+  <navigator class='ff'>
+    <image class='ff3' src='../../images/me.png'></image>
+  </navigator>
+</view> -->

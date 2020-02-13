@@ -1,7 +1,4 @@
 {
   "component": true,
-  "usingComponents": {
-    "index":
-    "/pages/index/index"
-  }
+  "usingComponents": {}
 }

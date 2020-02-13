@@ -1,15 +1,19 @@
 {
   "pages": [
-    
+    "pages/index/index",
+    "pages/index-search/index-search",
     "pages/search/search",
     "pages/login/login",
-    "pages/index/index",
     "pages/logs/logs",
     "pages/stuiden/stuiden",
     "pages/teaiden/teaiden",
-    "pages/iden/iden"
-    
-   
+    "pages/iden/iden",
+    "pages/home/home",
+    "pages/detail/detail",
+    "pages/my/my",
+    "pages/showinfo/showinfo",
+    "pages/ChangeInfo/ChangeInfo",
+    "pages/recruit_issue/recruit_issue"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -21,20 +25,19 @@
   "tabBar": {
     "list": [
       {
-        "pagePath": "pages/search/search",
+        "pagePath": "pages/index/index",
         "text": "发现",
-        "iconPath":"images/all.png",
-        "selectedIconPath":"images/all_selected.png"
-        
+        "iconPath": "images/all.png",
+        "selectedIconPath": "images/all_selected.png"
       },
       {
-        "pagePath": "pages/stuiden/stuiden",
+        "pagePath": "pages/home/home",
         "text": "招募令",
         "iconPath": "images/message.png",
         "selectedIconPath": "images/message_selected.png"
       },
       {
-        "pagePath": "pages/iden/iden",
+        "pagePath": "pages/my/my",
         "text": "我的",
         "iconPath": "images/me.png",
         "selectedIconPath": "images/me_selected.png"

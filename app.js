@@ -1,40 +1,61 @@
 //app.js
 App({
-  onLaunch: function () {
-    // 展示本地存储能力
-    // var logs = wx.getStorageSync('logs') || []
-    // logs.unshift(Date.now())
-    // wx.setStorageSync('logs', logs)
-
-    // // 登录
-    // wx.login({
-    //   success: res => {
-    //     // 发送 res.code 到后台换取 openId, sessionKey, unionId
-    //   }
-    // })
-    // // 获取用户信息
-    // wx.getSetting({
-    //   success: res => {
-    //     if (res.authSetting['scope.userInfo']) {
-    //       // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-    //       wx.getUserInfo({
-    //         success: res => {
-    //           // 可以将 res 发送给后台解码出 unionId
-    //           this.globalData.userInfo = res.userInfo
-
-    //           // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-    //           // 所以此处加入 callback 以防止这种情况
-    //           if (this.userInfoReadyCallback) {
-    //             this.userInfoReadyCallback(res)
-    //           }
-    //         }
-    //       })
-    //     }
-    //   }
-    // })
-  },
   globalData: {
     userInfo: null,
-    url:"http://localhost:8080"
-  }
+    url: "http://localhost:8080"
+  },
+  onLaunch: function(options) {
+    // 判断用户是否登录
+    var token = wx.getStorageSync('token')
+    console.log(token)
+    // TODO  token 过期问题
+    if (token) {
+      console.log("登录过了")
+      app.globalData.token = token;
+      console.log(app.globalData.token)
+      this.loadAllMessages(0, 10);
+    } else {
+      console.log("没有登录")
+      wx.navigateTo({
+        url: '/pages/login/login',
+      });
+    }
+  },
+  loadAllMessages: function(start = 0, size = 10, keyword = '') {
+    var that = this;
+    var hasmoredata = true;
+    wx.request({
+      url: url + '/teachersinfo',
+      data: ({
+        start: start,
+        size: size,
+        keyword: keyword
+      }),
+      success: function(res) {
+        console.log(res.data);
+        if (res.data.length == 0) {
+          hasmoredata = false;
+          that.setData({
+            hasmore: hasmoredata
+          })
+        };
+        var flags = [];
+        console.log("返回的数据长度");
+        console.log(res.data.length);
+        let newMessages = [];
+        console.log("start=" + start);
+        if (start > 0) {
+          newMessages = that.data.messages.concat(res.data);
+        } else {
+          newMessages = res.data;
+        }
+        console.log("messageLength")
+        console.log(newMessages.length)
+        that.setData({
+          messages: newMessages,
+          messageLength: newMessages.length
+        })
+      }
+    })
+  },
 })

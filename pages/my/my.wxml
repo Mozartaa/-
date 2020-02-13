@@ -1,0 +1,25 @@
+<view class="page-body-info ">
+  <open-data type='userAvatarUrl' class="userinfo" mode="cover"></open-data>
+  <open-data type="userNickName"></open-data>
+</view>
+
+<view class='flex-row'>
+  <view class='item'>
+    <image class="item1" src="../../images/图片1.png" mode="aspectFill">
+    </image>
+    <view class='flex-view-item'>基本信息</view>
+    <button bindtap="jumpToshowinfoPage">> </button>
+  </view>
+  <view class='item'>
+    <image class="item1" src="../../images/图片2.png" mode="aspectFill">
+    </image>
+    <view class='flex-view-item'>身份认证</view>
+    <button bindtap="jumpToIden">></button>
+  </view>
+  <view class='item'>
+    <image class="item1" src="../../images/图片3.png" mode="aspectFill">
+    </image>
+    <view class='flex-view-item'>我收藏的</view>
+    <button>></button>
+  </view>
+</view>

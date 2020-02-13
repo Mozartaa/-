@@ -1,0 +1,47 @@
+<view class='item1'>修改基本信息</view>
+
+<view class='flex-row'>
+  <view class='item0'>
+    <view class='flex-view-item'>头像</view>
+    <view class='page-body-info'>
+      <open-data type='userAvatarUrl' class="userinfo" mode="cover"></open-data>
+    </view>
+  </view>
+  <view class='item'>
+    <view class='flex-view-item'>性别</view>
+    <view class="item3">
+      <radio-group class="radio-group" bindchange="radioChange">
+        <label class="radio" wx:for="{{items}}">
+          <radio value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+        </label>
+      </radio-group>
+    </view>
+  </view>
+  <view class='item'>
+    <view class='flex-view-item'>昵称</view>
+    <view class="item2">
+      <input class="input" name="userLocation" placeholder="请输入昵称" bindinput="userLocationInput" />
+    </view>
+  </view>
+  <view class='item'>
+    <view class='flex-view-item'>电话</view>
+    <view class="item3">
+      <input class="input" name="userLocation" placeholder="请输入电话号码" bindinput="userLocationInput" />
+    </view>
+  </view>
+  <view class='item'>
+    <view class='flex-view-item'>Email</view>
+    <view class="item3">
+      <input class="input" name="userLocation" placeholder="请输入Email地址" bindinput="userLocationInput" />
+    </view>
+  </view>
+  <view class='item'>
+    <view class='flex-view-item'>个性签名</view>
+    <view class="item3">
+      <input class="input" name="userLocation" placeholder="请输入个性签名" bindinput="userLocationInput" />
+    </view>
+  </view>
+  <view class='item4'>
+    <button>保存</button>
+  </view>
+</view>

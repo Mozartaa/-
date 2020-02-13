@@ -1,23 +1,56 @@
+<image class='logo' src='../../images/logo.png'></image>
 <view class="searchbar">
-  <navigator wx:if="{{isnavigator}}" url='/pages/search/search' class='search-navigator'></navigator>
+  <navigator wx:if="{{isnavigator}}" class='search-navigator'></navigator>
+  <!-- <navigator wx:if="{{isnavigator}}" url='/pages/search/search' class='search-navigator'></navigator> -->
   <view wx:else class="search-input-group">
     <input calss="search-input" placeholder="Search"></input>
   </view>
 </view>
-<view class='line'> </view>
-
-<!-- 老师信息栏
-<view class='teaformation'>
-<view class='name'>教师姓名:董小姐</view>
-<view class='dep'>研究方向：巴拉巴拉小魔仙巴拉巴拉小魔仙巴巴拉小魔仙</view>
-<view class='homepage'>http://balabalababalalababababalalalal.com</view>
-</view> -->
-
-<scroll-view class='scroll-view-y' scroll-y="{{true}}">
-  <view wx:for="{{messages}}" wx:for-item="message" class='teaformation'>
-    <view class='name'>教师姓名:{{message.username}}</view>
-    <view class='dep'>研究方向：{{message.department}}</view>
-    <view class='homepage'>{{message.perHomepage}}</view>
+<view class='hot'>
+  <view class='inner inner1'>
+    <view class='hotwords'>热词榜</view>
   </view>
-  
-</scroll-view>
+  <view class='inner inner2'>
+    <view class='item'>
+      <image src='../../images/1.png'></image>
+      <text class='w1'>AAA</text>
+    </view>
+    <view class='item'>
+      <image src='../../images/2.png'></image>
+      <text class='w2'>AAA</text>
+    </view>
+    <view class='item'>
+      <image src='../../images/3.png'></image>
+      <text class='w1'>AAA</text>
+    </view>
+    <view class='item'>
+      <image src='../../images/4.png'></image>
+      <text class='w2'>AAA</text>
+    </view>
+    <view class='item'>
+      <image src='../../images/5.png'></image>
+      <text class='w1'>AAA</text>
+    </view>
+    <view class='item'>
+      <image src='../../images/6.png'></image>
+      <text class='w2'>AAA</text>
+    </view>
+    <view class='item'>
+      <image src='../../images/7.png'></image>
+      <text class='w1'>AAAAAA</text>
+    </view>
+    <view class='item'>
+      <image src='../../images/8.png'></image>
+      <text class='w2'>AAAAA</text>
+    </view>
+    <view class='item'>
+      <image src='../../images/9.png'></image>
+      <text class='w1'>AAA</text>
+    </view>
+    <view class='item'>
+      <image src='../../images/10.png'></image>
+      <text class='w2'>AAA</text>
+    </view>
+  </view>
+</view>
+<view class='line'> </view>

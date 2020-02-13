@@ -1,0 +1,44 @@
+.page-body-info {
+  text-align: center; 
+}
+.userinfo{
+    width:200rpx;
+    height: 200rpx;
+    margin: 0 auto;
+    border-radius: 50%;
+    display:flex;
+    overflow: hidden;
+}
+.flex-row {
+margin-top: 80px;
+width: 100%;
+}
+
+.item {
+display: flex;
+width: 100%;
+flex-direction: row;
+align-items: center;
+justify-content: space-between;
+border-bottom: 2px solid #aaa;
+}
+
+.item button {
+margin: 0;
+width:80px;
+background-color: #fff;
+}
+
+.item:nth-child(1) {
+border-top: 2px solid #aaa;
+}
+
+#b {
+width: 200rpx;
+height: 100rpx;
+}
+
+.item1{
+  width:30px; 
+  height:30px; 
+}

@@ -1,0 +1,47 @@
+<scroll-view>
+  <view class="container">
+    <view class="header">
+      <text class="header__text-title">FindU</text>
+      <view class="search">
+        <input type="search" class="search-text" placeholder="Find your opportunity here!" bindinput="bindInput" />
+        <view class="search-btn" bindtap='bindSearch'>
+          <text class="search-btn-text">搜索</text>
+        </view>
+      </view>
+    </view>
+    <view class="content">
+      <view class="icon">
+        <image src="../../images/technology.png"></image>
+        <text class="text">方向</text>
+      </view>
+      <view class="item-list">
+        <text class="item" bindtap='SearchKeyWord' data-type="区块链">区块链</text>
+        <text class="item" bindtap='SearchKeyWord' data-type="机器学习">机器学习</text>
+        <text class="item" bindtap='SearchKeyWord' data-type="大数据">大数据</text>
+        <text class="item" bindtap='SearchKeyWord' data-type="新材料">新材料</text>
+        <text class="item" bindtap='SearchKeyWord' data-type="网络完全">网络安全</text>
+        <text class="item" bindtap='SearchKeyWord' data-type="电力电子">电力电子</text>
+        <text class="item" bindtap='SearchKeyWord' data-type="新能源">新能源</text>
+        <text class="item" bindtap='SearchKeyWord' data-type="金融工程">金融工程</text>
+      </view>
+      <view class="icon">
+        <image src="../../images/product.png"></image>
+        <text class="text">渠道</text>
+      </view>
+      <view class="item-list">
+        <text class="item">线上合作</text>
+        <text class="item">线下参与</text>
+      </view>
+      <view class="icon">
+        <image src="../../images/market.png"></image>
+        <text class="text">酬金</text>
+      </view>
+      <view class="item-list">
+        <text class="item">只看含酬金</text>
+      </view>
+      <view class="post-btn" bindtap='postSearch'>
+        <text class="post-btn-text">发布</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>
