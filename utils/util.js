@@ -1,19 +1,21 @@
-const formatTime = date => {
-  const year = date.getFullYear()
-  const month = date.getMonth() + 1
-  const day = date.getDate()
-  const hour = date.getHours()
-  const minute = date.getMinutes()
-  const second = date.getSeconds()
-
-  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+const HOST = "http://www.mozarta.cn:8088"
+const requestPromise = async(method, url, data) => {
+  let token = wx.getStorageSync("token")
+  return new Promise((resolve, reject) => {
+    wx.request({
+      method: method,
+      url: `${HOST}${url}`,
+      data: data,
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'token': token
+      },
+      success: res => resolve(res),
+      fail: (res) => reject(res)
+    })
+  })
 }
-
-const formatNumber = n => {
-  n = n.toString()
-  return n[1] ? n : '0' + n
-}
-
 module.exports = {
-  formatTime: formatTime
+  requestPromise,
+  HOST
 }

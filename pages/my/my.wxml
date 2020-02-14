@@ -3,7 +3,7 @@
   <open-data type="userNickName"></open-data>
 </view>
 
-<view class='flex-row'>
+<view class='my-body'>
   <view class='item'>
     <image class="item1" src="../../images/图片1.png" mode="aspectFill">
     </image>
@@ -19,7 +19,7 @@
   <view class='item'>
     <image class="item1" src="../../images/图片3.png" mode="aspectFill">
     </image>
-    <view class='flex-view-item'>我收藏的</view>
-    <button>></button>
+    <view class='flex-view-item' bindtap='jumpToFavour'>我收藏的</view>
+    <button bindtap="jumpToFavour">></button>
   </view>
 </view>

@@ -1,6 +1,6 @@
-<view class='item1'>基本信息</view>
+<view class='showinfo-title'>基本信息</view>
 
-<view class='flex-row'>
+<view class='showinfo-body'>
   <view class='item0'>
     <view class='flex-view-item'>头像</view>
     <view class='page-body-info'>
@@ -9,27 +9,27 @@
   </view>
   <view class='item'>
     <view class='flex-view-item'>昵称</view>
-    <view class="item2">
+    <view>
       <open-data type="userNickName"></open-data>
     </view>
   </view>
   <view class='item'>
     <view class='flex-view-item'>性别</view>
-    <view class="item3">保密</view>
+    <view class="item3">{{user.sex==='m'?'男':(user.sex==='f'?'女':'保密')}}</view>
   </view>
   <view class='item'>
     <view class='flex-view-item'>电话</view>
-    <view class="item3">12345678912</view>
+    <view class="item3">{{user.userPhone||"未填写"}}</view>
   </view>
   <view class='item'>
     <view class='flex-view-item'>Email</view>
-    <view class="item3">123456@163.com</view>
+    <view class="item3">{{user.userEmail||"未填写"}}</view>
   </view>
   <view class='item'>
     <view class='flex-view-item'>个性签名</view>
-    <view class="item3">lulalulalulalularua~</view>
+    <view class="item3">{{user.userSignature||"未填写"}}</view>
   </view>
   <view class='item4'>
-    <button bindtap="jumpTochangeinfoPage">修改基本信息 </button>
+    <button bindtap="jumpTochangeinfoPage">修改基本信息</button>
   </view>
 </view>

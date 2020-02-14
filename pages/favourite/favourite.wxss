@@ -1,0 +1,74 @@
+.tittle {
+  width: 100%;
+  height: 90rpx;
+  padding-left: 50rpx;
+  line-height: 90rpx;
+  background-color: rgba(51, 43, 43, 0.111);
+  box-shadow: -4px 4px 10px rgba(51, 43, 43, 10);
+}
+
+.favour-main {
+  display: flex;
+  flex-direction: column;
+  margin: 0 30rpx;
+}
+
+.teaformation {
+  box-sizing: border-box;
+  width: 100%;
+  /* height: 200rpx; */
+  margin: 20rpx 0;
+  padding: 20rpx;
+  border-radius: 20rpx;
+  background: rgba(53, 52, 52, 0.842);
+  box-shadow: -2px 5px 4px rgba(0, 0, 0, 0.801);
+}
+
+.teaformation .name {
+  height: 60rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: white;
+}
+
+.teaformation .dep {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
+  margin: 10rpx 0;
+  overflow: hidden;
+  line-height: 30rpx;
+  color: white;
+}
+
+.teaformation .homepage {
+  height: 50rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: white;
+}
+
+#tabs {
+  font-size: 28rpx;
+}
+
+.tabs-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+}
+
+.tabs-item.selected {
+  color: #874b27;
+  border-bottom: 2rpx solid #874b27;
+}
+
+.tabs-item {
+  width: 33.3%;
+  color: #666;
+  border-bottom: 1rpx solid #e9e9e9;
+}

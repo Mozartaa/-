@@ -1,9 +1,9 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/login/login",
     "pages/index-search/index-search",
     "pages/search/search",
-    "pages/login/login",
     "pages/logs/logs",
     "pages/stuiden/stuiden",
     "pages/teaiden/teaiden",
@@ -13,7 +13,9 @@
     "pages/my/my",
     "pages/showinfo/showinfo",
     "pages/ChangeInfo/ChangeInfo",
-    "pages/recruit_issue/recruit_issue"
+    "pages/recruit_issue/recruit_issue",
+    "pages/favourite/favourite",
+    "pages/history/history"
   ],
   "window": {
     "backgroundTextStyle": "light",

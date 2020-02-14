@@ -1,0 +1,39 @@
+<view class='tittle'>
+  <view class='wordstop'>我的收藏</view>
+</view>
+
+<view id='tabs'>
+  <view class='tabs-box'>
+    <block wx:for="{{['全部','招募令','教师']}}" wx:key="index">
+      <view class="tabs-item {{currentTabIndex == index ? 'selected' : '' }}" bindtap='onTabsItemTap' data-index='{{index}}'>
+        {{item}}
+      </view>
+    </block>
+  </view>
+  <view class='ordert-detail'>
+    <!-- 全部 -->
+    <view hidden='{{currentTabIndex != 0}}' class='favour-main'>
+      <view class='teaformation' wx:for="{{a}}" wx:key="{{item.id}}">
+        <view class='name'>教师姓名:{{item.name}}</view>
+        <view class='dep'>研究方向：{{item.dep}}</view>
+        <view class='homepage'>{{item.homepage}}</view>
+      </view>
+    </view>
+    <view hidden='{{currentTabIndex != 1}}' class='favour-main'>
+      <!-- 招募令 -->
+      <view class='teaformation'>
+        <view class='name'>项目名称:魔法</view>
+        <view class='dep'>项目开始时间：2020/2/2</view>
+        <view class='homepage'>招募要求：帅气哥哥漂亮姐姐</view>
+      </view>
+    </view>
+    <view hidden='{{currentTabIndex != 2}}' class='favour-main'>
+      <!-- 教师 -->
+      <view class='teaformation'>
+        <view class='name'>教师姓名:董小姐</view>
+        <view class='dep'>研究方向：巴拉巴拉小魔仙巴拉巴拉小魔仙巴巴拉小魔仙</view>
+        <view class='homepage'>http://balabalababalalababababalalalal.com</view>
+      </view>
+    </view>
+  </view>
+</view>

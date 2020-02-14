@@ -4,23 +4,23 @@ App({
     userInfo: null,
     url: "http://localhost:8080"
   },
-  onLaunch: function(options) {
-    // 判断用户是否登录
-    var token = wx.getStorageSync('token')
-    console.log(token)
-    // TODO  token 过期问题
-    if (token) {
-      console.log("登录过了")
-      app.globalData.token = token;
-      console.log(app.globalData.token)
-      this.loadAllMessages(0, 10);
-    } else {
-      console.log("没有登录")
-      wx.navigateTo({
-        url: '/pages/login/login',
-      });
-    }
-  },
+  // onLaunch: function(options) {
+  //   // 判断用户是否登录
+  //   var token = wx.getStorageSync('token')
+  //   console.log(token)
+  //   // TODO  token 过期问题
+  //   if (token) {
+  //     console.log("登录过了")
+  //     app.globalData.token = token;
+  //     console.log(app.globalData.token)
+  //     this.loadAllMessages(0, 10);
+  //   } else {
+  //     console.log("没有登录")
+  //     wx.navigateTo({
+  //       url: '/pages/login/login',
+  //     });
+  //   }
+  // },
   loadAllMessages: function(start = 0, size = 10, keyword = '') {
     var that = this;
     var hasmoredata = true;

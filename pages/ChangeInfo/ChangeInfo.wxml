@@ -1,6 +1,6 @@
-<view class='item1'>修改基本信息</view>
+<view class='changeinfo-title'>修改基本信息</view>
 
-<view class='flex-row'>
+<view class='changeinfo-body'>
   <view class='item0'>
     <view class='flex-view-item'>头像</view>
     <view class='page-body-info'>
@@ -19,29 +19,29 @@
   </view>
   <view class='item'>
     <view class='flex-view-item'>昵称</view>
-    <view class="item2">
-      <input class="input" name="userLocation" placeholder="请输入昵称" bindinput="userLocationInput" />
+    <view class="item3">
+      <input class="input" name="userLocation" placeholder="请输入昵称" bindinput="userLocationInput" bindinput="bindKeyInput" data-index="userNick" />
     </view>
   </view>
   <view class='item'>
     <view class='flex-view-item'>电话</view>
     <view class="item3">
-      <input class="input" name="userLocation" placeholder="请输入电话号码" bindinput="userLocationInput" />
+      <input class="input" name="userLocation" placeholder="请输入电话号码" bindinput="userLocationInput" bindinput="bindKeyInput" data-index="userPhone" />
     </view>
   </view>
   <view class='item'>
     <view class='flex-view-item'>Email</view>
     <view class="item3">
-      <input class="input" name="userLocation" placeholder="请输入Email地址" bindinput="userLocationInput" />
+      <input class="input" name="userLocation" placeholder="请输入Email地址" bindinput="userLocationInput" bindinput="bindKeyInput" data-index="userEmail" />
     </view>
   </view>
   <view class='item'>
     <view class='flex-view-item'>个性签名</view>
     <view class="item3">
-      <input class="input" name="userLocation" placeholder="请输入个性签名" bindinput="userLocationInput" />
+      <input class="input" name="userLocation" placeholder="请输入个性签名" bindinput="userLocationInput" bindinput="bindKeyInput" data-index="userSignature" />
     </view>
   </view>
   <view class='item4'>
-    <button>保存</button>
+    <button bindtap='submit'>保存</button>
   </view>
 </view>

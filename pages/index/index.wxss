@@ -86,7 +86,7 @@
 
 .hot {
   /* box-sizing: border-box; */
-  margin: 60rpx 15rpx;
+  margin: 60rpx 30rpx;
   border-radius: 10rpx;
   background: white;
   box-shadow: -4px 15px 10px rgba(66, 63, 63, 0.842);
