@@ -57,7 +57,7 @@ Page({
           console.log(res);
           wx.request({
             url: utils.HOST + '/api/user/login?code=' + code,
-            method:"POST",
+            method: "POST",
             data: {
               rawData: e.detail.rawData
             },
