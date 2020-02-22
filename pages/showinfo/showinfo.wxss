@@ -1,8 +1,10 @@
 .showinfo-title {
-  padding: 0 55rpx;
-  height: 60rpx;
   width: 100%;
-  background-color: rgb(236, 234, 234);
+  height: 90rpx;
+  padding-left: 50rpx;
+  line-height: 90rpx;
+  color:white;
+  background: -webkit-linear-gradient(left,rgb(0,6,129), rgb(91,212,199));
 }
 
 .page-body-info {
@@ -37,19 +39,20 @@
   border-bottom: 2px solid rgb(236, 234, 234);
 }
 
-.item:nth-child(1) {
-  border-top: 2px solid rgb(236, 234, 234);
-}
-
 .item4 {
-  margin-top: 36rpx;
+   margin-top: 36rpx;
 }
 
 .item4 button {
-  color: green;
+  background-image:-webkit-linear-gradient(left,rgb(0,6,129), rgb(91,212,199));
+  color:white;
 }
 
 #b {
   width: 200rpx;
   height: 100rpx;
+}
+
+.jumpTochangeinfoPage{
+  background-color:transparent;
 }

@@ -7,6 +7,25 @@ Page({
   data: {
     userInfo: ""
   },
+  
+  bindInput: function (e) {
+    // console.log(e);
+    this.setData({
+      searchValue: e.detail.value
+    })
+  },
+  bindSearch: function () {
+    wx.showLoading({
+      title: '搜索中',
+    })
+
+    wx.navigateTo({
+      url: '../index-search/index-search?searchValue=' + this.data.searchValue,
+      success: (res) => {
+        wx.hideLoading()
+      }
+    })
+  },
   onLoad: async(options) => {
     let that = this
     wx.getSetting({

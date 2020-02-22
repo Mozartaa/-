@@ -77,12 +77,20 @@
  </view>
  <view class='line'></view>
 
- <view class='words'>项目配图:</view>
+ <view class='img-word'>项目配图:</view>
 
-<view class='pic'>
-   <image class='pic1' src="../../images/pic.png"></image>
-   <view class="pic1word">点击上传项目配图</view>
-</view>
+<view class='image-group-list'>
+    <view class='image-group'wx:for="{{images}}" wx:key="{{images[index]}}"style='width:{{imageSize}}px;height:{{imageSize}}px'>
+      <image src='{{item}}' data-index="{{index}}" bindtap='onImageTap'></image>
+      <view class='close-btn' data-index="{{index}}" bindtap='onRemoveImageTap'></view>
+    </view>
+
+       <view wx:if="{{images.length < 9}}"class='add-image-btn' style='width:{{imageSize}}px;height:{{imageSize}}px' bind:tap="onAddImageTap">
+        <view>+</view>
+
+    </view>
+
+  </view>
 
 <view class='sub'>
   <view class='subwords'>发布</view>

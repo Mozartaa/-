@@ -5,7 +5,7 @@
   <view class='name'>
     <view class='words'>姓名:</view>
     <view class='in'>
-      <input class="input" value="秦" name="name" placeholder="请输入姓名" />
+      <input class="input" name="name" placeholder="请输入姓名" />
     </view>
   </view>
   <view class='line'></view>
@@ -21,7 +21,7 @@
   <view class='stuid'>
     <view class='words'>学号:</view>
     <view class='in'>
-      <input class="input" name="studentNumber" placeholder="请输入学号" value='216' />
+      <input class="input" name="studentNumber" placeholder="请输入学号" />
     </view>
   </view>
   <view class='line'></view>

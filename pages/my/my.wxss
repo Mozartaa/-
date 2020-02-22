@@ -2,6 +2,7 @@ button::after {
   border: none;
 }
 
+
 .page-body-info {
   text-align: center;
 }
@@ -13,10 +14,11 @@ button::after {
   border-radius: 50%;
   display: flex;
   overflow: hidden;
+  margin-top:85px;
 }
 
 .my-body {
-  margin: 120rpx 55rpx;
+  margin: 120rpx 50rpx;
 }
 
 .item {
@@ -26,19 +28,22 @@ button::after {
   justify-content: space-between;
   width: 100%;
   height: 120rpx;
-  border-bottom: 2px solid rgb(222, 222, 222);
+  border-bottom: 2px solid rgb(91,212,199);
 }
 .flex-view-item{
-  margin-left: 90rpx
+  margin-left: 90rpx;
+  color:#7e8793;
 }
 .item button {
-  margin: 0;
-  width: 80px;
-  background-color: #fff;
+  margin:0;
+  width: 60px;
+  background-color: transparent;
+  padding:auto;
+  color:rgb(0,6,129);
+  font-weight:bold;
 }
-
 .item:nth-child(1) {
-  border-top: 2px solid rgb(222, 222, 222);
+  border-top: 2px solid rgb(91,212,199);
 }
 
 #b {
@@ -49,4 +54,6 @@ button::after {
 .item1 {
   width: 50rpx;
   height: 50rpx;
+  margin-left:20px;
+  background:white;
 }

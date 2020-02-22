@@ -1,28 +1,29 @@
-<scroll-view class="wrap">
+
   <view class="search">
     <input placeholder="{{searchValue}}" bindinput="bindInput" />
     <view class="search-btn" bindtap='bindSearch'>
       <image src="../../images/search.png"></image>
     </view>
   </view>
+<scroll-view class="wrap">
   <view class="list" wx:for="{{postList}}">
         <view>
-          <text class="text">projectName: </text>{{item.projectName}}
+          <text class="text">项目名称: {{item.projectName}}</text>
         </view>
         <view>
-          <text class="text">field: </text>{{item.field}}
+          <text class="text">研究方向: {{item.field}}</text>
         </view>
         <view>
-          <text class="text">channel: </text>{{item.channel}}
+          <text class="text">渠道: {{item.channel}}</text>
         </view>
         <view>
-          <text class="text">bonus: </text>{{item.bonus}}
+          <text class="text">酬金: {{item.bonus}}</text>
         </view>
-        <view>
-          <text class="text">background: </text>{{item.background}}
+        <view class="detailBtn" bindtap='bindDetail'>
+            <text>阅读详情-></text> 
         </view>
-        <view class="list-item detail-btn" bindtap='bindDetail'>
-            <text class="detail-btn-text">阅读详情-></text>
+        <view class="favor">
+            <image src="../../images/star.png"></image>
         </view>
   </view>
   <view  wx:if="{{postList.length === 0}}" class="no-data">

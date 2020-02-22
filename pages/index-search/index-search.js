@@ -7,7 +7,24 @@ Page({
   data: {
 
   },
+  bindInput: function (e) {
+    // console.log(e);
+    this.setData({
+      searchValue: e.detail.value
+    })
+  },
+  bindSearch: function () {
+    wx.showLoading({
+      title: '搜索中',
+    })
 
+    wx.navigateTo({
+      url: '../index-search/index-search?searchValue=' + this.data.searchValue,
+      success: (res) => {
+        wx.hideLoading()
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

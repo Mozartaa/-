@@ -1,4 +1,5 @@
-#wrap {
+.wrap {
+  margin-top: 80rpx;
   height: 100%;
   width: 100%;
   overflow: hidden;
@@ -29,24 +30,39 @@
 }
 .list{
   font-size: 30rpx;
-  color: #7e8793;
-  background-color: #f5f8f9;
-  margin-top: 80rpx;
+  box-shadow: 10px 10px 10px #e4e4e4;
+  background: -webkit-linear-gradient(left,rgb(0,6,129), rgb(91,212,199));
   border-bottom: 1px solid #f5f8f9;
-  margin-bottom: 10rpx;
+  margin:40rpx;
+  padding-top:20rpx;
+  padding-bottom:10rpx;
+  border-radius: 15rpx;
 }
 .text{
   font-size: 30rpx;
-  color: #7e8793;
-  background-color: #f5f8f9;
-  display: inline-block;
-  padding-left:12rpx;
-  padding-right:12rpx;
-  margin:5rpx;
+  color: white;
+  background-color: transparent;
+  padding-left:15px;
+  line-height: 50rpx;
+  margin:10px;
 }
-.detail-btn-text{
+.detailBtn text{
   font-size: 30rpx;
-  color: #5bd4c7;
-  padding-left:12rpx;
-  margin:5rpx;
+  color: white;
+  background-color:transparent;
+  padding-left:15px;
+  line-height: 50rpx;
+  margin:10px 10px 0px 10px;
+}
+
+.favor{
+  display: flex;
+  flex-direction:row;
+  justify-content:flex-end;
+  padding-bottom: 0px;
+}
+
+.favor image{
+  width: 60rpx;
+  height: 60rpx;
 }

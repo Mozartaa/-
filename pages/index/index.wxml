@@ -1,12 +1,15 @@
 <!-- <searchbar isnavigator="{{true}}"></searchbar>
  -->
 <image class='logo' src='../../images/logo.png'></image>
-<view class="searchbar">
-  <navigator class='search-navigator' url='/pages/index-search/index-search'></navigator>
   <!-- <navigator wx:if="{{isnavigator}}" url='/pages/search/search' class='search-navigator'></navigator> -->
   <!-- <view wx:else class="search-input-group">
     <input calss="search-input" placeholder="Search"></input>
   </view> -->
+<view class="search">
+        <input type="search" class="search-text" placeholder="Find your opportunity here!" bindinput="bindInput" />
+        <view class="search-btn" bindtap='bindSearch'>
+          <text class="search-btn-text">搜索</text>
+        </view>
 </view>
 <view class='hot'>
   <view class='inner inner1'>
@@ -14,43 +17,43 @@
   </view>
   <view class='inner inner2'>
     <view class='item'>
-      <image src='../../images/1.png'></image>
+      <image src='../../images/fire.png'></image>
       <text class='w1'>AAA</text>
     </view>
     <view class='item'>
-      <image src='../../images/2.png'></image>
+      <image src='../../images/fire.png'></image>
       <text class='w2'>AAA</text>
     </view>
     <view class='item'>
-      <image src='../../images/3.png'></image>
+      <image src='../../images/fire.png'></image>
       <text class='w1'>AAA</text>
     </view>
     <view class='item'>
-      <image src='../../images/4.png'></image>
+      <image src='../../images/fire.png'></image>
       <text class='w2'>AAA</text>
     </view>
     <view class='item'>
-      <image src='../../images/5.png'></image>
+      <image src='../../images/fire.png'></image>
       <text class='w1'>AAA</text>
     </view>
     <view class='item'>
-      <image src='../../images/6.png'></image>
+      <image src='../../images/fire.png'></image>
       <text class='w2'>AAA</text>
     </view>
     <view class='item'>
-      <image src='../../images/7.png'></image>
+      <image src='../../images/fire.png'></image>
       <text class='w1'>AAAAAA</text>
     </view>
     <view class='item'>
-      <image src='../../images/8.png'></image>
+      <image src='../../images/fire.png'></image>
       <text class='w2'>AAAAA</text>
     </view>
     <view class='item'>
-      <image src='../../images/9.png'></image>
+      <image src='../../images/fire.png'></image>
       <text class='w1'>AAA</text>
     </view>
     <view class='item'>
-      <image src='../../images/10.png'></image>
+      <image src='../../images/fire.png'></image>
       <text class='w2'>AAA</text>
     </view>
   </view>

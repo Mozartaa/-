@@ -1,9 +1,10 @@
 .tittle {
   width: 100%;
-  height: 45px;
-  background-color: rgba(51, 43, 43, 0.111);
-  display: flex;
-  box-shadow: -4px 4px 10px rgba(51, 43, 43, 10);
+  height: 90rpx;
+  padding-left: 50rpx;
+  line-height: 90rpx;
+  color:white;
+  background: -webkit-linear-gradient(left,rgb(0,6,129), rgb(91,212,199));
 }
 
 .wordstop {
@@ -12,7 +13,7 @@
 }
 
 .words {
-  font-size: 20px;
+  font-size: 14px;
   margin-left: 15px;
   margin-top: 35px;
 }
@@ -32,7 +33,7 @@
 }
 
 .words1 {
-  font-size: 20px;
+  font-size: 14px;
   margin-left: 10px;
   color: #d3d3d3;
 }
@@ -71,14 +72,15 @@
 
 .picwords {
   margin-top: 30px;
-  margin-left: 15px;
+  margin-left: 30px;
+  margin-bottom: 30px;
+  font-size: 14px;
 }
 
 .pic {
   width: 200px;
   height: 100px;
-  margin-top: 20px;
-  margin-left: 25%;
+  margin:0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -100,21 +102,23 @@
 }
 
 .input {
-  margin-top: 30px;
-  font-size: 18px;
+  margin-top: 25px;
+  font-size: 14px;
 }
 
 .sub {
-  background-color: rgba(6, 168, 6, 0.863);
-  width: 100px;
-  height: 50px;
-  border-radius: 5px;
-  margin-left: 37%;
-  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  padding: 16rpx 32rpx;
+  font-size: 36rpx;
+  line-height: 48rpx;
+  background-color: #f5f8f9;
+  border-radius: 200rpx;
+  margin: 60rpx 20rpx 20rpx 20rpx;
+  border: 1px solid #fff;
+  background: -webkit-linear-gradient(left,rgb(0,6,129), rgb(91,212,199));
 }
 
 .subwords {
   color: white;
-  padding: 13px;
-  margin-left: 21px;
 }

@@ -10,40 +10,35 @@ Page({
         projectName: "小程序开发",
         field: "大数据",
         channel: "线下",
-        bonus: "无",
-        background: "本科"
+        bonus: "无"
       },
       {
         id: "2",
         projectName: "小程序开发",
         field: "大数据",
         channel: "线上",
-        bonus: "￥100",
-        background: "研究生"
+        bonus: "￥100"
       },
       {
         id: "3",
         projectName: "小程序开发",
         field: "大数据",
         channel: "线下",
-        bonus: "$100",
-        background: "博士"
+        bonus: "$100"
       },
       {
         id: "4",
         projectName: "小程序开发",
         field: "大数据",
         channel: "线下",
-        bonus: "无",
-        background: "本科"
+        bonus: "无"
       },
       {
         id: "5",
         projectName: "小程序开发",
         field: "大数据",
         channel: "线下",
-        bonus: "无",
-        background: "本科"
+        bonus: "无"
       },
     ]
   },

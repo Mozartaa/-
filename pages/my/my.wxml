@@ -5,19 +5,19 @@
 
 <view class='my-body'>
   <view class='item'>
-    <image class="item1" src="../../images/图片1.png" mode="aspectFill">
+    <image class="item1" src="../../images/info.png" mode="aspectFill">
     </image>
     <view class='flex-view-item'>基本信息</view>
     <button bindtap="jumpToshowinfoPage">> </button>
   </view>
   <view class='item'>
-    <image class="item1" src="../../images/图片2.png" mode="aspectFill">
+    <image class="item1" src="../../images/id.png" mode="aspectFill">
     </image>
     <view class='flex-view-item'>身份认证</view>
     <button bindtap="jumpToIden">></button>
   </view>
   <view class='item'>
-    <image class="item1" src="../../images/图片3.png" mode="aspectFill">
+    <image class="item1" src="../../images/favor.png" mode="aspectFill">
     </image>
     <view class='flex-view-item' bindtap='jumpToFavour'>我收藏的</view>
     <button bindtap="jumpToFavour">></button>

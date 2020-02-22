@@ -1,8 +1,8 @@
-<view class="searchbar">
-  <navigator wx:if="{{isnavigator}}" url='/pages/search/search' class='search-navigator'></navigator>
-  <view wx:else class="search-input-group">
-    <input calss="search-input" placeholder="Search"></input>
-  </view>
+<view class="search">
+        <input type="search" class="search-text" placeholder="Find your opportunity here!" bindinput="bindInput" />
+        <view class="search-btn" bindtap='bindSearch'>
+          <text class="search-btn-text">搜索</text>
+        </view>
 </view>
 
 <!-- 老师信息栏
@@ -17,40 +17,64 @@
     <view class='name'>教师姓名:董小姐</view>
     <view class='dep'>研究方向：巴拉巴拉小魔仙巴拉巴拉小魔仙巴巴拉小魔仙</view>
     <view class='homepage'>http://balabalababalalababababalalalal.com</view>
+    <view class="favor">
+      <image src="../../images/star.png"></image>
+    </view>
   </view>
   <view class='teaformation'>
     <view class='name'>教师姓名:董小姐</view>
     <view class='dep'>研究方向：巴拉巴拉小魔仙巴拉巴拉小魔仙巴巴拉小魔仙</view>
     <view class='homepage'>http://balabalababalalababababalalalal.com</view>
+    <view class="favor">
+      <image src="../../images/star.png"></image>
+    </view>
   </view>
   <view class='teaformation'>
     <view class='name'>教师姓名:董小姐</view>
     <view class='dep'>研究方向：巴拉巴拉小魔仙巴拉巴拉小魔仙巴巴拉小魔仙</view>
     <view class='homepage'>http://balabalababalalababababalalalal.com</view>
+    <view class="favor">
+      <image src="../../images/star.png"></image>
+    </view>
   </view>
   <view class='teaformation'>
     <view class='name'>教师姓名:董小姐</view>
     <view class='dep'>研究方向：巴拉巴拉小魔仙巴拉巴拉小魔仙巴巴拉小魔仙</view>
     <view class='homepage'>http://balabalababalalababababalalalal.com</view>
+    <view class="favor">
+      <image src="../../images/star.png"></image>
+    </view>
   </view>
   <view class='teaformation'>
     <view class='name'>教师姓名:董小姐</view>
     <view class='dep'>研究方向：巴拉巴拉小魔仙巴拉巴拉小魔仙巴巴拉小魔仙</view>
     <view class='homepage'>http://balabalababalalababababalalalal.com</view>
+    <view class="favor">
+      <image src="../../images/star.png"></image>
+    </view>
   </view>
   <view class='teaformation'>
     <view class='name'>教师姓名:董小姐</view>
     <view class='dep'>研究方向：巴拉巴拉小魔仙巴拉巴拉小魔仙巴巴拉小魔仙</view>
     <view class='homepage'>http://balabalababalalababababalalalal.com</view>
+    <view class="favor">
+      <image src="../../images/star.png"></image>
+    </view>
   </view>
   <view class='teaformation'>
     <view class='name'>教师姓名:董小姐</view>
     <view class='dep'>研究方向：巴拉巴拉小魔仙巴拉巴拉小魔仙巴巴拉小魔仙</view>
     <view class='homepage'>http://balabalababalalababababalalalal.com</view>
+    <view class="favor">
+      <image src="../../images/star.png"></image>
+    </view>
   </view>
   <view class='teaformation'>
     <view class='name'>教师姓名:董小姐</view>
     <view class='dep'>研究方向：巴拉巴拉小魔仙巴拉巴拉小魔仙巴巴拉小魔仙</view>
     <view class='homepage'>http://balabalababalalababababalalalal.com</view>
+    <view class="favor">
+      <image src="../../images/star.png"></image>
+    </view>
   </view>
 </scroll-view>
