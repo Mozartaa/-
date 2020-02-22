@@ -27,8 +27,19 @@ Page({
   //   })
 
   // },
+  onLoad: function() {
+    let that = this
+    wx.login({
+      success: res => {
+        that.setData({
+          code: res.code
+        })
+      }
+    })
+  },
   bindGetUserInfo: async function(e) {
     var that = this;
+    console.log(e.detail.rawData)
     wx.showLoading({
       title: '正在登录中...',
     })
@@ -40,51 +51,69 @@ Page({
       });
       return;
     } else {
-      // wx.login({
-      //   success: async(res) => {
-
-      //     if (response.data.retCode == 0) {
-      //       wx.hideLoading();
-      //       wx.showToast({
-      //         title: '登录成功',
-      //       })
-      //     }
-      //   }
-      // })
-      wx.login({
-        success: function(res) {
-          var code = res.code;
-          console.log(res);
-          wx.request({
-            url: utils.HOST + '/api/user/login?code=' + code,
-            method: "POST",
-            data: {
-              rawData: e.detail.rawData
-            },
-            success: function(results) {
-              console.log(results.data);
-              if (results.data.retCode == 0) {
-                wx.setStorageSync('token', results.data.data.token);
-                wx.hideLoading();
-                wx.showToast({
-                  title: '登录成功',
-                })
-                setTimeout(function() {
-                  wx.switchTab({
-                    url: '/pages/search/search',
-                  })
-                }, 100)
-              } else {
-                wx.hideLoading();
-                wx.showToast({
-                  title: '登录失败',
-                })
-              }
-
-            }
-          })
+      wx.request({
+        url: utils.HOST + '/api/user/login',
+        method: "POST",
+        data: {
+          rawData: e.detail.rawData,
+          code: that.data.code
         },
+        success: results => {
+          console.log(results.data);
+          if (results.data.retCode == 0) {
+            wx.setStorageSync('token', results.data.data.token);
+            wx.hideLoading();
+            wx.showToast({
+              title: '登录成功',
+            })
+            setTimeout(function() {
+              wx.switchTab({
+                url: '/pages/search/search',
+              })
+            }, 100)
+          } else {
+            wx.hideLoading();
+            wx.showToast({
+              title: '登录失败',
+            })
+          }
+        }
       })
+      // wx.login({
+      //   success: function(res) {
+      //     var code = res.code;
+      //     console.log(res);
+      //     wx.request({
+      //       url: utils.HOST + '/api/user/login',
+      //       method: "POST",
+      //       data: {
+      //         rawData: e.detail.rawData,
+      //         code: code
+      //       },
+      //       success: function(results) {
+      //         console.log(results.data);
+      //         if (results.data.retCode == 0) {
+      //           wx.setStorageSync('token', results.data.data.token);
+      //           wx.hideLoading();
+      //           wx.showToast({
+      //             title: '登录成功',
+      //           })
+      //           setTimeout(function() {
+      //             wx.switchTab({
+      //               url: '/pages/search/search',
+      //             })
+      //           }, 100)
+      //         } else {
+      //           wx.hideLoading();
+      //           wx.showToast({
+      //             title: '登录失败',
+      //           })
+      //         }
+
+      //       }
+      //     })
+      //   },
+      // })
     }
   }
 })
