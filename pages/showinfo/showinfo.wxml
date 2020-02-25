@@ -15,7 +15,7 @@
   </view>
   <view class='item'>
     <view class='flex-view-item'>性别</view>
-    <view class="item3">{{user.sex==='m'?'男':(user.sex==='f'?'女':'保密')}}</view>
+    <view class="item3">{{user.userSex==='m'?'男':(user.userSex==='f'?'女':'保密')}}</view>
   </view>
   <view class='item'>
     <view class='flex-view-item'>电话</view>

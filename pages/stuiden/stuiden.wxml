@@ -54,6 +54,6 @@
     </view>
   </view>
   <view class='sub'>
-    <view class='subwords'>提交</view>
+    <button class='subwords' form-type='submit'>提交</button>
   </view>
 </form>

@@ -6,11 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userSex: "m",
-    userNick: "",
-    userSignature: "",
-    userPhone: "",
-    userEmail: "",
+    user: {},
     items: [{
         name: 'm',
         value: '男'
@@ -28,17 +24,18 @@ Page({
   },
   bindKeyInput: function(e) {
     this.setData({
-      [e.target.dataset.index]: e.detail.value
+      [`user.${e.target.dataset.index}`]: e.detail.value
     })
   },
   radioChange: function(e) {
     this.setData({
-      userSex: e.detail.value
+      ['user.userSex']: e.detail.value
     })
   },
   check: function() {
     // 检查电话
-    if (!(/^1[3456789]\d{9}$/.test(this.data.userPhone)) && this.data.userPhone !== "") {
+    let phone = this.data.user.userPhone
+    if (!(/^1[3456789]\d{9}$/.test(phone)) && phone !== "" && phone !== null) {
       wx.showToast({
         title: '手机号码有误',
       })
@@ -46,7 +43,8 @@ Page({
       return false;
     }
     // 检查邮箱
-    if (!(/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(this.data.userEmail)) && this.data.userEmail !== "") {
+    let email = this.data.user.userEmail
+    if (!(/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(email)) && email !== "" && email !== null) {
       wx.showToast({
         title: '邮箱有误',
       })
@@ -54,14 +52,32 @@ Page({
     }
     return true
   },
-  submit: function() {
-    console.log(this.check())
+  submit: async function() {
+    let that = this
+    console.log('格式检查', this.check())
+    console.log(this.data.user)
+    await utils.updateUserInfo({
+      userId: that.data.user.userId,
+      userSex: that.data.user.userSex,
+      userPhone: that.data.user.userPhone || "",
+      userEmail: that.data.user.userEmail || "",
+      userSignature: that.data.user.userSignature || "",
+    })
+    wx.showToast({
+      title: '修改成功'
+    })
+    setTimeout(() => {
+      wx.navigateBack({})
+    }, 1500)
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
-
+  onLoad: async function(options) {
+    let res = await utils.getUserInfo()
+    this.setData({
+      user: res.user
+    })
   },
 
   /**

@@ -1,78 +1,49 @@
 // pages/recruit_issue/recruit_issue.js
 const app = getApp();
-const url = app.globalData.url;
+import utils from '../../utils/util.js'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    images:[],
-    current:0,
+    images: [],
+    current: 0,
   },
-
+  onFormSubmitTap: async function(event) {
+    console.log('start', event)
+    let data = event.detail.value
+    wx.showLoading({
+      title: '正在提交...',
+    })
+    utils.upload(this.data.images)
+      .catch(err => {
+        console.log(err)
+        wx.hideLoading()
+        wx.showToast({
+          title: '上传失败',
+        })
+      }).then(res => {
+        console.log(res)
+        data.imagesPath = res
+        utils.requestPromise('POST', '/api/announcement', data)
+        wx.hideLoading()
+      })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     this.InitImageSize();
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
 
   // 添加图片
-  onAddImageTap: function () {
+  onAddImageTap: function() {
     var that = this;
     wx.chooseImage({
       count: 9,
-      success: function (res) {
+      success: function(res) {
         //console.log(res);
         const tempImages = res.tempFilePaths;
         var oldImages = that.data.images;
@@ -85,7 +56,7 @@ Page({
     })
   },
   // 图片预览
-  onImageTap: function (event) {
+  onImageTap: function(event) {
     var that = this;
     var index = event.target.dataset.index;
     var urls = this.data.images;
@@ -98,7 +69,7 @@ Page({
 
 
   // 删除图片
-  onRemoveImageTap: function (event) {
+  onRemoveImageTap: function(event) {
     console.log(event);
     var index = event.currentTarget.dataset.index;
     console.log(index);
@@ -110,7 +81,7 @@ Page({
   },
 
   // 初始化图片大小
-  InitImageSize: function () {
+  InitImageSize: function() {
     var windowWidth = wx.getSystemInfoSync().windowWidth;
     var containerWidth = windowWidth - 60;
     var imageSize = (containerWidth - 2.5 * 3) / 3;
@@ -119,11 +90,11 @@ Page({
     })
   },
 
-  onCreateTap: function (event) {
+  onCreateTap: function(event) {
     var that = this;
     console.log(event);
     wx.request({
-      success: function (res) {
+      success: function(res) {
         console.log(res);
         console.log("mid====" + res.data.mid);
         that.uploadImage(res.data.mid);
@@ -131,27 +102,4 @@ Page({
     })
   },
 
-  /**
-   * 上传图片
-   */
-  uploadImage: function (mid) {
-    const images = this.data.images;
-    // console.log(images.length);
-    console.log(images);
-    for (var i = 0; i < images.length; i++) {
-      console.log(images[i]);
-      wx.uploadFile({
-        url: url + '/uploadImgTest', //仅为示例，非真实的接口地址
-        filePath: images[i],
-        name: 'file',
-        formData: {
-          mid: mid
-        },
-        success: function (res) {
-          var data = res.data
-          console.log(data)
-        }
-      })
-    }
-  },
 })

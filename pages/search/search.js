@@ -1,11 +1,10 @@
 // 获取应用实例
 var app = getApp();
-
+import utils from '../../utils/util.js'
 Page({
   // 需要用到的数据
   data: {
-    postList: [
-      {
+    postList: [{
         id: "1",
         projectName: "小程序开发",
         field: "大数据",
@@ -43,14 +42,22 @@ Page({
     ]
   },
   // 页面载入完成执行
-  onLoad: function () {},
+  onLoad: async function(op) {
+    console.log(op)
+    let data = await utils.requestPromise('GET', '/api/announcement', {
+      keyword: op.searchValue || ""
+    })
+    // this.setData({
+    //   postList:data.data
+    // })
+  },
   // 跳到详情页
-  moveTodetail: function (e) {
+  moveTodetail: function(e) {
     // console.log(e);
     let index = e.currentTarget.dataset.index;
     wx.navigateTo({
       url: '../detail/detail?index=' + index,
-      success: function (res) {
+      success: function(res) {
         // success
         // console.log('success');
 
@@ -58,15 +65,15 @@ Page({
     })
   },
   // 获取输入的值
-  bindInput: function (e) {
+  bindInput: function(e) {
     // console.log(e);
     this.setData({
       searchValue: e.detail.value
     })
   },
   // 搜索页的搜索匹配
-  bindSearch: function (){},
-  bindDetail: function(){
+  bindSearch: function() {},
+  bindDetail: function() {
     wx.navigateTo({
       url: '../detail/detail',
     })

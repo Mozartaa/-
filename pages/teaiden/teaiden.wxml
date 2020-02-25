@@ -1,53 +1,61 @@
 <view class='tittle'>
   <view class='wordstop'>教师身份认证</view>
 </view>
+<form bindsubmit='onFormSubmitTap'>
 
-<view class='name'>
-  <view class='words'>姓名:</view>
-  <view class='in'>
-    <input class="input" name="words1" placeholder="请输入姓名" bindinput="nameInput" />
+  <view class='name'>
+    <view class='words'>姓名:</view>
+    <view class='in'>
+      <input class="input" name="name" placeholder="请输入姓名" />
+    </view>
   </view>
-</view>
-<view class='line'></view>
+  <view class='line'></view>
 
-<view class='school'>
-  <view class='words'>学校:</view>
-  <view class='in'>
-    <input class="input" name="words1" placeholder="请输入学校" bindinput="schoolInput" />
+  <view class='school'>
+    <view class='words'>学校:</view>
+    <view class='in'>
+      <input class="input" name="school" placeholder="请输入学校" />
+    </view>
   </view>
-</view>
-<view class='line'></view>
+  <view class='line'></view>
 
-<view class='tittletea'>
-  <view class='words'>职称:</view>
-  <view class='in'>
-    <input class="input" name="words1" placeholder="请输入职称" bindinput="tittleteaInput" />
+  <view class='tittletea'>
+    <view class='words'>职称:</view>
+    <view class='in'>
+      <input class="input" name="profession" placeholder="请输入职称" />
+    </view>
   </view>
-</view>
-<view class='line'></view>
+  <view class='line'></view>
 
-<view class='college'>
-  <view class='words'>院系:</view>
-  <view class='in'>
-    <input class="input" name="words1" placeholder="请输入院系" bindinput="collegeInput" />
+  <view class='college'>
+    <view class='words'>院系:</view>
+    <view class='in'>
+      <input class="input" name="college" placeholder="请输入院系" />
+    </view>
   </view>
-</view>
-<view class='line'></view>
+  <view class='line'></view>
 
-<view class='research'>
-  <view class='words'>研究方向:</view>
-  <view class='in'>
-    <input class="input" name="words1" placeholder="请输入主要研究方向" bindinput="researchInput" />
+  <view class='research'>
+    <view class='words'>研究方向:</view>
+    <view class='in'>
+      <input class="input" name="research" placeholder="请输入主要研究方向" />
+    </view>
   </view>
-</view>
-<view class='line'></view>
+  <view class='line'></view>
 
-<view class='picwords'>请上传教工卡人像面照片:</view>
+  <view class='picwords'>请上传教工卡人像面照片:</view>
 
-<view class='pic'>
-  <image class='pic1' src="../../images/pic.png"></image>
-  <view class="pic1word">教工卡照片</view>
-</view>
-<view class='sub'>
-  <view class='subwords'>提交</view>
-</view>
+  <view class='image-group-list'>
+    <view class='image-group' wx:for="{{images}}" wx:key="{{images[index]}}" style='width:{{imageSize}}px;height:{{imageSize}}px'>
+      <image src='{{item}}' data-index="{{index}}" bindtap='onImageTap'></image>
+      <view class='close-btn' data-index="{{index}}" bindtap='onRemoveImageTap'></view>
+    </view>
+    <view wx:if="{{images.length<1}}" class='pic' style='width:{{imageSize}}px;height:{{imageSize}}px' bind:tap="onAddImageTap">
+      <image class='pic1' src="../../images/pic.png"></image>
+      <view class="pic1word">一卡通照片</view>
+    </view>
+  </view>
+  <view class='sub'>
+    <button class='subwords' form-type='submit'>提交</button>
+  </view>
+</form>

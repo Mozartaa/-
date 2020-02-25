@@ -32,13 +32,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: async function() {
-    response = await utils.requestPromise('GET', '/api/user/userInfo')
-    console.log(response.data)
-    if (response.data.message == "success") {
-      this.setData({
-        "user": response.data.data.user
-      })
-    }
+    let res = await utils.getUserInfo()
+    this.setData({
+      user: res.user
+    })
   },
 
   /**

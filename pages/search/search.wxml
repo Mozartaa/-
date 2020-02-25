@@ -1,32 +1,31 @@
-
-  <view class="search">
-    <input placeholder="{{searchValue}}" bindinput="bindInput" />
-    <view class="search-btn" bindtap='bindSearch'>
-      <image src="../../images/search.png"></image>
-    </view>
+<view class="search">
+  <input placeholder="{{searchValue}}" bindinput="bindInput" />
+  <view class="search-btn" bindtap='bindSearch'>
+    <image src="../../images/search.png"></image>
   </view>
+</view>
 <scroll-view class="wrap">
   <view class="list" wx:for="{{postList}}">
-        <view>
-          <text class="text">项目名称: {{item.projectName}}</text>
-        </view>
-        <view>
-          <text class="text">研究方向: {{item.field}}</text>
-        </view>
-        <view>
-          <text class="text">渠道: {{item.channel}}</text>
-        </view>
-        <view>
-          <text class="text">酬金: {{item.bonus}}</text>
-        </view>
-        <view class="detailBtn" bindtap='bindDetail'>
-            <text>阅读详情-></text> 
-        </view>
-        <view class="favor">
-            <image src="../../images/star.png"></image>
-        </view>
+    <view>
+      <text class="text">项目名称: {{item.proName}}</text>
+    </view>
+    <view>
+      <text class="text">研究方向: {{item.field}}</text>
+    </view>
+    <view>
+      <text class="text">渠道: {{item.channel}}</text>
+    </view>
+    <view>
+      <text class="text">酬金: {{item.bonus}}</text>
+    </view>
+    <view class="detailBtn" bindtap='bindDetail'>
+      <text>阅读详情-></text>
+    </view>
+    <view class="favor">
+      <image src="../../images/star.png"></image>
+    </view>
   </view>
-  <view  wx:if="{{postList.length === 0}}" class="no-data">
+  <view wx:if="{{postList.length === 0}}" class="no-data">
     <text>Sorry~There's NO data!</text>
   </view>
 </scroll-view>
