@@ -1,4 +1,5 @@
-const HOST = "http://www.mozarta.cn:8088"
+const HOST = "https://www.mozarta.cn:8088"
+// jq param
 const _param = function(a, traditional) {
   var class2type = {};
   var toString = class2type.toString;

@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"enhance": true,
 		"postcss": true,
@@ -23,7 +23,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.3.0",
-	"appid": "wxfe8d2659f87aacca",
+	"appid": "wx38d9ea46e0c6d6eb",
 	"projectname": "MDY",
 	"debugOptions": {
 		"hidedInDevtools": []

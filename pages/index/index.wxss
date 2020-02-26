@@ -10,8 +10,6 @@
   justify-content: space-between;
 }
 
-
-
 .ff1 {
   margin-left: 20px;
   width: 60rpx;
@@ -46,10 +44,8 @@
 }
 
 .logo {
-  width: 366rpx;
-  height: 380rpx;
-  margin-top: 1.5cm;
-  margin-left: 25%;
+  width: 400rpx;
+  margin: 1.5cm auto 0 auto;
 }
 
 .search {
@@ -57,24 +53,26 @@
   background-color: #fff;
   width: 90%;
   border-radius: 60rpx;
-  border-style:solid;
-  border-color:#5bd4c7;
+  border-style: solid;
+  border-color: #5bd4c7;
   display: flex;
   height: 80rpx;
 }
+
 .search input.search-text {
   border: 0;
   flex: 8;
   font-size: 30rpx;
   text-align: left;
-  padding-left:28rpx;
-  margin:auto;
+  padding-left: 28rpx;
+  margin: auto;
 }
+
 .search .search-btn {
   flex: 2;
   color: #5bd4c7;
   font-size: 30rpx;
-  margin:auto;
+  margin: auto;
 }
 
 .hot {
@@ -82,7 +80,7 @@
   margin: 60rpx 30rpx;
   border-radius: 10rpx;
   background: white;
-  box-shadow: 5px 5px   #e4e4e4;
+  box-shadow: 5px 5px #e4e4e4;
   /* width: 100%; */
 }
 
@@ -106,7 +104,7 @@
   direction: row;
   flex-wrap: wrap;
   border: 1px solid #e4e4e4;
-  padding-left:10px;
+  padding-left: 10px;
 }
 
 .hot .inner .item {
@@ -121,11 +119,13 @@
   height: 40rpx;
   opacity: 0.5;
 }
-.w1{
-  font-size:30rpx;
-  color:#888888;
+
+.w1 {
+  font-size: 30rpx;
+  color: #888;
 }
-.w2{
-  font-size:30rpx;
-  color:#888888;
+
+.w2 {
+  font-size: 30rpx;
+  color: #888;
 }
