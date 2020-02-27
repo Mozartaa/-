@@ -20,7 +20,7 @@
   <view class='item'>
     <view class='flex-view-item'>昵称</view>
     <view class="item3">
-      <input class="input" name="userLocation" placeholder="请输入昵称" value='{{user.userNick}}' bindinput="userLocationInput" bindinput="bindKeyInput" data-index="userNick" />
+      <input class="input" name="userLocation" placeholder="请输入昵称" maxlength="9" value='{{user.userNick}}' bindinput="userLocationInput" bindinput="bindKeyInput" data-index="userNick" />
     </view>
   </view>
   <view class='item'>
@@ -38,7 +38,7 @@
   <view class='item'>
     <view class='flex-view-item'>个性签名</view>
     <view class="item3">
-      <input class="input" name="userLocation" placeholder="请输入个性签名" value='{{user.userSignature||""}}' bindinput="userLocationInput" bindinput="bindKeyInput" data-index="userSignature" />
+      <input class="input" name="userLocation" placeholder="请输入个性签名" maxlength="12" value='{{user.userSignature||""}}' bindinput="userLocationInput" bindinput="bindKeyInput" data-index="userSignature" />
     </view>
   </view>
   <view class='item4'>

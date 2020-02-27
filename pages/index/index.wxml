@@ -3,7 +3,7 @@
   <image class='logo' src='../../images/界面logo.png' mode='widthFix'></image>
 </view>
 <view class="search">
-  <input type="search" class="search-text" placeholder="Find your opportunity here!" bindinput="bindInput" />
+  <input type="search" class="search-text" placeholder="开启你的潜研之路!" bindinput="bindInput" />
   <view class="search-btn" bindtap='bindSearch'>
     <text class="search-btn-text">搜索</text>
   </view>

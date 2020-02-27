@@ -19,6 +19,7 @@
 .item0 {
   display: flex;
   width: 100%;
+  margin-top: 2rpx;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -41,7 +42,7 @@
 }
 
 .item4 {
-  margin-top: 36rpx;
+  margin-top: 10%;
 }
 
 .item4 button {

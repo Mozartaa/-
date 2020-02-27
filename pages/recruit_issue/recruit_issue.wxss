@@ -41,12 +41,12 @@ page {
 .sub {
   display: flex;
   justify-content: center;
-  padding: 16rpx 32rpx;
+  /* padding: 16rpx 32rpx; */
   font-size: 36rpx;
   line-height: 48rpx;
   background-color: #f5f8f9;
-  border-radius: 200rpx;
-  margin: 20rpx;
+  border-radius: 100rpx;
+  margin: 60rpx;
   border: 1px solid #fff;
   background: -webkit-linear-gradient(left, rgb(0, 6, 129), rgb(91, 212, 199));
   margin-top: 25px;

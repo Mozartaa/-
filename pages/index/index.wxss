@@ -44,7 +44,7 @@
 }
 
 .logo {
-  width: 400rpx;
+  width: 220rpx;
   margin: 1.5cm auto 0 auto;
 }
 

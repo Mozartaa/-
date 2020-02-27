@@ -1,10 +1,10 @@
 <view wx:if="{{canIUse}}">
     <view class='header'>
-        <image src='/images/logo.png'></image>
+        <image src='/images/界面logo.png'></image>
     </view>
 
     <view class='content'>
-        <view>申请获取以下权限</view>
+        <view>潜研小栈 申请获取以下权限:</view>
         <text>获得你的公开信息(昵称，头像等)</text>
     </view>
  
