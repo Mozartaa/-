@@ -1,5 +1,5 @@
 <view class="search">
-        <input type="search" class="search-text" placeholder="开启你的潜研之路!" bindinput="bindInput" />
+        <input type="search" class="search-text" placeholder="Find your opportunity here!" bindinput="bindInput" />
         <view class="search-btn" bindtap='bindSearch'>
           <text class="search-btn-text">搜索</text>
         </view>
@@ -17,64 +17,88 @@
     <view class='name'>教师姓名:董小姐</view>
     <view class='dep'>研究方向：巴拉巴拉小魔仙巴拉巴拉小魔仙巴巴拉小魔仙</view>
     <view class='homepage'>http://balabalababalalababababalalalal.com</view>
+    
     <view class="favor">
-      <image src="../../images/star.png"></image>
+        <image catchtap='open_tap' wx:if="{{isShow}}" src="../../images/starEnd.png"></image>
+        <image wx:else catchtap='close_tap' src='../../images/starBgn.png'></image>
     </view>
+
   </view>
   <view class='teaformation'>
     <view class='name'>教师姓名:董小姐</view>
     <view class='dep'>研究方向：巴拉巴拉小魔仙巴拉巴拉小魔仙巴巴拉小魔仙</view>
     <view class='homepage'>http://balabalababalalababababalalalal.com</view>
+    
     <view class="favor">
-      <image src="../../images/star.png"></image>
+        <image catchtap='open_tap' wx:if="{{isShow}}" src="../../images/starEnd.png"></image>
+        <image wx:else catchtap='close_tap' src='../../images/starBgn.png'></image>
     </view>
+
   </view>
   <view class='teaformation'>
     <view class='name'>教师姓名:董小姐</view>
     <view class='dep'>研究方向：巴拉巴拉小魔仙巴拉巴拉小魔仙巴巴拉小魔仙</view>
     <view class='homepage'>http://balabalababalalababababalalalal.com</view>
+    
     <view class="favor">
-      <image src="../../images/star.png"></image>
+        <image catchtap='open_tap' wx:if="{{isShow}}" src="../../images/starEnd.png"></image>
+        <image wx:else catchtap='close_tap' src='../../images/starBgn.png'></image>
     </view>
+
   </view>
   <view class='teaformation'>
     <view class='name'>教师姓名:董小姐</view>
     <view class='dep'>研究方向：巴拉巴拉小魔仙巴拉巴拉小魔仙巴巴拉小魔仙</view>
     <view class='homepage'>http://balabalababalalababababalalalal.com</view>
+
     <view class="favor">
-      <image src="../../images/star.png"></image>
+        <image catchtap='open_tap' wx:if="{{isShow}}" src="../../images/starEnd.png"></image>
+        <image wx:else catchtap='close_tap' src='../../images/starBgn.png'></image>
     </view>
+
   </view>
   <view class='teaformation'>
     <view class='name'>教师姓名:董小姐</view>
     <view class='dep'>研究方向：巴拉巴拉小魔仙巴拉巴拉小魔仙巴巴拉小魔仙</view>
     <view class='homepage'>http://balabalababalalababababalalalal.com</view>
+    
     <view class="favor">
-      <image src="../../images/star.png"></image>
+        <image catchtap='open_tap' wx:if="{{isShow}}" src="../../images/starEnd.png"></image>
+        <image wx:else catchtap='close_tap' src='../../images/starBgn.png'></image>
     </view>
+
   </view>
   <view class='teaformation'>
     <view class='name'>教师姓名:董小姐</view>
     <view class='dep'>研究方向：巴拉巴拉小魔仙巴拉巴拉小魔仙巴巴拉小魔仙</view>
     <view class='homepage'>http://balabalababalalababababalalalal.com</view>
+    
     <view class="favor">
-      <image src="../../images/star.png"></image>
+        <image catchtap='open_tap' wx:if="{{isShow}}" src="../../images/starEnd.png"></image>
+        <image wx:else catchtap='close_tap' src='../../images/starBgn.png'></image>
     </view>
+
   </view>
   <view class='teaformation'>
     <view class='name'>教师姓名:董小姐</view>
     <view class='dep'>研究方向：巴拉巴拉小魔仙巴拉巴拉小魔仙巴巴拉小魔仙</view>
     <view class='homepage'>http://balabalababalalababababalalalal.com</view>
+    
     <view class="favor">
-      <image src="../../images/star.png"></image>
+        <image catchtap='open_tap' wx:if="{{isShow}}" src="../../images/starEnd.png"></image>
+        <image wx:else catchtap='close_tap' src='../../images/starBgn.png'></image>
     </view>
+
   </view>
   <view class='teaformation'>
     <view class='name'>教师姓名:董小姐</view>
     <view class='dep'>研究方向：巴拉巴拉小魔仙巴拉巴拉小魔仙巴巴拉小魔仙</view>
     <view class='homepage'>http://balabalababalalababababalalalal.com</view>
+    
     <view class="favor">
-      <image src="../../images/star.png"></image>
+        <image catchtap='open_tap' wx:if="{{isShow}}" src="../../images/starEnd.png"></image>
+        <image wx:else catchtap='close_tap' src='../../images/starBgn.png'></image>
     </view>
+
   </view>
 </scroll-view>

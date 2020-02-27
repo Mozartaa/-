@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    isShow: false,
   },
   bindInput: function (e) {
     // console.log(e);
@@ -79,5 +79,18 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+  //收藏
+  close_tap: function () {
+    this.setData({
+      isShow: true
+    })
+  },
+
+  open_tap: function () {
+    this.setData({
+      isShow: false
+    })
+  },
 })

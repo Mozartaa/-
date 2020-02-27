@@ -4,6 +4,7 @@
 }
 .header {
   background: -webkit-linear-gradient(left,rgb(0,6,129), rgb(91,212,199));
+  background: linear-gradient(left,rgb(0,6,129), rgb(91,212,199));
   background-size: 100% auto;
   text-align: center;
   height: 100%;

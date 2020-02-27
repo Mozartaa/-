@@ -6,13 +6,13 @@ page {
   font-size: 14px;
   margin-left: 15px;
   margin-top: 15px;
-  color: #888;
+  color: #888888;
 }
 
 .input {
   margin-top: 20px;
   font-size: 14px;
-  color: #888;
+  color: #888888;
   margin-bottom: 10rpx;
 }
 
@@ -28,28 +28,29 @@ page {
   height: 3px;
   margin-left: 2.5%;
   background: -webkit-linear-gradient(left, rgb(0, 6, 129), rgb(91, 212, 199));
+  background: linear-gradient(left, rgb(0, 6, 129), rgb(91, 212, 199));
 }
 
 .img-word {
   font-size: 14px;
   margin-left: 15px;
   margin-top: 15px;
-  color: #888;
+  color: #888888;
   margin-bottom: 15px;
 }
 
 .sub {
   display: flex;
   justify-content: center;
-  /* padding: 16rpx 32rpx; */
+  padding: 16rpx 32rpx;
   font-size: 36rpx;
   line-height: 48rpx;
   background-color: #f5f8f9;
-  border-radius: 100rpx;
-  margin: 60rpx;
+  border-radius: 200rpx;
+  margin: 25px 20px 35px 20px;
   border: 1px solid #fff;
   background: -webkit-linear-gradient(left, rgb(0, 6, 129), rgb(91, 212, 199));
-  margin-top: 25px;
+  background: linear-gradient(left, rgb(0, 6, 129), rgb(91, 212, 199));
 }
 
 .subwords {
@@ -91,8 +92,7 @@ page {
   font-size: 200rpx;
   color: #a9a9a9;
   background: #f2f2f2;
-  margin-left: 200rpx;
-  margin-right: 200rpx;
+  margin-top: 5rpx;
 }
 
 .add-image-btn view {

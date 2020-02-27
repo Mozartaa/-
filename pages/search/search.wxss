@@ -32,6 +32,7 @@
   font-size: 30rpx;
   box-shadow: 10px 10px 10px #e4e4e4;
   background: -webkit-linear-gradient(left,rgb(0,6,129), rgb(91,212,199));
+  background: linear-gradient(left,rgb(0,6,129), rgb(91,212,199));
   border-bottom: 1px solid #f5f8f9;
   margin:40rpx;
   padding-top:20rpx;
