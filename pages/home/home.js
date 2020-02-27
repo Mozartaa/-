@@ -2,6 +2,9 @@
 var app = getApp();
 
 Page({
+  data: {
+    searchValue: ""
+  },
   SearchKeyWord: function(e) {
     console.log(e);
     let type = e.currentTarget.dataset.type;
@@ -27,7 +30,7 @@ Page({
       }
     })
   },
-  postSearch:()=>{
+  postSearch: () => {
     wx.navigateTo({
       url: '/pages/recruit_issue/recruit_issue',
     })

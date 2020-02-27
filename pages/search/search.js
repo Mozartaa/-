@@ -4,52 +4,25 @@ import utils from '../../utils/util.js'
 Page({
   // 需要用到的数据
   data: {
-    postList: [{
-        id: "1",
-        projectName: "小程序开发",
-        field: "大数据",
-        channel: "线下",
-        bonus: "无"
-      },
-      {
-        id: "2",
-        projectName: "小程序开发",
-        field: "大数据",
-        channel: "线上",
-        bonus: "￥100"
-      },
-      {
-        id: "3",
-        projectName: "小程序开发",
-        field: "大数据",
-        channel: "线下",
-        bonus: "$100"
-      },
-      {
-        id: "4",
-        projectName: "小程序开发",
-        field: "大数据",
-        channel: "线下",
-        bonus: "无"
-      },
-      {
-        id: "5",
-        projectName: "小程序开发",
-        field: "大数据",
-        channel: "线下",
-        bonus: "无"
-      },
-    ]
+    postList: []
   },
   // 页面载入完成执行
   onLoad: async function(op) {
     console.log(op)
     let data = await utils.requestPromise('GET', '/api/announcement', {
-      keyword: op.searchValue || ""
+      keyword: op.searchValue || "",
+      start: 0,
+      size: 10
     })
-    // this.setData({
-    //   postList:data.data
-    // })
+    this.setData({
+      postList: data.data
+    })
+  },
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom:async function () {
+
   },
   // 跳到详情页
   moveTodetail: function(e) {
@@ -64,6 +37,24 @@ Page({
       }
     })
   },
+  // 收藏
+  addFavor: async function(option) {
+    let index = option.currentTarget.dataset.index
+    await utils.requestPromise('POST', '/api/favorite', {
+      otherId: index,
+      type: 1
+    }).then((res) => {
+      if (res.data.retCode === 0) {
+        wx.showToast({
+          title: '收藏成功',
+        })
+      } else {
+        wx.showToast({
+          title: '收藏失败',
+        })
+      }
+    })
+  },
   // 获取输入的值
   bindInput: function(e) {
     // console.log(e);
@@ -73,9 +64,10 @@ Page({
   },
   // 搜索页的搜索匹配
   bindSearch: function() {},
-  bindDetail: function() {
+  bindDetail: function(option) {
+    let index = option.currentTarget.dataset.index
     wx.navigateTo({
-      url: '../detail/detail',
+      url: `../detail/detail?index=${index}`,
     })
   }
 })

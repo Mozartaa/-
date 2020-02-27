@@ -14,7 +14,12 @@
 
   <view class='words'>项目开始时间:</view>
   <view class='in'>
-    <input class="input" name="proStart" placeholder="请输入项目开始时间" />
+    <!-- <input class="input" name="proStart" placeholder="请输入项目开始时间" /> -->
+    <picker mode="date" value="{{proStart}}" bindchange="bindDateChange1">
+      <view class="picker">
+        开始时间{{proStart}}
+      </view>
+    </picker>
   </view>
   <view class='line'></view>
 
@@ -26,7 +31,12 @@
 
   <view class='words'>报名截止时间:</view>
   <view class='in'>
-    <input class="input" name="enrollDeadline" placeholder="报名截止时间" />
+    <!-- <input class="input" name="enrollDeadline" placeholder="报名截止时间" /> -->
+    <picker mode="date" value="{{enrollDeadline}}" bindchange="bindDateChange2">
+      <view class="picker">
+        截至时间{{enrollDeadline}}
+      </view>
+    </picker>
   </view>
   <view class='line'></view>
 
@@ -50,19 +60,19 @@
 
   <view class='words'>研究方向:</view>
   <view class='in'>
-    <input class="input" name="words1" placeholder="请输入研究方向" />
+    <input class="input" name="researchArea" placeholder="请输入研究方向" />
   </view>
   <view class='line'></view>
 
   <view class='words'>项目酬金:</view>
   <view class='in'>
-    <input class="input" name="words1" placeholder="请输入项目酬金" />
+    <input class="input" name="proReward" placeholder="请输入项目酬金" />
   </view>
   <view class='line'></view>
 
   <view class='words'>报名方式:</view>
   <view class='in'>
-    <input class="input" name="words1" placeholder="请输入报名方式" />
+    <input class="input" name="erollWay" placeholder="请输入报名方式" />
   </view>
   <view class='line'></view>
 

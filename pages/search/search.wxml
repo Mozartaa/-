@@ -5,24 +5,24 @@
   </view>
 </view>
 <scroll-view class="wrap">
-  <view class="list" wx:for="{{postList}}">
+  <view class="list" wx:for="{{postList}}" wx:key="{{item.proId}}">
     <view>
       <text class="text">项目名称: {{item.proName}}</text>
     </view>
     <view>
-      <text class="text">研究方向: {{item.field}}</text>
+      <text class="text">研究方向: {{item.researchArea||''}}</text>
     </view>
     <view>
-      <text class="text">渠道: {{item.channel}}</text>
+      <text class="text">报名方式: {{item.erollWay||''}}</text>
     </view>
     <view>
-      <text class="text">酬金: {{item.bonus}}</text>
+      <text class="text">酬金: {{item.proReward||''}}</text>
     </view>
-    <view class="detailBtn" bindtap='bindDetail'>
-      <text>阅读详情-></text>
+    <view class="detailBtn">
+      <text bindtap='bindDetail' data-index='{{item.proId}}'>阅读详情-></text>
     </view>
     <view class="favor">
-      <image src="../../images/star.png"></image>
+      <image src="../../images/star.png" bindtap='addFavor' data-index='{{item.proId}}'></image>
     </view>
   </view>
   <view wx:if="{{postList.length === 0}}" class="no-data">
