@@ -1,103 +1,21 @@
 <view class="search">
-        <input type="search" class="search-text" placeholder="Find your opportunity here!" bindinput="bindInput" />
-        <view class="search-btn" bindtap='bindSearch'>
-          <text class="search-btn-text">搜索</text>
-        </view>
+  <input type="search" class="search-text" placeholder="Find your opportunity here!" bindinput="bindInput" />
+  <view class="search-btn" bindtap='bindSearch'>
+    <text class="search-btn-text" >搜索</text>
+  </view>
 </view>
 
-<!-- 老师信息栏
-<view class='teaformation'>
-<view class='name'>教师姓名:董小姐</view>
-<view class='dep'>研究方向：巴拉巴拉小魔仙巴拉巴拉小魔仙巴巴拉小魔仙</view>
-<view class='homepage'>http://balabalababalalababababalalalal.com</view>
-</view> -->
 
 <scroll-view class='scroll-view-y' scroll-y="{{true}}">
-  <view class='teaformation'>
-    <view class='name'>教师姓名:董小姐</view>
-    <view class='dep'>研究方向：巴拉巴拉小魔仙巴拉巴拉小魔仙巴巴拉小魔仙</view>
-    <view class='homepage'>http://balabalababalalababababalalalal.com</view>
-    
-    <view class="favor">
-        <image catchtap='open_tap' wx:if="{{isShow}}" src="../../images/starEnd.png"></image>
-        <image wx:else catchtap='close_tap' src='../../images/starBgn.png'></image>
-    </view>
 
-  </view>
-  <view class='teaformation'>
-    <view class='name'>教师姓名:董小姐</view>
-    <view class='dep'>研究方向：巴拉巴拉小魔仙巴拉巴拉小魔仙巴巴拉小魔仙</view>
-    <view class='homepage'>http://balabalababalalababababalalalal.com</view>
-    
-    <view class="favor">
-        <image catchtap='open_tap' wx:if="{{isShow}}" src="../../images/starEnd.png"></image>
-        <image wx:else catchtap='close_tap' src='../../images/starBgn.png'></image>
-    </view>
-
-  </view>
-  <view class='teaformation'>
-    <view class='name'>教师姓名:董小姐</view>
-    <view class='dep'>研究方向：巴拉巴拉小魔仙巴拉巴拉小魔仙巴巴拉小魔仙</view>
-    <view class='homepage'>http://balabalababalalababababalalalal.com</view>
-    
-    <view class="favor">
-        <image catchtap='open_tap' wx:if="{{isShow}}" src="../../images/starEnd.png"></image>
-        <image wx:else catchtap='close_tap' src='../../images/starBgn.png'></image>
-    </view>
-
-  </view>
-  <view class='teaformation'>
-    <view class='name'>教师姓名:董小姐</view>
-    <view class='dep'>研究方向：巴拉巴拉小魔仙巴拉巴拉小魔仙巴巴拉小魔仙</view>
+  <view class='teaformation' wx:for="{{postList}}" wx:key="{{item.id}}">
+    <view class='name'>{{item.username}}</view>
+    <view class='dep'>研究方向：{{item.department}}</view>
     <view class='homepage'>http://balabalababalalababababalalalal.com</view>
 
     <view class="favor">
-        <image catchtap='open_tap' wx:if="{{isShow}}" src="../../images/starEnd.png"></image>
-        <image wx:else catchtap='close_tap' src='../../images/starBgn.png'></image>
-    </view>
-
-  </view>
-  <view class='teaformation'>
-    <view class='name'>教师姓名:董小姐</view>
-    <view class='dep'>研究方向：巴拉巴拉小魔仙巴拉巴拉小魔仙巴巴拉小魔仙</view>
-    <view class='homepage'>http://balabalababalalababababalalalal.com</view>
-    
-    <view class="favor">
-        <image catchtap='open_tap' wx:if="{{isShow}}" src="../../images/starEnd.png"></image>
-        <image wx:else catchtap='close_tap' src='../../images/starBgn.png'></image>
-    </view>
-
-  </view>
-  <view class='teaformation'>
-    <view class='name'>教师姓名:董小姐</view>
-    <view class='dep'>研究方向：巴拉巴拉小魔仙巴拉巴拉小魔仙巴巴拉小魔仙</view>
-    <view class='homepage'>http://balabalababalalababababalalalal.com</view>
-    
-    <view class="favor">
-        <image catchtap='open_tap' wx:if="{{isShow}}" src="../../images/starEnd.png"></image>
-        <image wx:else catchtap='close_tap' src='../../images/starBgn.png'></image>
-    </view>
-
-  </view>
-  <view class='teaformation'>
-    <view class='name'>教师姓名:董小姐</view>
-    <view class='dep'>研究方向：巴拉巴拉小魔仙巴拉巴拉小魔仙巴巴拉小魔仙</view>
-    <view class='homepage'>http://balabalababalalababababalalalal.com</view>
-    
-    <view class="favor">
-        <image catchtap='open_tap' wx:if="{{isShow}}" src="../../images/starEnd.png"></image>
-        <image wx:else catchtap='close_tap' src='../../images/starBgn.png'></image>
-    </view>
-
-  </view>
-  <view class='teaformation'>
-    <view class='name'>教师姓名:董小姐</view>
-    <view class='dep'>研究方向：巴拉巴拉小魔仙巴拉巴拉小魔仙巴巴拉小魔仙</view>
-    <view class='homepage'>http://balabalababalalababababalalalal.com</view>
-    
-    <view class="favor">
-        <image catchtap='open_tap' wx:if="{{isShow}}" src="../../images/starEnd.png"></image>
-        <image wx:else catchtap='close_tap' src='../../images/starBgn.png'></image>
+      <image catchtap='open_tap' wx:if="{{item.flag}}" src="../../images/starEnd.png" data-id='{{item.id}}'></image>
+      <image wx:else catchtap='close_tap' data-id='{{item.id}}' src='../../images/starBgn.png'></image>
     </view>
 
   </view>

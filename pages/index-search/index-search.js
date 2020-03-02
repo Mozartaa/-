@@ -1,96 +1,131 @@
 // pages/index-search/index-search.js
+import utils from '../../utils/util.js'
+const Max = 10;
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    isShow: false,
+    searchValue: "",
+    postList: [],
+    end: false,
+    page: 1,
   },
-  bindInput: function (e) {
+  bindInput: function(e) {
     // console.log(e);
     this.setData({
       searchValue: e.detail.value
     })
   },
-  bindSearch: function () {
+  bindSearch: async function() {
+    let that = this;
     wx.showLoading({
       title: '搜索中',
     })
-
-    wx.navigateTo({
-      url: '../index-search/index-search?searchValue=' + this.data.searchValue,
-      success: (res) => {
-        wx.hideLoading()
-      }
+    // 查询教授
+    let data = await utils.requestPromise('GET', '/teachersinfo', {
+      keyword: that.data.searchValue,
+      start: 1,
+      size: Max,
     })
+    // 添加收藏标记
+    for (let item of data.data) {
+      let flag = this.data.favor.findIndex((i) => i.id === item.id);
+      if (flag !== -1) {
+        item.flag = true;
+      } else {
+        item.flag = false;
+      }
+    }
+    this.setData({
+      postList: data.data,
+      end: (data.data.length < Max) ? true : false,
+    })
+    wx.hideLoading()
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
+  onLoad: async function(op) {
+    console.log(op)
+    let data = await utils.requestPromise('GET', '/teachersinfo', {
+      keyword: op.searchValue || "",
+      start: 1,
+      size: Max,
+    })
+    // 查询教授
+    let favor = await utils.requestPromise('GET', '/api/favorites', {
+      type: 1,
+    })
+    // 添加收藏标记
+    for (let item of data.data) {
+      let flag = favor.data.data.teachers.findIndex((i) => i.id === item.id);
+      if (flag !== -1) {
+        item.flag = true;
+      } else {
+        item.flag = false;
+      }
+    }
+    // 同步数据
+    this.setData({
+      searchValue: op.searchValue || "",
+      postList: data.data,
+      end: (data.data.length < Max) ? true : false,
+      favor: favor.data.data.teachers,
+    })
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-
+  onReachBottom: async function() {
+    console.log("append list");
+    const that = this;
+    if (!this.data.end) {
+      // 感觉这里有问题
+      let data = await utils.requestPromise('GET', '/teachersinfo', {
+        keyword: this.data.searchValue,
+        start: this.data.page * Max + 1,
+        size: Max,
+      })
+      for (let item of data.data) {
+        let flag = this.data.favor.findIndex((i) => i.proId === item.proId);
+        if (flag !== -1) {
+          item.flag = true;
+        } else {
+          item.flag = false;
+        }
+      }
+      this.setData({
+        postList: this.data.postList.concat(...data.data),
+        page: this.data.page + 1,
+        end: (data.data.length < Max) ? true : false,
+      })
+    }
   },
-
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   },
 
   //收藏
-  close_tap: function () {
+  close_tap: function(option) {
+    let id = option.currentTarget.dataset.id;
+    let index = this.data.postList.findIndex(i => i.id === id);
     this.setData({
-      isShow: true
+      [`postList[${index}].flag`]: true,
     })
   },
 
-  open_tap: function () {
+  open_tap: function(option) {
+    let id = option.currentTarget.dataset.id;
+    let index = this.data.postList.findIndex(i => i.id === id);
     this.setData({
-      isShow: false
+      [`postList[${index}].flag`]: false,
     })
   },
 })

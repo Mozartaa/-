@@ -5,22 +5,22 @@ const app = getApp()
 
 Page({
   data: {
-    userInfo: ""
+    searchValue: '',
   },
-  
-  bindInput: function (e) {
+
+  bindInput: function(e) {
     // console.log(e);
     this.setData({
       searchValue: e.detail.value
     })
   },
-  bindSearch: function () {
+  bindSearch: function() {
     wx.showLoading({
       title: '搜索中',
     })
 
     wx.navigateTo({
-      url: '../index-search/index-search?searchValue=' + this.data.searchValue,
+      url: '../index-search/index-search?searchValue=' + this.data.searchValue || '',
       success: (res) => {
         wx.hideLoading()
       }

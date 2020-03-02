@@ -22,7 +22,12 @@
       <text bindtap='bindDetail' data-index='{{item.proId}}'>阅读详情-></text>
     </view>
     <view class="favor">
-      <image src="../../images/star.png" bindtap='addFavor' data-index='{{item.proId}}'></image>
+      <block wx:if="{{item.flag===true}}">
+        <image src="../../images/starEnd.png" bindtap='addFavor' data-index='{{item.proId}}'></image>
+      </block>
+      <block wx:else>
+        <image src="../../images/starBgn.png" bindtap='addFavor' data-index='{{item.proId}}'></image>
+      </block>
     </view>
   </view>
   <view wx:if="{{postList.length === 0}}" class="no-data">
