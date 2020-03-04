@@ -6,10 +6,9 @@ Page({
     searchValue: ''
   },
   SearchKeyWord: function(e) {
-    console.log(e);
     let type = e.currentTarget.dataset.type;
     wx.navigateTo({
-      url: '../search/search?type=' + type
+      url: '../search/search?searchValue=' + type
     })
   },
   bindInput: function(e) {

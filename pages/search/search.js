@@ -1,7 +1,7 @@
 // 获取应用实例
 var app = getApp();
 import utils from '../../utils/util.js'
-const Max = 3;
+const Max = 10;
 
 Page({
   // 需要用到的数据
@@ -10,9 +10,11 @@ Page({
     postList: [],
     end: false,
     page: 1,
+    tip: "",
   },
   // 页面载入完成执行
   onLoad: async function(op) {
+    console.log("load search page", op)
     let data = await utils.requestPromise('GET', '/api/announcement', {
       keyword: op.searchValue || "",
       start: 1,
@@ -38,6 +40,11 @@ Page({
       end: (data.data.length < Max) ? true : false,
       favor: favor.data.data.announcements,
     })
+    if (data.data.length === 0) {
+      this.setData({
+        tip: "很抱歉，没有找到与搜索词相关的招募令",
+      })
+    }
   },
   /**
    * 页面上拉触底事件的处理函数
@@ -100,6 +107,25 @@ Page({
       } else {
         wx.showToast({
           title: '收藏失败',
+          icon: 'none',
+        })
+      }
+    })
+  },
+  // 取消收藏
+  cancelFavor: async function(option) {
+    let that = this;
+    let index = option.currentTarget.dataset.index
+    await utils.requestPromise('DELETE', '/api/favorite', {
+      otherId: index,
+      type: 1,
+    }).then((res) => {
+      if (res.data.retCode === 0) {
+        that.data.postList.find(i => i.proId === index).flag = true
+      } else {
+        wx.showToast({
+          title: '取消失败',
+          icon: 'none',
         })
       }
     })
@@ -132,6 +158,11 @@ Page({
       postList: data.data,
       end: (data.data.length < Max) ? true : false,
     })
+    if (data.data.length === 0) {
+      this.setData({
+        tip: "很抱歉，没有找到与搜索词相关的招募令",
+      })
+    }
   },
   bindDetail: function(option) {
     let index = option.currentTarget.dataset.index

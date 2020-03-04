@@ -10,7 +10,8 @@ Page({
     // 校验数据
     // if (teacher.name === '' || teacher.school === '' || teacher.profession === '' || teacher.college === '' || teacher.research === '') {
     //   wx.showToast({
-    //     title: '不能为空'
+    //     title: '不能为空;
+    //     icon: 'none',
     //   })
     //   return
     // }
@@ -20,6 +21,7 @@ Page({
     if (images.length < 1) {
       wx.showToast({
         title: '请上传证件照片',
+        icon: 'none',
       });
       return
     }
@@ -62,14 +64,15 @@ Page({
               console.log('认证完毕', res);
               if (res.data.retCode == 0) {
                 wx.showToast({
-                  title: '认证发送成功,请等待工作人员审核...',
+                  title: '认证信息发送成功,请等待工作人员审核。',
                 });
                 setTimeout(function() {
                   wx.navigateBack({})
                 }, 1000);
               } else {
                 wx.showToast({
-                  title: '认证发送失败。。。',
+                  title: '认证发送失败...',
+                  icon: 'none',
                 })
               }
             }
@@ -79,6 +82,7 @@ Page({
           wx.hideLoading()
           wx.showToast({
             title: '图片上传失败',
+            icon: 'none',
           })
         }
       }

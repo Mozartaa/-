@@ -29,8 +29,8 @@
         <text class="text">渠道</text>
       </view>
       <view class="item-list">
-        <text class="item">线上合作</text>
-        <text class="item">线下参与</text>
+        <text class="item" bindtap='SearchKeyWord' data-type="线上合作">线上合作</text>
+        <text class="item" bindtap='SearchKeyWord' data-type="线下参与">线下参与</text>
       </view>
       <view class="icon">
         <image src="../../images/market.png"></image>

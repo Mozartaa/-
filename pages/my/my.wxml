@@ -1,6 +1,6 @@
 <view class="page-body-info ">
   <open-data type='userAvatarUrl' class="userinfo" mode="cover"></open-data>
-  <open-data type="userNickName"></open-data>
+  <view>{{user.userNick}}</view>
 </view>
 
 <view class='my-body'>
@@ -13,8 +13,13 @@
   <view class='item'>
     <image class="item1" src="../../images/id.png" mode="aspectFill">
     </image>
-    <view class='flex-view-item'>身份认证</view>
-    <button bindtap="jumpToIden">></button>
+    <view class='flex-view-item' style='position:relative;'>
+      身份认证
+      <view class='state'>
+        <text>{{tip}}</text>
+      </view>
+    </view>
+    <button bindtap="jumpToIden" class='{{(user.authenticate===0 || user.authenticate===-2)?"":"hid"}}'>></button>
   </view>
   <view class='item'>
     <image class="item1" src="../../images/favor.png" mode="aspectFill">

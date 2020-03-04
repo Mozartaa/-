@@ -57,7 +57,7 @@ Page({
     })
     // 查询教授
     let favor = await utils.requestPromise('GET', '/api/favorites', {
-      type: 1,
+      type: 0,
     })
     // 添加收藏标记
     for (let item of data.data) {
@@ -113,14 +113,30 @@ Page({
   },
 
   //收藏
-  close_tap: function(option) {
+  close_tap: async function(option) {
+    let that = this;
     let id = option.currentTarget.dataset.id;
     let index = this.data.postList.findIndex(i => i.id === id);
-    this.setData({
-      [`postList[${index}].flag`]: true,
+    await utils.requestPromise('POST', '/api/favorite', {
+      otherId: id,
+      type: 0,
+    }).then((res) => {
+      if (res.data.retCode === 0) {
+        wx.showToast({
+          title: '收藏成功',
+        })
+        let index = this.data.postList.findIndex(i => i.id === id);
+        this.setData({
+          [`postList[${index}].flag`]: true,
+        })
+      } else {
+        wx.showToast({
+          title: '收藏失败',
+          icon: 'none',
+        })
+      }
     })
   },
-
   open_tap: function(option) {
     let id = option.currentTarget.dataset.id;
     let index = this.data.postList.findIndex(i => i.id === id);

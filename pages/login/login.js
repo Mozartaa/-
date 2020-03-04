@@ -9,13 +9,17 @@ Page({
     var that = this;
     // 查看是否授权
     wx.getSetting({
-      success: function(res) {
+      success: async(res) => {
         console.log(res)
         if (res.authSetting['scope.userInfo']) {
+          // 个人数据
+          let r = await utils.getUserInfo()
+          wx.setStorageSync('user', r.user)
           wx.showToast({
             title: '登录成功',
             duration: 2000
           })
+
           setTimeout(() => {
             wx.switchTab({
               url: '/pages/index/index',
@@ -26,13 +30,11 @@ Page({
       fail: function() {
         wx.showToast({
           title: '登录后才可以继续体验',
-          image: '../../images/warn.png'
+          icon: 'none',
         });
         return;
       }
-
     })
-
   },
   bindGetUserInfo: async function(e) {
     var that = this;
@@ -43,7 +45,7 @@ Page({
     if (e.detail.rawData == undefined) {
       console.log("不存在")
       wx.showToast({
-        icon: none,
+        icon: 'none',
         title: '授权后才可以继续进行',
       });
       return;
@@ -60,10 +62,12 @@ Page({
               rawData: e.detail.rawData,
               code: res.code
             },
-            success: results => {
+            success: async(results) => {
               console.log(results.data);
               if (results.data.retCode == 0) {
                 wx.setStorageSync('token', results.data.data.token);
+                let r = await utils.getUserInfo()
+                wx.setStorageSync('user', r.user)
                 wx.hideLoading();
                 wx.showToast({
                   title: '登录成功',
@@ -78,6 +82,7 @@ Page({
                 wx.hideLoading();
                 wx.showToast({
                   title: '登录失败',
+                  icon: 'none',
                 })
               }
             }

@@ -13,7 +13,7 @@ const requestPromise = async(method, url, data) => {
       },
       success: res => resolve(res),
       fail: (res) => {
-        console.log("网络连接错误")
+        console.log("网络连接错误", res)
         reject(res)
       }
     })

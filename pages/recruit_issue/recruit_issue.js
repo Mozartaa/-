@@ -8,6 +8,9 @@ Page({
   data: {
     images: [],
     current: 0,
+    proStart: '',
+    enrollDeadline: '',
+    erollWay: "线上合作",
   },
   bindDateChange1: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -21,9 +24,39 @@ Page({
       enrollDeadline: e.detail.value
     })
   },
+  bindDateChange3: function(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      erollWay: (e.detail.value === "0") ? '线上合作' : '线下参与',
+    })
+  },
+
   onFormSubmitTap: async function(event) {
     console.log('start', event)
     let data = event.detail.value
+    // 数据验证
+    if (data.proName === '') {
+      wx.showToast({
+        title: '项目名称不能为空',
+        icon: 'none',
+      })
+      return
+    }
+    if (this.data.proStart === '') {
+      wx.showToast({
+        title: '项目开始时间不能为空',
+        icon: 'none',
+      })
+      return
+    }
+    if (this.data.enrollDeadline === '') {
+      wx.showToast({
+        title: '报名截止时间不能为空',
+        icon: 'none',
+      })
+      return
+    }
+    // 数据验证结束
     data.proStart = this.data.proStart.split('-').join('/')
     data.enrollDeadline = this.data.enrollDeadline.split('-').join('/')
     wx.showLoading({
@@ -35,6 +68,7 @@ Page({
         wx.hideLoading()
         wx.showToast({
           title: '上传失败',
+          icon: 'none',
         })
       }).then(async(res) => {
         data.imagesPath = res
@@ -61,6 +95,13 @@ Page({
    */
   onLoad: function(options) {
     this.InitImageSize();
+    let user = wx.getStorageSync('user')
+    if (user.authenticate === 0 || user.authenticate === -1 || user.authenticate === -2) {
+      wx.showModal({
+        title: '提示',
+        content: '尚未认证，无法正常提交表单',
+      })
+    }
   },
 
 

@@ -33,13 +33,21 @@ Page({
     })
   },
   check: function() {
+    // 检查昵称
+    if (this.data.user.userNick == "") {
+      wx.showToast({
+        title: '昵称不能为空',
+        icon: 'none',
+      })
+      return false
+    }
     // 检查电话
     let phone = this.data.user.userPhone
     if (!(/^1[3456789]\d{9}$/.test(phone)) && phone !== "" && phone !== null) {
       wx.showToast({
         title: '手机号码有误',
+        icon: 'none',
       })
-      console.log(123)
       return false;
     }
     // 检查邮箱
@@ -47,7 +55,8 @@ Page({
     if (!(/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(email)) && email !== "" && email !== null) {
       wx.showToast({
         title: '邮箱有误',
-      })
+        icon: 'none',
+    })
       return false;
     }
     return true
@@ -55,8 +64,12 @@ Page({
   submit: async function() {
     let that = this
     console.log('格式检查', this.check())
+    if (!this.check()) {
+      return
+    }
     console.log(this.data.user)
     await utils.updateUserInfo({
+      userNick: that.data.user.userNick,
       userId: that.data.user.userId,
       userSex: that.data.user.userSex,
       userPhone: that.data.user.userPhone || "",

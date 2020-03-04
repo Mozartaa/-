@@ -14,8 +14,7 @@
     "pages/showinfo/showinfo",
     "pages/ChangeInfo/ChangeInfo",
     "pages/recruit_issue/recruit_issue",
-    "pages/favourite/favourite",
-    "pages/history/history"
+    "pages/favourite/favourite"
   ],
   "window": {
     "backgroundTextStyle": "light",

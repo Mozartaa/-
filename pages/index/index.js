@@ -1,13 +1,36 @@
 //index.js
-
+import utils from '../../utils/util.js'
 //获取应用实例
 const app = getApp()
 
 Page({
   data: {
     searchValue: '',
+    hotwords: [{
+      name: "3D打印"
+    }, {
+      name: "人工智能"
+    }, {
+      name: "大数据"
+    }, {
+      name: "纳米材料"
+    }, {
+      name: "太阳能电池"
+    }, {
+      name: "新能源"
+    }, {
+      name: "神经调节芯片"
+    }, {
+      name: "等离子体"
+    }, {
+      name: "数学模型"
+    }, {
+      name: "管理"
+    }],
   },
-
+  search: function(e) {
+    console.log(e)
+  },
   bindInput: function(e) {
     // console.log(e);
     this.setData({
@@ -27,37 +50,8 @@ Page({
     })
   },
   onLoad: async(options) => {
-    let that = this
-    wx.getSetting({
-      success: (res) => {
-        console.log(res.authSetting)
-        if (res.authSetting['scope.userInfo']) {
-          wx.getUserInfo({
-            success: function(res) {
-              console.log("获取用户个人信息", res.userInfo)
-            }
-          });
-          // wx.login({
-          //   success: async(res) => {
-          //     console.log("用户的code:" + res.code);
-          //     wx.setStorageSync("code", res.code)
-          //   },
-          //   fail: (err) => {
-          //     console.log(err)
-          //     wx.showToast({
-          //       title: '登录失败',
-          //       icon: "none",
-          //       duration: 2000
-          //     })
-          //   }
-          // })
-        } else {
-          // 用户没有授权
-          wx.navigateTo({
-            url: '../login/login'
-          })
-        }
-      }
+    await utils.requestPromise('GET', '/getHotWords', {
+      size: 10,
     })
   }
 

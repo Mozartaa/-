@@ -22,15 +22,17 @@
       <text bindtap='bindDetail' data-index='{{item.proId}}'>阅读详情-></text>
     </view>
     <view class="favor">
+      <!-- 收藏 -->
       <block wx:if="{{item.flag===true}}">
-        <image src="../../images/starEnd.png" bindtap='addFavor' data-index='{{item.proId}}'></image>
+        <image src="../../images/starEnd.png" bindtap='cancelFavor' data-index='{{item.proId}}'></image>
       </block>
+      <!-- 取消收藏 -->
       <block wx:else>
         <image src="../../images/starBgn.png" bindtap='addFavor' data-index='{{item.proId}}'></image>
       </block>
     </view>
   </view>
   <view wx:if="{{postList.length === 0}}" class="no-data">
-    <text>Sorry~There's NO data!</text>
+    <text>{{tip}}</text>
   </view>
 </scroll-view>

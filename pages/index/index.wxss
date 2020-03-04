@@ -93,9 +93,10 @@
 }
 
 .hotwords {
-  margin-left: 6%;
+  margin-left: 4%;
   margin-top: 3%;
   font-size: 15px;
+  font-weight: bold;
   color: #5bd4c7;
 }
 

@@ -1,4 +1,6 @@
 // pages/detail.js
+import utils from '../../utils/util.js'
+
 Page({
 
   /**
@@ -26,6 +28,9 @@ Page({
    */
   onLoad: async function(options) {
     let index = options.index
+    await utils.requestPromise("GET", '/api/announcementById', {
+      id: 3
+    })
   },
 
   /**
