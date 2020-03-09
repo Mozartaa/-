@@ -94,16 +94,19 @@ Page({
   // 收藏
   addFavor: async function(option) {
     let that = this;
-    let index = option.currentTarget.dataset.index
+    let id = option.currentTarget.dataset.index;
+    let index = that.data.postList.findIndex(i => i.proId === id);
     await utils.requestPromise('POST', '/api/favorite', {
-      otherId: index,
+      otherId: id,
       type: 1
     }).then((res) => {
       if (res.data.retCode === 0) {
         wx.showToast({
           title: '收藏成功',
         })
-        that.data.postList.find(i => i.proId === index).flag = true
+        that.setData({
+          [`postList[${index}].flag`]: true,
+        })
       } else {
         wx.showToast({
           title: '收藏失败',
@@ -115,13 +118,16 @@ Page({
   // 取消收藏
   cancelFavor: async function(option) {
     let that = this;
-    let index = option.currentTarget.dataset.index
+    let id = option.currentTarget.dataset.index;
+    let index = that.data.postList.findIndex(i => i.proId === id);
     await utils.requestPromise('DELETE', '/api/favorite', {
-      otherId: index,
+      otherId: id,
       type: 1,
     }).then((res) => {
       if (res.data.retCode === 0) {
-        that.data.postList.find(i => i.proId === index).flag = true
+        that.setData({
+          [`postList[${index}].flag`]: false,
+        })
       } else {
         wx.showToast({
           title: '取消失败',

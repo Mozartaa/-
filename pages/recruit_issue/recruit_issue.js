@@ -11,6 +11,7 @@ Page({
     proStart: '',
     enrollDeadline: '',
     erollWay: "线上合作",
+    proReward: "无酬金",
   },
   bindDateChange1: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -28,6 +29,20 @@ Page({
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       erollWay: (e.detail.value === "0") ? '线上合作' : '线下参与',
+    })
+  },
+  bindDateChange4: function(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    let _ = e.detail.value
+    if (_ === "0") {
+      _ = '直接酬金';
+    } else if (_ === "1") {
+      _ = '间接酬金';
+    } else {
+      _ = '无酬金';
+    }
+    this.setData({
+      proReward: _,
     })
   },
 

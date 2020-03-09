@@ -52,6 +52,8 @@ Page({
   onLoad: async(options) => {
     await utils.requestPromise('GET', '/getHotWords', {
       size: 10,
+    }).then(res => {
+      console.log('加载热词', res.data)
     })
   }
 

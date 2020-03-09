@@ -27,9 +27,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: async function(options) {
-    let index = options.index
+    const that = this;
+    let index = options.index;
     await utils.requestPromise("GET", '/api/announcementById', {
-      id: 3
+      id: index,
+    }).then(res => {
+      that.setData({
+        proList: res.data
+      })
+    }).catch(err => {
+      console.log(err)
+      wx.showToast({
+        title: '网络错误',
+        icon: 'none',
+      })
     })
   },
 

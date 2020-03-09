@@ -125,7 +125,6 @@ Page({
         wx.showToast({
           title: '收藏成功',
         })
-        let index = this.data.postList.findIndex(i => i.id === id);
         this.setData({
           [`postList[${index}].flag`]: true,
         })
@@ -137,11 +136,25 @@ Page({
       }
     })
   },
-  open_tap: function(option) {
+  // 取消收藏
+  open_tap: async function(option) {
+    let that = this;
     let id = option.currentTarget.dataset.id;
     let index = this.data.postList.findIndex(i => i.id === id);
-    this.setData({
-      [`postList[${index}].flag`]: false,
+    await utils.requestPromise('DELETE', '/api/favorite', {
+      otherId: id,
+      type: 0,
+    }).then((res) => {
+      if (res.data.retCode === 0) {
+        this.setData({
+          [`postList[${index}].flag`]: false,
+        })
+      } else {
+        wx.showToast({
+          title: '取消失败',
+          icon: 'none',
+        })
+      }
     })
   },
 })

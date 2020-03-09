@@ -62,9 +62,12 @@
   </view>
   <view class='line'></view>
 
-  <view class='words'>项目酬金:</view>
+  <view class='words'>项目酬金类型:</view>
   <view class='in'>
-    <input class="input" name="proReward" placeholder="请输入项目酬金" />
+    <picker mode="selector" range="{{['直接酬金','间接酬金','无酬金']}}" bindchange="bindDateChange4">
+      <text class="input">{{proReward}}</text>
+      <input hidden='{{true}}' name="proReward" placeholder="请输入报名方式" value='{{proReward}}' />
+    </picker>
   </view>
   <view class='line'></view>
 
