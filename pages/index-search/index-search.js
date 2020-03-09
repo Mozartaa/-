@@ -4,6 +4,10 @@ const Max = 10;
 
 Page({
 
+  onShareAppMessage(options) {
+    console.log(options.webViewUrl)
+  },
+
   /**
    * 页面的初始数据
    */
@@ -136,7 +140,6 @@ Page({
       }
     })
   },
-  // 取消收藏
   open_tap: async function(option) {
     let that = this;
     let id = option.currentTarget.dataset.id;

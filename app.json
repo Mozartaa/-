@@ -1,8 +1,11 @@
 {
   "pages": [
     "pages/login/login",
-    "pages/index/index",
     "pages/index-search/index-search",
+    "pages/recruit_issue/recruit_issue",
+    
+    "pages/index/index",
+    
     "pages/search/search",
     "pages/logs/logs",
     "pages/stuiden/stuiden",
@@ -13,7 +16,7 @@
     "pages/my/my",
     "pages/showinfo/showinfo",
     "pages/ChangeInfo/ChangeInfo",
-    "pages/recruit_issue/recruit_issue",
+    
     "pages/favourite/favourite"
   ],
   "window": {

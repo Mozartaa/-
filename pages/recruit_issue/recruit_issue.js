@@ -5,13 +5,41 @@ Page({
   /**
    * 页面的初始数据
    */
+
   data: {
     images: [],
     current: 0,
     proStart: '',
     enrollDeadline: '',
     erollWay: "线上合作",
-    proReward: "无酬金",
+    proReward:"直接酬金",
+  },
+  bindDateChange1: function(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      proStart: e.detail.value
+    })
+  },
+  bindDateChange2: function(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      enrollDeadline: e.detail.value
+    })
+  },
+  bindDateChange3: function(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      erollWay: (e.detail.value === "0") ? '线上合作' : '线下参与',
+    })
+  },
+
+  data: {
+    images: [],
+    current: 0,
+    proStart: '',
+    enrollDeadline: '',
+    erollWay: "线上合作",
+    proReward: "直接酬金",
   },
   bindDateChange1: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)

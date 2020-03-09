@@ -62,6 +62,12 @@
   </view>
   <view class='line'></view>
 
+  <!-- <view class='words'>项目酬金类型:</view>
+  <view class='in' >
+    <input class="input" name="proReward" placeholder="请输入项目酬金" />
+  </view>
+  <view class='line'></view> -->
+
   <view class='words'>项目酬金类型:</view>
   <view class='in'>
     <picker mode="selector" range="{{['直接酬金','间接酬金','无酬金']}}" bindchange="bindDateChange4">
@@ -70,6 +76,18 @@
     </picker>
   </view>
   <view class='line'></view>
+
+  <view class='words'>项目酬金:</view>
+  <view class='in'>
+    <input class="input" name="proReward" placeholder="(如无酬金则不需输入此行）" />
+  </view>
+  <view class='line'></view>
+  <!-- <view class='words'>项目酬金(元/人):</view>
+<view class="in {{error?'error':''}}">
+    <input class='numinput' type="number" auto-focus focus='{{focus}}' value="{{value}}" title="" bindinput="handleInput" bindblur="validate" maxlength="11" placeholder="请输入项目酬金" placeholder-style="font-size:14px;"/>
+    <image bindtap="clear" hidden="{{!showClose}}" src="/assets/icon/close.png"></image>
+  </view> -->
+
 
   <view class='words'>报名方式:</view>
   <view class='in'>
@@ -98,4 +116,6 @@
   <view class='sub'>
     <button class='subwords' form-type='submit'>发布</button>
   </view>
+
+  <view class="white"></view>
 </form>

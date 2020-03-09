@@ -21,7 +21,7 @@
       <view class='teaformation' wx:for="{{teachers}}" wx:key="{{item.id}}">
         <view class='name'>教师姓名:{{item.username}}</view>
         <view class='dep'>研究方向：{{item.department}}</view>
-        <view class='homepage'>http://balabalababalalababababalalalal.com</view>
+        <view class='homepage'>{{item.perHomepage}}</view>
       </view>
     </view>
     <view hidden='{{currentTabIndex != 1}}' class='favour-main'>

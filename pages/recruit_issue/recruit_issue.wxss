@@ -118,3 +118,7 @@ page {
 button::after {
   border: none;
 }
+
+.white{
+  height: 20rpx;
+}
