@@ -5,26 +5,73 @@ Page({
     //判断小程序的API，回调，参数，组件等是否在当前版本可用。
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
+
   onLoad: function() {
     var that = this;
     // 查看是否授权
     wx.getSetting({
-      success: async(res) => {
+      success: (res) => {
         console.log(res)
         if (res.authSetting['scope.userInfo']) {
           // 个人数据
-          let r = await utils.getUserInfo()
-          wx.setStorageSync('user', r.user)
-          wx.showToast({
-            title: '登录成功',
-            duration: 2000
-          })
-
-          setTimeout(() => {
-            wx.switchTab({
-              url: '/pages/index/index',
+          utils.getUserInfo()
+            .then((r) => {
+              wx.setStorageSync('user', r.user)
+              wx.showToast({
+                title: '登录成功',
+                duration: 2000,
+              })
+              setTimeout(() => {
+                wx.switchTab({
+                  url: '/pages/index/index',
+                })
+              }, 1000)
+            }).catch(() => {
+              // token失效后重新登录
+              wx.getUserInfo({
+                success: e => {
+                  wx.login({
+                    success: res => {
+                      wx.request({
+                        url: utils.HOST + '/api/user/login',
+                        method: "POST",
+                        header: {
+                          "Content-Type": "application/x-www-form-urlencoded"
+                        },
+                        data: {
+                          rawData: e.rawData,
+                          code: res.code
+                        },
+                        success: async(results) => {
+                          console.log(results.data);
+                          if (results.data.retCode == 0) {
+                            wx.setStorageSync('token', results.data.data.token);
+                            let r = await utils.getUserInfo()
+                            wx.setStorageSync('user', r.user)
+                            wx.hideLoading();
+                            wx.showToast({
+                              title: '登录成功',
+                              duration: 2000,
+                              success: () => {
+                                wx.switchTab({
+                                  url: '/pages/index/index',
+                                })
+                              }
+                            })
+                          } else {
+                            wx.hideLoading();
+                            wx.showToast({
+                              title: '登录失败',
+                              icon: 'none',
+                            })
+                          }
+                        }
+                      })
+                    }
+                  })
+                }
+              })
             })
-          }, 1000)
         }
       },
       fail: function() {

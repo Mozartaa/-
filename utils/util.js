@@ -26,7 +26,7 @@ const getUserInfo = async() => {
   if (res.data.retCode === 0) {
     return res.data.data
   } else {
-    return 'error'
+    reject('error')
   }
 }
 // 修改个人信息
