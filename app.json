@@ -3,9 +3,8 @@
     "pages/login/login",
     "pages/index-search/index-search",
     "pages/recruit_issue/recruit_issue",
-    
+    "pages/modify_issue/modify_issue",
     "pages/index/index",
-    
     "pages/search/search",
     "pages/logs/logs",
     "pages/stuiden/stuiden",
@@ -16,8 +15,8 @@
     "pages/my/my",
     "pages/showinfo/showinfo",
     "pages/ChangeInfo/ChangeInfo",
-    
-    "pages/favourite/favourite"
+    "pages/favourite/favourite",
+    "pages/myrecruit/myrecruit"
   ],
   "window": {
     "backgroundTextStyle": "light",

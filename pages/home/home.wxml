@@ -37,7 +37,9 @@
         <text class="text">酬金</text>
       </view>
       <view class="item-list">
-        <text class="item">只看含酬金</text>
+        <text class="item" bindtap='SearchKeyWord' data-type="直接酬金">直接酬金</text>
+        <text class="item" bindtap='SearchKeyWord' data-type="间接酬金">间接酬金</text>
+        <text class="item" bindtap='SearchKeyWord' data-type="无酬金">无酬金</text>
       </view>
       <view class="post-btn" bindtap='postSearch'>
         <text class="post-btn-text">发布一条招募令</text>

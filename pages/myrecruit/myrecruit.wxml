@@ -1,0 +1,46 @@
+<view class='tittle'>
+  <view class='wordstop'>我的招募令</view>
+</view>
+
+<view id='tabs'>
+  <view class='tabs-box'>
+    <block wx:for="{{['全部','进行中','已结束']}}" wx:key="index">
+      <view class="tabs-item {{currentTabIndex == index ? 'selected' : '' }}" bindtap='onTabsItemTap' data-index='{{index}}'>
+        {{item}}
+      </view>
+    </block>
+  </view>
+  <view class='ordert-detail'>
+    <!-- 全部 -->
+    <view hidden='{{currentTabIndex != 0}}' class='favour-main'>
+      <view class='itemformation' wx:for="all" bindtap='redictToview' data-id='{{item.proId}}'>
+        <view class='name'>项目名称:{{item.name}}</view>
+        <view class='dep'>项目开始时间：{{item.time}}</view>
+        <view class='request'>招募要求：{{item.require}}</view>
+      </view>
+    </view>
+    <!-- 进行中 -->
+    <view hidden='{{currentTabIndex != 1}}' class='favour-main'>
+      <view class='itemformation' wx:for="being" bindtap='redictToview' data-id='{{item.proId}}'>
+        <view class='name'>项目名称:{{item.name}}</view>
+        <view class='dep'>项目开始时间：{{item.time}}</view>
+        <view class='request'>招募要求：{{item.require}}</view>
+      </view>
+    </view>
+    <view hidden='{{currentTabIndex != 2}}' class='favour-main'>
+      <!-- 已完成 -->
+      <view class='itemformation_ed' wx:for="completed">
+        <view class='fulfill'>已完成</view>
+        <view class='name'>项目名称:{{item.name}}</view>
+        <view class='dep'>项目开始时间：{{item.time}}</view>
+        <view class='request'>招募要求：{{item.require}}</view>
+      </view>
+      <view class='itemformation_ed' wx:for="invalid">
+        <view class='fail'>已失效</view>
+        <view class='name'>项目名称:{{item.name}}</view>
+        <view class='dep'>项目开始时间：{{item.time}}</view>
+        <view class='request'>招募要求：{{item.require}}</view>
+      </view>
+    </view>
+  </view>
+</view>

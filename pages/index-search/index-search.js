@@ -23,6 +23,7 @@ Page({
       searchValue: e.detail.value
     })
   },
+  // 搜索
   bindSearch: async function() {
     let that = this;
     wx.showLoading({
@@ -115,7 +116,27 @@ Page({
   onShareAppMessage: function() {
 
   },
+  // 复制
+  copyTBL: function(e) {
+    let url = e.target.dataset.url
+    wx.setClipboardData({
+      data: url,
+      success: () => {
+        // wx.showModal({
+        //   title: '提示',
+        //   content: '复制成功',
+        //   success: function(res) {
+        //     if (res.confirm) {
+        //       console.log('确定')
+        //     } else if (res.cancel) {
+        //       console.log('取消')
+        //     }
+        //   }
+        // })
 
+      }
+    })
+  },
   //收藏
   close_tap: async function(option) {
     let that = this;
@@ -140,6 +161,7 @@ Page({
       }
     })
   },
+  // 取消收藏
   open_tap: async function(option) {
     let that = this;
     let id = option.currentTarget.dataset.id;

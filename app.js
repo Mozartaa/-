@@ -1,9 +1,6 @@
 //app.js
 App({
-  globalData: {
-    userInfo: null,
-    url: "http://localhost:8080"
-  },
+  globalData: {},
   // onLaunch: function(options) {
   //   // 判断用户是否登录
   //   var token = wx.getStorageSync('token')

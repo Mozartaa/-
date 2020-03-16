@@ -20,6 +20,11 @@ Page({
       url: '../iden/iden'
     })
   },
+  jumpToMyrecruit:function(){
+    wx.navigateTo({
+      url: '../myrecruit/myrecruit'
+    })
+  },
   jumpToFavour: () => {
     wx.navigateTo({
       url: '../favourite/favourite'

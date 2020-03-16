@@ -1,0 +1,121 @@
+<form bindsubmit='onFormSubmitTap'>
+  <view class='words'>
+    项目名称/实验室名称:
+  </view>
+  <view class='in'>
+    <input class="input" name="proName" placeholder="请输入项目名称或实验室名称" value='{{data.proName}}' />
+  </view>
+  <view class='line'></view>
+  <view class='words'>项目简介:</view>
+  <view class='in'>
+    <input class="input" name="proProfile" placeholder="请输入项目简介" value='{{data.proProfile||""}}' />
+  </view>
+  <view class='line'></view>
+
+  <view class='words'>项目开始时间:</view>
+  <view class='in'>
+    <picker mode="date" value="{{proStart}}" bindchange="bindDateChange1">
+      <view class="picker">
+        开始时间{{proStart}}
+      </view>
+    </picker>
+  </view>
+  <view class='line'></view>
+
+  <view class='words'>项目时长:</view>
+  <view class='in'>
+    <input class="input" name="proDuration" placeholder="请输入项目时长" value='{{data.proDuration||""}}'/>
+  </view>
+  <view class='line'></view>
+
+  <view class='words'>报名截止时间:</view>
+  <view class='in'>
+    <picker mode="date" value="{{enrollDeadline}}" bindchange="bindDateChange2">
+      <view class="picker">
+        截止时间{{enrollDeadline}}
+      </view>
+    </picker>
+  </view>
+  <view class='line'></view>
+
+  <view class='words'>招募要求:</view>
+  <view class='in'>
+    <input class="input" name="enrollRequirements" placeholder="请输入招募要求" value='{{data.enrollRequirements||""}}'/>
+  </view>
+  <view class='line'></view>
+
+  <view class='words'>招募名额:</view>
+  <view class='in'>
+    <input class="input" name="recruitPlace" placeholder="请输入招募名额" value='{{data.recruitPlace||""}}'/>
+  </view>
+  <view class='line'></view>
+
+  <view class='words'>招募类型:</view>
+  <view class='in'>
+    <input class="input" name="recruitType" placeholder="请输入招募类型" value='{{data.recruitType||""}}'/>
+  </view>
+  <view class='line'></view>
+
+  <view class='words'>研究方向:</view>
+  <view class='in'>
+    <input class="input" name="researchArea" placeholder="请输入研究方向" value='{{data.researchArea||""}}'/>
+  </view>
+  <view class='line'></view>
+
+  <!-- <view class='words'>项目酬金类型:</view>
+  <view class='in' >
+    <input class="input" name="proReward" placeholder="请输入项目酬金" />
+  </view>
+  <view class='line'></view> -->
+
+  <view class='words'>项目酬金类型:</view>
+  <view class='in'>
+    <picker mode="selector" range="{{['直接酬金','间接酬金','无酬金']}}" bindchange="bindDateChange4">
+      <text class="input">{{proReward}}</text>
+      <input hidden='{{true}}' name="proReward" placeholder="请输入报名方式" value='{{proReward}}' />
+    </picker>
+  </view>
+  <view class='line'></view>
+
+  <view class='words'>项目酬金:</view>
+  <view class='in'>
+    <input class="input" name="proReward" placeholder="(如无酬金则不需输入此行）" />
+  </view>
+  <view class='line'></view>
+  <!-- <view class='words'>项目酬金(元/人):</view>
+<view class="in {{error?'error':''}}">
+    <input class='numinput' type="number" auto-focus focus='{{focus}}' value="{{value}}" title="" bindinput="handleInput" bindblur="validate" maxlength="11" placeholder="请输入项目酬金" placeholder-style="font-size:14px;"/>
+    <image bindtap="clear" hidden="{{!showClose}}" src="/assets/icon/close.png"></image>
+  </view> -->
+
+
+  <view class='words'>报名方式:</view>
+  <view class='in'>
+    <picker mode="selector" range="{{['线上合作','线下参与']}}" bindchange="bindDateChange3">
+      <text class="input">{{erollWay}}</text>
+      <input hidden='{{true}}' name="erollWay" placeholder="请输入报名方式" value='{{erollWay}}' />
+    </picker>
+  </view>
+  <view class='line'></view>
+
+  <view class='img-word'>项目配图:</view>
+
+  <view class='image-group-list'>
+    <view class='image-group' wx:for="{{images}}" wx:key="{{images[index]}}" style='width:{{imageSize}}px;height:{{imageSize}}px'>
+      <image src='{{item}}' data-index="{{index}}" bindtap='onImageTap'></image>
+      <view class='close-btn' data-index="{{index}}" bindtap='onRemoveImageTap'></view>
+    </view>
+
+    <view wx:if="{{images.length < 9}}" class='add-image-btn' style='width:{{imageSize}}px;height:{{imageSize}}px' bind:tap="onAddImageTap">
+      <view>+</view>
+
+    </view>
+
+  </view>
+
+  <view class='sub'>
+    <button class='subwords' form-type='submit'>发布</button>
+  </view>
+
+  <view class="white"></view>
+</form>

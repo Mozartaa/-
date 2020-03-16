@@ -1,7 +1,7 @@
 <view class="search">
-  <input type="search" class="search-text" placeholder="开启你的潜研之路！" bindinput="bindInput"  value='{{searchValue}}'/>
+  <input type="search" class="search-text" placeholder="开启你的潜研之路！" bindinput="bindInput" value='{{searchValue}}' />
   <view class="search-btn" bindtap='bindSearch'>
-    <text class="search-btn-text" >搜索</text>
+    <text class="search-btn-text">搜索</text>
   </view>
 </view>
 
@@ -9,14 +9,37 @@
 <scroll-view class='scroll-view-y' scroll-y="{{true}}">
 
   <view class='teaformation' wx:for="{{postList}}" wx:key="{{item.id}}">
+    <!-- 姓名 -->
     <view class='name'>{{item.username}}</view>
+    <!-- 四个一百标记 -->
+    <view class='box' wx:if="{{isFourHundred}}">
+      <view class="fourlogo">
+        <image src="../../images/4logo.png"></image>
+      </view>
+      <view class='fourhundreds'>“四个一百”育人行动教师</view>
+    </view>
+    <!-- 研究方向 -->
     <view class='dep'>研究方向：{{item.department}}</view>
-    <view class='homepage'>{{item.perHomepage}}</view>
-
+    <!-- 主页 -->
+    <view class='homepage' bindtap='copyTBL' data-url="{{item.perHomepage}}">{{item.perHomepage}}</view>
+    <!-- 收藏 -->
     <view class="favor">
       <image catchtap='open_tap' wx:if="{{item.flag}}" src="../../images/starEnd.png" data-id='{{item.id}}'></image>
       <image wx:else catchtap='close_tap' data-id='{{item.id}}' src='../../images/starBgn.png'></image>
     </view>
 
   </view>
+
+  <!-- <view class='teaformation' wx:for="{{postList}}" wx:key="{{item.id}}">
+    <view class='name'>{{item.username}}</view>
+    <view class='dep'>研究方向：{{item.department}}</view>
+    <view class='homepage'>{{item.perHomepage}}</view>
+
+
+    <view class="favor">
+      <image catchtap='open_tap' wx:if="{{item.flag}}" src="../../images/starEnd.png" data-id='{{item.id}}'></image>
+      <image wx:else catchtap='close_tap' data-id='{{item.id}}' src='../../images/starBgn.png'></image>
+    </view>
+
+  </view> -->
 </scroll-view>
