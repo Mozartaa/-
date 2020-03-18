@@ -26,12 +26,14 @@ Page({
                   url: '/pages/index/index',
                 })
               }, 1000)
-            }).catch(() => {
+            })
+            .catch(() => {
               // token失效后重新登录
               wx.getUserInfo({
                 success: e => {
                   wx.login({
                     success: res => {
+                      console.log(e, res);
                       wx.request({
                         url: utils.HOST + '/api/user/login',
                         method: "POST",
@@ -65,6 +67,9 @@ Page({
                               icon: 'none',
                             })
                           }
+                        },
+                        fail: err => {
+                          console.log("重新登录失败", err)
                         }
                       })
                     }

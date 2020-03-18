@@ -15,9 +15,13 @@ Page({
     proReward: "直接酬金",
     data: {}
   },
+  // 初始化
   onLoad: async function(options) {
+    // 获取个人信息
     let user = wx.getStorageSync('user')
+    // 获取招募令
     let res = await utils.requestPromise('GET', `/api/announcementById?id=${options.proId}`, '')
+    
     this.setData({
       data: res.data,
       proStart: res.data.proStart.split('/').join('-'),
@@ -26,6 +30,7 @@ Page({
       proReward: res.data.proReward,
       images: res.data.images.map(i => i.imagePath)
     })
+    // 初始化图片
     this.InitImageSize();
   },
   bindDateChange1: function(e) {
@@ -95,6 +100,7 @@ Page({
     // 筛选图片分类
     for (let i in this.data.data.images) {
       if (this.data.images.indexOf(i) === -1) {
+        // 上传需要删除的图片
         await utils.requestPromise('DELETE', '/api/announcement', {
           announcementId: this.data.data.announcementId,
           imagePath: i
