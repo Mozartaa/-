@@ -7,7 +7,11 @@ Page({
    */
   data: {
     currentTabIndex: 0,
-    all: [],
+    all: [{
+      name: 'test',
+      time: "1999",
+      require: "none"
+    }],
     being: [],
     completed: [],
     invalid: []
@@ -18,12 +22,23 @@ Page({
       currentTabIndex: index
     })
   },
+  // 编辑
   redictToview: function(op) {
     const id = op.target.id
-    console.log(op)
+    console.log('编辑招募令', op)
     wx.navigateTo({
       url: `/pages/modify_issue/modify_issue?proId=${id}`,
     })
+  },
+  // 标记为已完成
+  markcompleted: async function(op) {
+    console.log("标记为完成", op)
+    const id = op.target.id
+  },
+  // 标记为失效
+  markfail: async function(op) {
+    console.log("标记为失效", op)
+    const id = op.target.id
   },
   /**
    * 生命周期函数--监听页面加载
