@@ -12,9 +12,21 @@ Page({
       time: "1999",
       require: "none"
     }],
-    being: [],
-    completed: [],
-    invalid: []
+    being: [{
+      name: 'test',
+      time: "1999",
+      require: "none"
+    }],
+    completed: [{
+      name: 'test',
+      time: "1999",
+      require: "none"
+    }],
+    invalid: [{
+      name: 'test',
+      time: "1999",
+      require: "none"
+    }]
   },
   onTabsItemTap: function(event) {
     let index = event.currentTarget.dataset.index;
@@ -25,21 +37,62 @@ Page({
   // 编辑
   redictToview: function(op) {
     const id = op.target.id
+    const state = op.target.state || 0
     console.log('编辑招募令', op)
     wx.navigateTo({
-      url: `/pages/modify_issue/modify_issue?proId=${id}`,
+      url: `/pages/modify_issue/modify_issue?proId=${id}&state=${state}`,
     })
   },
   // 标记为已完成
   markcompleted: async function(op) {
     console.log("标记为完成", op)
     const id = op.target.id
+    // 获取被修改招募令的信息
+    let item = this.data.all.filter(i => i.proId === id)[0]
+    // 修改imagepath
+    item.imagesPath = item.images.map(i => i.imagePath)
+    // 设置状态
+    item.state = 1
+    await utils.requestPromise('PUT', '/api/announcement', item)
+      .then(res => {
+        console.log(res)
+        wx.showModal({
+          title: '提示',
+          content: '修改成功',
+        })
+      }).catch(err => {
+        console.log(err)
+        wx.showToast({
+          title: '修改失败',
+          icon: "none"
+        })
+      })
     this.onLoad()
   },
   // 标记为失效
   markfail: async function(op) {
     console.log("标记为失效", op)
     const id = op.target.id
+    // 获取被修改招募令的信息
+    let item = this.data.all.filter(i => i.proId === id)[0]
+    // 修改imagepath
+    item.imagesPath = item.images.map(i => i.imagePath)
+    // 设置状态
+    item.state = 2
+    await utils.requestPromise('PUT', '/api/announcement', item)
+      .then(res => {
+        console.log(res)
+        wx.showModal({
+          title: '提示',
+          content: '修改成功',
+        })
+      }).catch(err => {
+        console.log(err)
+        wx.showToast({
+          title: '修改失败',
+          icon: "none"
+        })
+      })
     this.onLoad()
   },
   /**
@@ -50,7 +103,10 @@ Page({
       .then(res => {
         console.log(res)
         this.setData({
-          all: res.data.data.announcements
+          all: res.data.data.announcements,
+          being: res.data.data.announcements.filter(i => i.state === 0),
+          completed: res.data.data.announcements.filter(i => i.state === 1),
+          invalid: res.data.data.announcements.filter(i => i.state === 2),
         })
       }).catch(err => {
         console.log(err)

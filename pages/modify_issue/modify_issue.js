@@ -21,11 +21,12 @@ Page({
     let user = wx.getStorageSync('user')
     // 获取招募令
     let res = await utils.requestPromise('GET', `/api/announcementById?id=${options.proId}`, '')
-    
+
     this.setData({
       data: res.data,
-      proStart: res.data.proStart.split('/').join('-'),
-      enrollDeadline: res.data.enrollDeadline.split('/').join('-'),
+      state: options.state,
+      proStart: that.format(res.data.proStart),
+      enrollDeadline: that.format(res.data.proStart),
       erollWay: res.data.erollWay,
       proReward: res.data.proReward,
       images: res.data.images.map(i => i.imagePath)
@@ -94,6 +95,7 @@ Page({
     // 数据验证结束
     data.proStart = this.data.proStart.split('-').join('/')
     data.enrollDeadline = this.data.enrollDeadline.split('-').join('/')
+    data.state = this.data.state
     wx.showLoading({
       title: '正在提交...',
     })
@@ -205,5 +207,9 @@ Page({
       }
     })
   },
-
+  // 时间格式化
+  format: function (time) {
+    const d = new Date(time)
+    return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`
+  },
 })

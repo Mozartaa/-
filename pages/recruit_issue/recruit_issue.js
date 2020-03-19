@@ -12,7 +12,7 @@ Page({
     proStart: '',
     enrollDeadline: '',
     erollWay: "线上合作",
-    proReward:"直接酬金",
+    proReward: "直接酬金",
   },
   bindDateChange1: function(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -100,8 +100,13 @@ Page({
       return
     }
     // 数据验证结束
+    // 增加字段
+    // 开始时间
     data.proStart = this.data.proStart.split('-').join('/')
+    // 结束时间
     data.enrollDeadline = this.data.enrollDeadline.split('-').join('/')
+    // 状态
+    data.state = 0
     wx.showLoading({
       title: '正在提交...',
     })
@@ -113,7 +118,8 @@ Page({
           title: '上传失败',
           icon: 'none',
         })
-      }).then(async(res) => {
+      })
+      .then(async(res) => {
         data.imagesPath = res
         let response = await utils.requestPromise('POST', '/api/announcement', data)
         wx.hideLoading()

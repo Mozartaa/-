@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/login/login",
-    "pages/iden/iden",
     "pages/myrecruit/myrecruit",
+    "pages/iden/iden",
     "pages/index-search/index-search",
     "pages/recruit_issue/recruit_issue",
     "pages/modify_issue/modify_issue",

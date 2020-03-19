@@ -13,16 +13,28 @@
   <view class='ordert-detail'>
     <!-- 全部 -->
     <view hidden='{{currentTabIndex != 0}}' class='favour-main'>
-      <view class='itemformation' wx:for="{{all}}">
+      <view class='itemformation' wx:for="{{being}}">
         <view class="dropdown">
           <span class='mag'>管理招募令</span>
           <view class="dropdown-content">
-            <view bindtap='redictToview' data-id='{{item.proId}}'>编辑招募令</view>
+            <view bindtap='redictToview' data-id='{{item.proId}}' data-state='{{item.state}}'>编辑招募令 </view>
             <view bindtap='markcompleted' data-id='{{item.proId}}'>标记为“已完成”</view>
-            <view bindtap='markfail' data-id='{{item.proId}}'>标记为“已失效”</view>
+            <view bindtap='markfail' data-id='{{item.proId}}'> 标记为“已失效”</view>
           </view>
         </view>
         <view class='line'></view>
+        <view class='name'>项目名称:{{item.name}}</view>
+        <view class='dep'>项目开始时间：{{item.time}}</view>
+        <view class='request'>招募要求：{{item.require}}</view>
+      </view>
+      <view class='itemformation_ed' wx:for="{{completed}}">
+        <view class='fulfill'>已完成</view>
+        <view class='name'>项目名称:{{item.name}}</view>
+        <view class='dep'>项目开始时间：{{item.time}}</view>
+        <view class='request'>招募要求：{{item.require}}</view>
+      </view>
+      <view class='itemformation_ed' wx:for="{{invalid}}">
+        <view class='fail'>已失效</view>
         <view class='name'>项目名称:{{item.name}}</view>
         <view class='dep'>项目开始时间：{{item.time}}</view>
         <view class='request'>招募要求：{{item.require}}</view>
@@ -34,7 +46,7 @@
         <view class="dropdown">
           <span class='mag'>管理招募令</span>
           <view class="dropdown-content">
-            <view bindtap='redictToview' data-id='{{item.proId}}'>编辑招募令 </view>
+            <view bindtap='redictToview' data-id='{{item.proId}}' data-state='{{item.state}}'>编辑招募令 </view>
             <view bindtap='markcompleted' data-id='{{item.proId}}'>标记为“已完成”</view>
             <view bindtap='markfail' data-id='{{item.proId}}'> 标记为“已失效”</view>
           </view>

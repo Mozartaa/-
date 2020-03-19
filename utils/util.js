@@ -1,4 +1,5 @@
-const HOST = "https://www.mozarta.cn:8088"
+// const HOST = "https://www.mozarta.cn:8088"
+const HOST = "https://drzhaoxi.org:8086"
 
 const requestPromise = async(method, url, data) => {
   let token = wx.getStorageSync("token")
