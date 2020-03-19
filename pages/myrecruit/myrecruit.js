@@ -34,11 +34,13 @@ Page({
   markcompleted: async function(op) {
     console.log("标记为完成", op)
     const id = op.target.id
+    this.onLoad()
   },
   // 标记为失效
   markfail: async function(op) {
     console.log("标记为失效", op)
     const id = op.target.id
+    this.onLoad()
   },
   /**
    * 生命周期函数--监听页面加载

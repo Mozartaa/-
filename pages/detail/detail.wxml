@@ -1,7 +1,13 @@
 <!--pages/detail.wxml-->
 <scroll-view>
-  <view class="detail">
-    <image src="{{proList.img}}"></image>
+  <view class="detail" wx:if="{{proList.images.length!=0}}">
+    <swiper indicator-dots='{{true}}'>
+      <block wx:for="{{proList.images}}">
+        <swiper-item>
+          <image src="{{item.imagePath}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
   </view>
   <view class="content">
     <view class="icon">
@@ -41,7 +47,7 @@
       <text class="text">启动时间</text>
     </view>
     <view class="item-list">
-      <view class="list-text">{{proList.proStart}}</view>
+      <view class="list-text">{{proStart}}</view>
     </view>
     <view class="icon">
       <image src="../../images/product.png"></image>
@@ -80,7 +86,7 @@
       <text class="text">报名截止时间</text>
     </view>
     <view class="item-list">
-      <view class="list-text">{{proList.enrollDeadline||""}}</view>
+      <view class="list-text">{{enrollDeadline||""}}</view>
     </view>
 
     <view class="icon">

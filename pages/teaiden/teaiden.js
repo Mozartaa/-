@@ -1,4 +1,5 @@
 // pages/teaiden/teaiden.js
+import utils from '../../utils/util.js'
 Page({
   data: {
     images: []

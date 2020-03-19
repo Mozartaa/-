@@ -33,7 +33,10 @@ Page({
       id: index,
     }).then(res => {
       that.setData({
-        proList: res.data
+        proList: res.data,
+        proStart: that.format(res.data.proStart),
+        enrollDeadline: that.format(res.data.enrollDeadline),
+        images: res.data.images.map(i => i.imagePath)
       })
     }).catch(err => {
       console.log(err)
@@ -43,7 +46,10 @@ Page({
       })
     })
   },
-
+  format: function(time) {
+    const d = new Date(time)
+    return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
