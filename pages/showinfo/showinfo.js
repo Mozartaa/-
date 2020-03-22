@@ -32,10 +32,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: async function() {
-    let res = await utils.getUserInfo()
-    this.setData({
-      user: res.user
-    })
+    try {
+      let res = await utils.getUserInfo()
+      this.setData({
+        user: res.user
+      })
+    } catch (err) {
+      console.log(err)
+    }
   },
 
   /**

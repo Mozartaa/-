@@ -92,14 +92,14 @@ Page({
     })
   },
   // 收藏
-  addFavor: async function(option) {
+  addFavor: function(option) {
     let that = this;
     let id = option.currentTarget.dataset.index;
     let index = that.data.postList.findIndex(i => i.proId === id);
-    await utils.requestPromise('POST', '/api/favorite', {
+    utils.requestPromise('POST', '/api/favorite', {
       otherId: id,
       type: 1
-    }).then((res) => {
+    }).then(res => {
       if (res.data.retCode === 0) {
         wx.showToast({
           title: '收藏成功',
@@ -113,14 +113,16 @@ Page({
           icon: 'none',
         })
       }
+    }).catch(err => {
+      console.log(err)
     })
   },
   // 取消收藏
-  cancelFavor: async function(option) {
+  cancelFavor: function(option) {
     let that = this;
     let id = option.currentTarget.dataset.index;
     let index = that.data.postList.findIndex(i => i.proId === id);
-    await utils.requestPromise('DELETE', '/api/favorite', {
+    utils.requestPromise('DELETE', '/api/favorite', {
       otherId: id,
       type: 1,
     }).then((res) => {

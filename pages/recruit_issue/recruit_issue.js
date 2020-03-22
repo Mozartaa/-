@@ -110,34 +110,57 @@ Page({
     wx.showLoading({
       title: '正在提交...',
     })
-    utils.upload(this.data.images)
-      .catch(err => {
-        console.log(err)
-        wx.hideLoading()
+    console.log(data)
+    try {
+      let imagelist = await utils.upload(this.data.images)
+      data.imagesPath = imagelist
+      let newrecruit = await utils.requestPromise('POST', '/api/announcement', data)
+      if (newrecruit.data.retCode === -1) {
+        throw "身份未认证"
+      } else {
         wx.showToast({
-          title: '上传失败',
-          icon: 'none',
+          title: '发布成功'
         })
+        setTimeout(() => {
+          wx.navigateBack({})
+        }, 1600)
+      }
+    } catch (err) {
+      console.log(err)
+      wx.showModal({
+        title: '发布失败',
+        content: err,
       })
-      .then(async(res) => {
-        data.imagesPath = res
-        let response = await utils.requestPromise('POST', '/api/announcement', data)
-        wx.hideLoading()
-        console.log(response)
-        if (response.data.retCode === -1) {
-          wx.showModal({
-            title: '发布失败',
-            content: '身份未认证',
-          })
-        } else {
-          wx.showToast({
-            title: '发布成功'
-          })
-          setTimeout(() => {
-            wx.navigateBack({})
-          }, 1600)
-        }
-      })
+    }
+    wx.hideLoading()
+    // utils.upload(this.data.images)
+    //   .then(async(res) => {
+    //     data.imagesPath = res
+    //     let response = await utils.requestPromise('POST', '/api/announcement', data)
+    //     wx.hideLoading()
+    //     console.log(response)
+    //     if (response.data.retCode === -1) {
+    //       wx.showModal({
+    //         title: '发布失败',
+    //         content: '身份未认证',
+    //       })
+    //     } else {
+    //       wx.showToast({
+    //         title: '发布成功'
+    //       })
+    //       setTimeout(() => {
+    //         wx.navigateBack({})
+    //       }, 1600)
+    //     }
+    //   })
+    //   .catch(err => {
+    //     console.log(err)
+    //     wx.hideLoading()
+    //     wx.showToast({
+    //       title: '上传失败',
+    //       icon: 'none',
+    //     })
+    //   })
   },
   /**
    * 生命周期函数--监听页面加载

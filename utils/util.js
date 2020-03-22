@@ -40,34 +40,62 @@ const updateUserInfo = async(data) => {
   }
 }
 // 多文件上传
+
+
 const upload = async(list) => {
   if (list.length === 0) {
     return []
   } else {
-    return new Promise((resolve, reject) => {
-      let token = wx.getStorageSync("token")
-      wx.uploadFile({
-        url: HOST + '/api/auth/proof',
-        filePath: list[0],
-        name: 'file',
-        header: {
-          'token': token
-        },
-        success: async(res) => {
-          if (JSON.parse(res.data).retCode === -1) {
-            console.log(JSON.parse(res.data))
-            reject("上传失败")
-          } else {
-            console.log(`上传成功`, JSON.parse(res.data))
-            resolve([JSON.parse(res.data).data.url, ...await upload(list.slice(1))])
+    let token = wx.getStorageSync("token")
+    return Promise.all(list.map(i =>
+      new Promise((resolve, reject) => {
+        wx.uploadFile({
+          url: HOST + '/api/auth/proof',
+          filePath: list[0],
+          name: 'file',
+          header: {
+            'token': token
+          },
+          success: async(res) => {
+            if (JSON.parse(res.data).retCode === -1) {
+              console.log(JSON.parse(res.data))
+              reject("图片上传失败")
+            } else {
+              console.log(`上传成功`, JSON.parse(res.data))
+              resolve(JSON.parse(res.data).data.url)
+            }
+          },
+          fail: res => {
+            console.log(res)
+            reject("图片上传失败")
           }
-        },
-        fail: res => {
-          console.log(res)
-          reject("上传失败")
-        }
+        })
       })
-    })
+    ))
+    // return new Promise((resolve, reject) => {
+    //   let token = wx.getStorageSync("token")
+    //   wx.uploadFile({
+    //     url: HOST + '/api/auth/proof',
+    //     filePath: list[0],
+    //     name: 'file',
+    //     header: {
+    //       'token': token
+    //     },
+    //     success: async(res) => {
+    //       if (JSON.parse(res.data).retCode === -1) {
+    //         console.log(JSON.parse(res.data))
+    //         reject("上传失败")
+    //       } else {
+    //         console.log(`上传成功`, JSON.parse(res.data))
+    //         resolve([JSON.parse(res.data).data.url, ...await upload(list.slice(1))])
+    //       }
+    //     },
+    //     fail: res => {
+    //       console.log(res)
+    //       reject("上传失败")
+    //     }
+    //   })
+    // })
 
   }
 }

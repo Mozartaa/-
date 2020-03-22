@@ -15,11 +15,6 @@ Page({
         name: 'f',
         value: '女'
       },
-      // {
-      //   name: 'secret',
-      //   value: '保密',
-      //   checked: 'true'
-      // },
     ]
   },
   bindKeyInput: function(e) {

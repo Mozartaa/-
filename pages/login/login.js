@@ -15,7 +15,7 @@ Page({
         if (res.authSetting['scope.userInfo']) {
           // 个人数据
           utils.getUserInfo()
-            .then((r) => {
+            .then(r => {
               wx.setStorageSync('user', r.user)
               wx.showToast({
                 title: '登录成功',
@@ -29,10 +29,10 @@ Page({
             })
             .catch(() => {
               // token失效后重新登录
-              wx.getUserInfo({
-                success: e => {
-                  wx.login({
-                    success: res => {
+              wx.login({
+                success: res => {
+                  wx.getUserInfo({
+                    success: e => {
                       console.log(e, res);
                       wx.request({
                         url: utils.HOST + '/api/user/login',
@@ -68,9 +68,9 @@ Page({
                             })
                           }
                         },
-                        fail: err => {
-                          console.log("重新登录失败", err)
-                        }
+                        // fail: err => {
+                        //   console.log("重新登录失败", err)
+                        // }
                       })
                     }
                   })
