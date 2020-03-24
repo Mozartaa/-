@@ -17,17 +17,18 @@ Page({
   },
   // 初始化
   onLoad: async function(options) {
+    const that = this
     // 获取个人信息
     let user = wx.getStorageSync('user')
     // 获取招募令
     let res = await utils.requestPromise('GET', `/api/announcementById?id=${options.proId}`, '')
 
     this.setData({
-      data: res.data,
-      state: options.state,
-      proStart: that.format(res.data.proStart),
-      enrollDeadline: that.format(res.data.proStart),
-      erollWay: res.data.erollWay,
+      data: res.data, //数据
+      state: options.state, //状态
+      proStart: that.format(res.data.proStart), //开始时间
+      enrollDeadline: that.format(res.data.proStart), //结束时间
+      erollWay: res.data.erollWay, //招募方式
       proReward: res.data.proReward,
       images: res.data.images.map(i => i.imagePath)
     })
@@ -93,51 +94,75 @@ Page({
       return
     }
     // 数据验证结束
+
+    // 修改数据格式
     data.proStart = this.data.proStart.split('-').join('/')
     data.enrollDeadline = this.data.enrollDeadline.split('-').join('/')
-    data.state = this.data.state
-    wx.showLoading({
-      title: '正在提交...',
-    })
+    // 增加proId
+    data.proId = this.data.data.proId
     // 筛选图片分类
-    for (let i in this.data.data.images) {
-      if (this.data.images.indexOf(i) === -1) {
-        // 上传需要删除的图片
-        await utils.requestPromise('DELETE', '/api/announcement', {
-          announcementId: this.data.data.announcementId,
-          imagePath: i
-        })
-      }
-    }
-    // 上传文件
-    utils.upload(this.data.images)
-      .catch(err => {
-        console.log(err)
-        wx.hideLoading()
-        wx.showToast({
-          title: '上传失败',
-          icon: 'none',
-        })
-      }).then(async res => {
-        // 图片地址 列表
-        data.imagesPath = res
-        let response = await utils.requestPromise('PUT', '/api/announcement', data)
-        wx.hideLoading()
-        console.log(response)
-        if (response.data.retCode === -1) {
-          wx.showModal({
-            title: '发布失败',
-            content: '身份未认证',
-          })
-        } else {
-          wx.showToast({
-            title: '发布成功'
-          })
-          setTimeout(() => {
-            wx.navigateBack({})
-          }, 1600)
-        }
+    // 修改招募令
+    try {
+      wx.showLoading({
+        title: '正在提交...',
       })
+      // 删除图片
+      for (let i in this.data.data.images) {
+        if (this.data.images.indexOf(i) === -1) {
+          // 上传需要删除的图片
+          await utils.requestPromise('DELETE', '/api/announcement', {
+            announcementId: this.data.data.announcementId,
+            imagePath: i
+          })
+        }
+      }
+      // 提交图片
+      const uploadimages = await utils.upload(this.data.images)
+      const images = uploadimages.imagesPath
+      data.imagePath = images
+      const response = await utils.requestPromise('PUT', '/api/announcement', data)
+      wx.showToast({
+        title: '修改成功'
+      })
+      setTimeout(() => {
+        wx.navigateBack({})
+      }, 1600)
+    } catch (err) {
+      console.log(err)
+      wx.showToast({
+        title: '上传失败',
+        icon: 'none',
+      })
+    } finally {
+      wx.hideLoading()
+    }
+    // utils.upload(this.data.images).then(async res => {
+    //   // 图片地址 列表
+    //   data.imagesPath = res
+    //   let response = await utils.requestPromise('PUT', '/api/announcement', data)
+    //   wx.hideLoading()
+    //   console.log(response)
+    //   if (response.data.retCode === -1) {
+    //     wx.showModal({
+    //       title: '发布失败',
+    //       content: '身份未认证',
+    //     })
+    //   } else {
+    //     wx.showToast({
+    //       title: '发布成功'
+    //     })
+    //     setTimeout(() => {
+    //       wx.navigateBack({})
+    //     }, 1600)
+    //   }
+    // }).catch(err => {
+    //   console.log(err)
+    //   wx.hideLoading()
+    //   wx.showToast({
+    //     title: '上传失败',
+    //     icon: 'none',
+    //   })
+    // })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -208,7 +233,7 @@ Page({
     })
   },
   // 时间格式化
-  format: function (time) {
+  format: function(time) {
     const d = new Date(time)
     return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`
   },

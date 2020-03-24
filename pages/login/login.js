@@ -90,7 +90,7 @@ Page({
   },
   bindGetUserInfo: async function(e) {
     var that = this;
-    console.log(e.detail.rawData)
+    console.log('正在登录',e)
     wx.showLoading({
       title: '正在登录中...',
     })

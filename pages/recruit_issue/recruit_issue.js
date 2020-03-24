@@ -75,7 +75,7 @@ Page({
   },
 
   onFormSubmitTap: async function(event) {
-    console.log('start', event)
+    console.log('开始提交', event)
     let data = event.detail.value
     // 数据验证
     if (data.proName === '') {
@@ -100,7 +100,8 @@ Page({
       return
     }
     // 数据验证结束
-    // 增加字段
+
+    // 增加修改字段
     // 开始时间
     data.proStart = this.data.proStart.split('-').join('/')
     // 结束时间
@@ -110,14 +111,18 @@ Page({
     wx.showLoading({
       title: '正在提交...',
     })
-    console.log(data)
     try {
+      // 提交图片
       let imagelist = await utils.upload(this.data.images)
+      console.log("图片提交完成", imagelist)
       data.imagesPath = imagelist
+      console.log("招募令数据（未提交）：", data)
+      // 提交招募令
       let newrecruit = await utils.requestPromise('POST', '/api/announcement', data)
       if (newrecruit.data.retCode === -1) {
         throw "身份未认证"
       } else {
+        console.log('招募令提交完成')
         wx.showToast({
           title: '发布成功'
         })
@@ -133,34 +138,6 @@ Page({
       })
     }
     wx.hideLoading()
-    // utils.upload(this.data.images)
-    //   .then(async(res) => {
-    //     data.imagesPath = res
-    //     let response = await utils.requestPromise('POST', '/api/announcement', data)
-    //     wx.hideLoading()
-    //     console.log(response)
-    //     if (response.data.retCode === -1) {
-    //       wx.showModal({
-    //         title: '发布失败',
-    //         content: '身份未认证',
-    //       })
-    //     } else {
-    //       wx.showToast({
-    //         title: '发布成功'
-    //       })
-    //       setTimeout(() => {
-    //         wx.navigateBack({})
-    //       }, 1600)
-    //     }
-    //   })
-    //   .catch(err => {
-    //     console.log(err)
-    //     wx.hideLoading()
-    //     wx.showToast({
-    //       title: '上传失败',
-    //       icon: 'none',
-    //     })
-    //   })
   },
   /**
    * 生命周期函数--监听页面加载

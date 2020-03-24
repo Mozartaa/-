@@ -61,7 +61,7 @@ const upload = async(list) => {
               console.log(JSON.parse(res.data))
               reject("图片上传失败")
             } else {
-              console.log(`上传成功`, JSON.parse(res.data))
+              console.log(`图片上传成功`, JSON.parse(res.data))
               resolve(JSON.parse(res.data).data.url)
             }
           },
