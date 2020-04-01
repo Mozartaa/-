@@ -28,10 +28,5 @@ Page({
         wx.hideLoading()
       }
     })
-  },
-  postSearch: function() {
-    wx.navigateTo({
-      url: '/pages/recruit_issue/recruit_issue',
-    })
   }
 })

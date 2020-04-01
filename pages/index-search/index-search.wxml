@@ -1,5 +1,5 @@
 <view class="search">
-  <input type="search" class="search-text" placeholder="开启你的潜研之路！" bindinput="bindInput" value='{{searchValue}}' />
+  <input type="search" class="search-text" placeholder="开启你的潜研之路！" bindinput="bindInput" value='{{searchValue}}' bindconfirm="bindSearch"/>
   <view class="search-btn" bindtap='bindSearch'>
     <text class="search-btn-text">搜索</text>
   </view>

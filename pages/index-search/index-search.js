@@ -145,8 +145,9 @@ Page({
     await utils.requestPromise('POST', '/api/favorite', {
       otherId: id,
       type: 0,
-    }).then((res) => {
+    }).then(res => {
       if (res.data.retCode === 0) {
+        // 收藏成功
         wx.showToast({
           title: '收藏成功',
         })
@@ -154,6 +155,8 @@ Page({
           [`postList[${index}].flag`]: true,
         })
       } else {
+        // 收藏失败
+        console.log('收藏失败', res)
         wx.showToast({
           title: '收藏失败',
           icon: 'none',

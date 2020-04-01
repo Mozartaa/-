@@ -144,4 +144,11 @@ Page({
     const d = new Date(time)
     return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`
   },
+  
+  //发布一条招募令
+  postSearch: function () {
+    wx.navigateTo({
+      url: '/pages/recruit_issue/recruit_issue',
+    })
+  }
 })

@@ -1,5 +1,5 @@
 <view class="search">
-  <input placeholder="{{searchValue}}" bindinput="bindInput" />
+  <input placeholder="{{searchValue}}" bindinput="bindInput"  bindconfirm="bindSearch"/>
   <view class="search-btn" bindtap='bindSearch'>
     <image src="../../images/search.png"></image>
   </view>

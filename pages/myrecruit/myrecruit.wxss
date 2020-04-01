@@ -179,3 +179,19 @@
   height: 2rpx;
   background-color: black;
 }
+
+.post-btn {
+  display: flex;
+  justify-content: center;
+  padding: 16rpx 32rpx;
+  color: #5bd4c7;
+  font-size: 36rpx;
+  line-height: 56rpx;
+  background-color: #f5f8f9;
+  border-radius: 200rpx;
+  width:80%;
+  bottom:5px;
+  position:fixed;
+  left:50%;
+  transform:translate(-50%,-50%);   
+}

@@ -29,7 +29,8 @@ Page({
       proStart: that.format(res.data.proStart), //开始时间
       enrollDeadline: that.format(res.data.proStart), //结束时间
       erollWay: res.data.erollWay, //招募方式
-      proReward: res.data.proReward,
+      proReward: res.data.proReward.split(' ')[0], //类型
+      proReward1: res.data.proReward.split(' ')[1] || "", //酬金
       images: res.data.images.map(i => i.imagePath)
     })
     // 初始化图片
@@ -53,7 +54,7 @@ Page({
       erollWay: (e.detail.value === "0") ? '线上合作' : '线下参与',
     })
   },
-  bindDateChange4: function(e) {
+  bindDateChange4: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     let _ = e.detail.value
     if (_ === "0") {
@@ -98,6 +99,7 @@ Page({
     // 修改数据格式
     data.proStart = this.data.proStart.split('-').join('/')
     data.enrollDeadline = this.data.enrollDeadline.split('-').join('/')
+    data.proReward = `${this.data.proReward} ${data.proReward || ""}`
     // 增加proId
     data.proId = this.data.data.proId
     // 筛选图片分类

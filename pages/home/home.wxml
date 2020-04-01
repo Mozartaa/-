@@ -3,7 +3,7 @@
     <view class="header">
       <text class="header__text-title">潜研小栈</text>
       <view class="search">
-        <input type="search" class="search-text" placeholder="开启你的潜研之路!" bindinput="bindInput" />
+        <input type="search" class="search-text" placeholder="开启你的潜研之路!" bindinput="bindInput" bindconfirm="bindSearch"/>
         <view class="search-btn" bindtap='bindSearch'>
           <text class="search-btn-text">搜索</text>
         </view>
@@ -40,9 +40,6 @@
         <text class="item" bindtap='SearchKeyWord' data-type="直接酬金">直接酬金</text>
         <text class="item" bindtap='SearchKeyWord' data-type="间接酬金">间接酬金</text>
         <text class="item" bindtap='SearchKeyWord' data-type="无酬金">无酬金</text>
-      </view>
-      <view class="post-btn" bindtap='postSearch'>
-        <text class="post-btn-text">发布一条招募令</text>
       </view>
     </view>
   </view>

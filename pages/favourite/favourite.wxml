@@ -13,15 +13,23 @@
   <view class='ordert-detail'>
     <!-- 全部 -->
     <view hidden='{{currentTabIndex != 0}}' class='favour-main'>
+      <!-- 招募令 -->
       <view class='teaformation' wx:for="{{announcements}}" wx:key="{{item.proId}}">
         <view class='name'>项目名称:{{item.proName}}</view>
         <view class='dep'>项目开始时间：{{item.Start||''}}</view>
         <view class='homepage'>招募要求：{{item.enrollRequirements||""}}</view>
+        <view class="favor" data-index='{{item.proId}}' bindtap='cancelFavor'>
+          <image src="../../images/starY.png"></image>
+        </view>
       </view>
+      <!-- 教师 -->
       <view class='teaformation' wx:for="{{teachers}}" wx:key="{{item.id}}">
         <view class='name'>教师姓名:{{item.username}}</view>
         <view class='dep'>研究方向：{{item.department}}</view>
-        <view class='homepage'>{{item.perHomepage}}</view>
+        <view class='homepage' bindtap='copyTBL' data-url="{{item.perHomepage}}">{{item.perHomepage}}</view>
+        <view class="favor" data-id='{{item.id}}' bindtap='open_tap'>
+          <image src="../../images/starY.png"></image>
+        </view>
       </view>
     </view>
     <view hidden='{{currentTabIndex != 1}}' class='favour-main'>
@@ -30,6 +38,9 @@
         <view class='name'>项目名称:{{item.proName}}</view>
         <view class='dep'>项目开始时间：{{item.Start||''}}</view>
         <view class='homepage'>招募要求：{{item.enrollRequirements||""}}</view>
+        <view class="favor" data-index='{{item.proId}}' bindtap='cancelFavor'>
+          <image src="../../images/starY.png"></image>
+        </view>
       </view>
     </view>
     <view hidden='{{currentTabIndex != 2}}' class='favour-main'>
@@ -37,7 +48,10 @@
       <view class='teaformation' wx:for="{{teachers}}" wx:key="{{item.id}}">
         <view class='name'>教师姓名:{{item.username}}</view>
         <view class='dep'>研究方向：{{item.department}}</view>
-        <view class='homepage'>http://balabalababalalababababalalalal.com</view>
+        <view class='homepage' bindtap='copyTBL' data-url="{{item.perHomepage}}">{{item.perHomepage}}</view>
+        <view class="favor">
+          <image src="../../images/starY.png" data-id='{{item.id}}' bindtap='open_tap'></image>
+        </view>
       </view>
     </view>
   </view>

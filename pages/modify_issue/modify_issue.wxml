@@ -79,7 +79,7 @@
 
   <view class='words'>项目酬金:</view>
   <view class='in'>
-    <input class="input" name="proReward" placeholder="(如无酬金则不需输入此行）" />
+    <input class="input" name="proReward" placeholder="(如无酬金则不需输入此行）" value='{{proReward1}}'/>
   </view>
   <view class='line'></view>
   <!-- <view class='words'>项目酬金(元/人):</view>

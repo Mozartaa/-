@@ -78,14 +78,16 @@
 .hot {
   /* box-sizing: border-box; */
   margin: 60rpx 30rpx;
-  border-radius: 10rpx;
+  border-radius: 3rpx;
   background: white;
-  box-shadow: 5px 5px #e4e4e4;
+  box-shadow: 4px 4px #e4e4e4;
   /* width: 100%; */
 }
 
 .hot .inner {
-  border: 1px solid #e4e4e4;
+  border-width:1px 1px 0.5px 2px;
+  border-style: solid;
+  border-color: #e4e4e4 #e4e4e4 #e4e4e4 #5bd4c7;
 }
 
 .hot .inner1 {
@@ -104,8 +106,17 @@
   display: flex;
   direction: row;
   flex-wrap: wrap;
-  border: 1px solid #e4e4e4;
+  border-width:1px 1px 0.5px 2px;
+  border-style: solid;
+  border-color: #e4e4e4 #e4e4e4 #e4e4e4 #5bd4c7;
   padding-left: 10px;
+}
+
+.hot .inner3 {
+  height: 78rpx;
+  border-width:1px 1px 0.5px 2px;
+  border-style: solid;
+  border-color: #e4e4e4 #e4e4e4 #e4e4e4 #5bd4c7;
 }
 
 .hot .inner .item {
@@ -119,6 +130,20 @@
   width: 40rpx;
   height: 40rpx;
   opacity: 0.5;
+}
+
+.inner3 image{
+  margin-left: 4%;
+  margin-top: 2.3%;
+  width: 40rpx;
+  height: 40rpx;
+  opacity: 0.5;
+}
+
+.FourHundreds{
+  text-align: center;
+  font-size: 30rpx;
+  color: #888;
 }
 
 .w1 {

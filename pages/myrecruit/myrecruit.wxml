@@ -10,6 +10,7 @@
       </view>
     </block>
   </view>
+  
   <view class='ordert-detail'>
     <!-- 全部 -->
     <view hidden='{{currentTabIndex != 0}}' class='favour-main'>
@@ -73,4 +74,7 @@
       </view>
     </view>
   </view>
+</view>
+<view class="post-btn" bindtap='postSearch'>
+  <text class="post-btn-text">发布一条招募令</text>
 </view>

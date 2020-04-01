@@ -106,6 +106,8 @@ Page({
     data.proStart = this.data.proStart.split('-').join('/')
     // 结束时间
     data.enrollDeadline = this.data.enrollDeadline.split('-').join('/')
+    //项目酬金
+    data.proReward = `${this.data.proReward} ${data.proReward || ""}`
     // 状态
     data.state = 0
     wx.showLoading({
