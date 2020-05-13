@@ -114,12 +114,15 @@
 
 
 .teaformation .dep {
+  display: -webkit-box;
   font-size: 30rpx;
   margin-left: 10rpx;
   color: white;
   padding-left: 2px;
   text-overflow: ellipsis;
   overflow: hidden;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:4;
 }
 
 .teaformation .homepage {
@@ -132,6 +135,21 @@
   overflow: hidden;
 }
 
+.detailBtn text{
+  font-size: 30rpx;
+  color: rgb(91, 212, 199);
+  background-color:transparent;
+  line-height: 50rpx;
+  margin:10px 10px 0px 10px;
+}
+
+.one image{
+  position: absolute;
+  right:0;
+  top:1rpx;
+  height: 180rpx;
+  width: 100rpx;
+}
 
 .scroll-view-y {
   width: 100%;
@@ -151,7 +169,7 @@
   height: 60rpx;
 }
 
-.fourlogo {
+/* .fourlogo {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -163,7 +181,7 @@
 .fourlogo image {
   width: 60rpx;
   height: 60rpx;
-}
+} */
 
 .box {
   position: absolute;

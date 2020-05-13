@@ -1,0 +1,61 @@
+<view class='changeinfo-title'>修改教师个人信息</view>
+
+<view class='changeinfo-body'>
+  <view class='item'>
+    <view class='flex-view-item'>姓名</view>
+    <view class="item3">
+      <input class="input" name="userLocation" placeholder="请输入您的姓名" maxlength="9" value='{{user.userNAME}}' bindinput="userLocationInput" bindinput="bindKeyInput" data-index="userNick" />
+    </view>
+  </view>
+  <view class='item'>
+    <view class='flex-view-item'>职称</view>
+    <view class="item3">
+      <input class="input" name="userLocation" placeholder="请输入您的职称" value='{{user.userNICKNAME||""}}' bindinput="userLocationInput" bindinput="bindKeyInput" data-index="userPhone" />
+    </view>
+  </view>
+  <view class='item'>
+    <view class='flex-view-item'>学院</view>
+    <view class="item3">
+      <input class="input" name="userLocation" placeholder="请输入您所在的学院" value='{{user.userNICKNAME||""}}' bindinput="userLocationInput" bindinput="bindKeyInput" data-index="userPhone" />
+    </view>
+  </view>
+  <view class='item'>
+    <view class='flex-view-item'>办公地址</view>
+    <view class="item3">
+      <input class="input" name="userLocation" placeholder="请输入您的办公地址" value='{{user.userPLACE||""}}' bindinput="userLocationInput" bindinput="bindKeyInput" data-index="userEmail" />
+    </view>
+  </view>
+  <view class='item'>
+    <view class='flex-view-item'>Email</view>
+    <view class="item3">
+      <input class="input" name="userLocation" placeholder="请输入您的Email地址" value='{{user.userEMAIL||""}}' bindinput="userLocationInput" bindinput="bindKeyInput" data-index="userEmail" />
+    </view>
+  </view>
+  <view class='item'>
+    <view class='flex-view-item'>教师寄语</view>
+    <view class="item3">
+      <input class="input" name="userLocation" placeholder="请输入您的寄语" maxlength="100" value='{{user.userWISH||""}}' bindinput="userLocationInput" bindinput="bindKeyInput" data-index="userWISH" />
+    </view>
+  </view>
+  <view class='item'>
+    <view class='flex-view-item'>研究领域</view>
+    <view class="item3">
+      <input class="input" name="userLocation" placeholder="请输入您的研究领域" maxlength="100" value='{{user.userAREA||""}}' bindinput="userLocationInput" bindinput="bindKeyInput" data-index="userAREA" />
+    </view>
+  </view>
+  <view class='item'>
+    <view class='flex-view-item'>科研成果</view>
+    <view class="item3">
+      <input class="input" name="userLocation" placeholder="请输入您的科研成果" maxlength="100" value='{{user.usersuccess||""}}' bindinput="userLocationInput" bindinput="bindKeyInput" data-index="usersuccess" />
+    </view>
+  </view>
+  <view class='item'>
+    <view class='flex-view-item'>个人主页网址</view>
+    <view class="item3">
+      <input class="input" name="userLocation" placeholder="请输入您的个人主页网址" maxlength="100" value='{{user.userHOMEPAGE||""}}' bindinput="userLocationInput" bindinput="bindKeyInput" data-index="userHOMEPAGE" />
+    </view>
+  </view>
+  <view class='item4'>
+    <button bindtap='submit'>保存</button>
+  </view>
+</view>

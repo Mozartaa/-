@@ -143,6 +143,7 @@
   border-bottom: 1rpx solid #e9e9e9;
 }
 
+
 .dropdown {
   position: relative;
   display: inline-block;
@@ -179,6 +180,7 @@
   height: 2rpx;
   background-color: black;
 }
+
 
 .post-btn {
   display: flex;

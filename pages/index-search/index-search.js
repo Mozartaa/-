@@ -23,6 +23,12 @@ Page({
       searchValue: e.detail.value
     })
   },
+  bindDetail: function (option) {
+    let index = option.currentTarget.dataset.index
+    wx.navigateTo({
+      url: `../see_tea/see_tea?index=${index}`,
+    })
+  },
   // 搜索
   bindSearch: async function() {
     let that = this;
@@ -96,7 +102,7 @@ Page({
         size: Max,
       })
       for (let item of data.data) {
-        let flag = this.data.favor.findIndex((i) => i.proId === item.proId);
+        let flag = this.data.favor.findIndex((i) => i.id === item.id);
         if (flag !== -1) {
           item.flag = true;
         } else {

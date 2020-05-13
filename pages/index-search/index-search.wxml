@@ -1,5 +1,5 @@
 <view class="search">
-  <input type="search" class="search-text" placeholder="开启你的潜研之路！" bindinput="bindInput" value='{{searchValue}}' bindconfirm="bindSearch"/>
+  <input type="search" class="search-text" placeholder="开启你的潜研之路！" bindinput="bindInput" value='{{searchValue}}' bindconfirm="bindSearch" />
   <view class="search-btn" bindtap='bindSearch'>
     <text class="search-btn-text">搜索</text>
   </view>
@@ -12,16 +12,18 @@
     <!-- 姓名 -->
     <view class='name'>{{item.username}}</view>
     <!-- 四个一百标记 -->
-    <view class='box' wx:if="{{isFourHundred}}">
-      <view class="fourlogo">
-        <image src="../../images/4logo.png"></image>
+    <view class='box' wx:if="{{item.isFourHundred}}">
+      <view class="one">
+        <image catchtap='open_tap' src="../../images/hundtea.png"></image>
       </view>
-      <view class='fourhundreds'>“四个一百”育人行动教师</view>
     </view>
     <!-- 研究方向 -->
     <view class='dep'>研究方向：{{item.department}}</view>
     <!-- 主页 -->
     <view class='homepage' bindtap='copyTBL' data-url="{{item.perHomepage}}">{{item.perHomepage}}</view>
+     <view class="detailBtn">
+      <text bindtap='bindDetail' data-index='{{item.proId}}'>阅读详情-></text>
+    </view>
     <!-- 收藏 -->
     <view class="favor">
       <image catchtap='open_tap' wx:if="{{item.flag}}" src="../../images/starEnd.png" data-id='{{item.id}}'></image>

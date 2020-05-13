@@ -10,7 +10,7 @@
       </view>
     </block>
   </view>
-  
+
   <view class='ordert-detail'>
     <!-- 全部 -->
     <view hidden='{{currentTabIndex != 0}}' class='favour-main'>
@@ -41,6 +41,7 @@
         <view class='request'>招募要求：{{item.enrollRequirements}}</view>
       </view>
     </view>
+    
     <!-- 进行中 -->
     <view hidden='{{currentTabIndex != 1}}' class='favour-main'>
       <view class='itemformation' wx:for="{{being}}">
@@ -78,3 +79,4 @@
 <view class="post-btn" bindtap='postSearch'>
   <text class="post-btn-text">发布一条招募令</text>
 </view>
+<view style="height:180rpx;"></view>

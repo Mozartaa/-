@@ -133,7 +133,7 @@
 }
 
 .inner3 image{
-  margin-left: 4%;
+  margin-left: 3.5%;
   margin-top: 2.3%;
   width: 40rpx;
   height: 40rpx;

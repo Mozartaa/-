@@ -30,7 +30,11 @@ Page({
       url: '../favourite/favourite'
     })
   },
-
+  jumpToTea_self: () => {
+    wx.navigateTo({
+      url: '../tea_self/tea_self'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

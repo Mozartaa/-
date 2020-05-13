@@ -33,4 +33,10 @@
     <view class='flex-view-item'>我的招募令</view>
     <button bindtap="jumpToMyrecruit">> </button>
   </view>
+    <view class='item' wx:if="{{user.authenticate===1}}">
+    <image class="item1" src="../../images/teacher.png" mode="aspectFill">
+    </image>
+    <view class='flex-view-item'>我的教师信息</view>
+    <button bindtap="jumpToTea_self">> </button>
+  </view>
 </view>

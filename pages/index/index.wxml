@@ -11,6 +11,12 @@
   <view class='inner inner1'>
     <view class='hotwords'>热词榜</view>
   </view>
+  <view class='inner3'>
+    <navigator url="../index-search/index-search?searchValue={{'四个一百教师'}}">
+      <image src='../../images/fire.png'></image>
+      <text class='FourHundreds'>“四个一百”教师</text>
+    </navigator>
+  </view>
   <view class='inner inner2'>
     <view class='item' wx:for="{{hotwords}}">
       <navigator url="../index-search/index-search?searchValue={{item.name}}">
@@ -18,11 +24,5 @@
         <text class='w1'>{{item.name}}</text>
       </navigator>
     </view>
-  </view>
-  <view class='inner3'>
-    <navigator url="../index-search/index-search?searchValue={{'四个一百教师'}}">
-      <image src='../../images/fire.png'></image>
-      <text class='FourHundreds'>“四个一百”教师</text>
-    </navigator>
   </view>
 </view>

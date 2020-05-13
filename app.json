@@ -16,7 +16,10 @@
     "pages/my/my",
     "pages/showinfo/showinfo",
     "pages/ChangeInfo/ChangeInfo",
-    "pages/favourite/favourite"
+    "pages/favourite/favourite",
+    "pages/see_tea/see_tea",
+    "pages/tea_self/tea_self",
+    "pages/change_tea_self/change_tea_self"
   ],
   "window": {
     "backgroundTextStyle": "light",
