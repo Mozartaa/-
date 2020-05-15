@@ -1,13 +1,12 @@
-// pages/see_tea/see_tea.js
+import utils from '../../utils/util.js'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    user: {}
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -25,8 +24,25 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
+  onShow: async function () {
+    const that = this
+    try {
+      let res = await utils.getUserInfo()
+      that.setData({
+        username: res.username || '',
+        // ['user.username']: 'res.username', // test
+        ['user.profession']: res.profession || '', //职称
+        ['user.college']: res.college || '',
+        ['user.office']: res.office || '', //办公地址
+        ['user.email']: res.email || '',
+        ['user.message']: res.message || '', //教师寄语
+        ['user.department']: res.department || '', //研究领域
+        ['user.sci_information']: res.sci_information || '', //科研成果
+        ['user.per_homepage']: res.per_homepage || '', //个人主页
+      })
+    } catch (err) {
+      console.log(err)
+    }
   },
 
   /**

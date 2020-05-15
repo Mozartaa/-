@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    user: ""
+    user: {}
   },
   //跳到“修改基本信息”的页面的事件处理函数
   jumpTochangeinfoPage: function() {
@@ -31,10 +31,20 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: async function() {
+    const that=this
     try {
       let res = await utils.getUserInfo()
-      this.setData({
-        user: res.user
+      that.setData({
+        username: res.username||'',
+        // ['user.username']: 'res.username', // test
+        ['user.profession']: res.profession || '', //职称
+        ['user.college']: res.college || '',
+        ['user.office']: res.office || '', //办公地址
+        ['user.email']: res.email || '',
+        ['user.message']: res.message || '', //教师寄语
+        ['user.department']: res.department || '', //研究领域
+        ['user.sci_information']: res.sci_information || '', //科研成果
+        ['user.per_homepage']: res.per_homepage || '', //个人主页
       })
     } catch (err) {
       console.log(err)

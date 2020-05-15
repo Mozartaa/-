@@ -7,15 +7,15 @@ Page({
    */
   bindKeyInput: function(e) {
     this.setData({
-      [`user.${e.target.dataset.index}`]: e.detail.value
+      [`${e.target.dataset.index}`]: e.detail.value
     })
   },
   check: function() {
     // 检查邮箱
-    let email = this.data.user.userEmail
-    if (!(/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(email)) && email !== "" && email !== null) {
+    let email = this.data.email||''
+    if (!(/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(email))) {
       wx.showToast({
-        title: '邮箱有误',
+        title: '邮箱格式有误',
         icon: 'none',
     })
       return false;
@@ -28,13 +28,15 @@ Page({
     if (!this.check()) {
       return
     }
-    console.log(this.data.user)
+    console.log(this.data)
     await utils.updateUserInfo({
-      userNICKNAME: that.data.user.userNICKNAME,
-      userNICKNAME: that.data.user.userNICKNAME || "",
-      userEMAIL: that.data.user.userEMAIL || "",
-      userPHONE: that.data.user.userPHONE || "",
-      userSignature: that.data.user.userSignature || "",
+      profession: that.data.profession || '', //职称
+      office: that.data.office || '', //办公地址
+      email: that.data.email || '',
+      message: that.data.message || '', //教师寄语
+      department: that.data.department || '', //研究领域
+      sci_information: that.data.sci_information || '', //科研成果
+      per_homepage: that.data.per_homepage || '', //个人主页
     })
     wx.showToast({
       title: '修改成功'
@@ -47,9 +49,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: async function(options) {
+    const that=this
     let res = await utils.getUserInfo()
-    this.setData({
-      user: res.user
+    that.setData({
+      username: res.username||'',
+      // username: 'abc',
+      profession: res.profession || '', //职称
+      college: res.college || '',
+      office: res.office || '', //办公地址
+      email: res.email || '',
+      message: res.message || '', //教师寄语
+      department: res.department || '', //研究领域
+      sci_information: res.sci_information || '', //科研成果
+      per_homepage: res.per_homepage || '', //个人主页
     })
   },
 

@@ -1,58 +1,58 @@
 <view class='changeinfo-title'>修改教师个人信息</view>
-
+<!-- 姓名和学院锁定编辑 -->
 <view class='changeinfo-body'>
   <view class='item'>
     <view class='flex-view-item'>姓名</view>
     <view class="item3">
-      <input class="input" name="userLocation" placeholder="请输入您的姓名" maxlength="9" value='{{user.userNAME}}' bindinput="userLocationInput" bindinput="bindKeyInput" data-index="userNick" />
+      <input class="input" placeholder="请输入您的姓名" maxlength="9" value='{{username}}' disabled='true'/>
     </view>
   </view>
   <view class='item'>
     <view class='flex-view-item'>职称</view>
     <view class="item3">
-      <input class="input" name="userLocation" placeholder="请输入您的职称" value='{{user.userNICKNAME||""}}' bindinput="userLocationInput" bindinput="bindKeyInput" data-index="userPhone" />
+      <input class="input" placeholder="请输入您的职称" value='{{profession||""}}' bindinput="bindKeyInput" data-index="profession"  />
     </view>
   </view>
   <view class='item'>
     <view class='flex-view-item'>学院</view>
     <view class="item3">
-      <input class="input" name="userLocation" placeholder="请输入您所在的学院" value='{{user.userNICKNAME||""}}' bindinput="userLocationInput" bindinput="bindKeyInput" data-index="userPhone" />
+      <input class="input" placeholder="请输入您所在的学院" value='{{college||""}}' bindinput="bindKeyInput" data-index="college"  disabled='true'/>
     </view>
   </view>
   <view class='item'>
     <view class='flex-view-item'>办公地址</view>
     <view class="item3">
-      <input class="input" name="userLocation" placeholder="请输入您的办公地址" value='{{user.userPLACE||""}}' bindinput="userLocationInput" bindinput="bindKeyInput" data-index="userEmail" />
+      <input class="input" placeholder="请输入您的办公地址" value='{{office||""}}' bindinput="bindKeyInput" data-index="office" />
     </view>
   </view>
   <view class='item'>
     <view class='flex-view-item'>Email</view>
     <view class="item3">
-      <input class="input" name="userLocation" placeholder="请输入您的Email地址" value='{{user.userEMAIL||""}}' bindinput="userLocationInput" bindinput="bindKeyInput" data-index="userEmail" />
+      <input class="input" placeholder="请输入您的Email地址" value='{{email||""}}' bindinput="bindKeyInput" data-index="email" />
     </view>
   </view>
   <view class='item'>
     <view class='flex-view-item'>教师寄语</view>
     <view class="item3">
-      <input class="input" name="userLocation" placeholder="请输入您的寄语" maxlength="100" value='{{user.userWISH||""}}' bindinput="userLocationInput" bindinput="bindKeyInput" data-index="userWISH" />
+      <input class="input" placeholder="请输入您的寄语" maxlength="100" value='{{message||""}}' bindinput="bindKeyInput" data-index="message" />
     </view>
   </view>
   <view class='item'>
     <view class='flex-view-item'>研究领域</view>
     <view class="item3">
-      <input class="input" name="userLocation" placeholder="请输入您的研究领域" maxlength="100" value='{{user.userAREA||""}}' bindinput="userLocationInput" bindinput="bindKeyInput" data-index="userAREA" />
+      <input class="input" placeholder="请输入您的研究领域" maxlength="100" value='{{department||""}}' bindinput="bindKeyInput" data-index="department" />
     </view>
   </view>
   <view class='item'>
     <view class='flex-view-item'>科研成果</view>
     <view class="item3">
-      <input class="input" name="userLocation" placeholder="请输入您的科研成果" maxlength="100" value='{{user.usersuccess||""}}' bindinput="userLocationInput" bindinput="bindKeyInput" data-index="usersuccess" />
+      <input class="input" placeholder="请输入您的科研成果" maxlength="100" value='{{sci_information||""}}' bindinput="bindKeyInput" data-index="sci_information" />
     </view>
   </view>
   <view class='item'>
     <view class='flex-view-item'>个人主页网址</view>
     <view class="item3">
-      <input class="input" name="userLocation" placeholder="请输入您的个人主页网址" maxlength="100" value='{{user.userHOMEPAGE||""}}' bindinput="userLocationInput" bindinput="bindKeyInput" data-index="userHOMEPAGE" />
+      <input class="input" placeholder="请输入您的个人主页网址" maxlength="100" value='{{per_homepage||""}}' bindinput="bindKeyInput" data-index="per_homepage" />
     </view>
   </view>
   <view class='item4'>

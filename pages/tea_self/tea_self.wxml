@@ -5,42 +5,42 @@
 	<view class='item'>
 		<view class='flex-view-item'>姓名</view>
 		<view class="item3">
-			<view>{{user.userNAME||"未填写"}}</view>
+			<view>{{user.username||"未填写"}}</view>
 		</view>
 	</view>
 	<view class='item'>
 		<view class='flex-view-item'>职称</view>
-		<view class="item3">{{user.userNICKNAME||"未填写"}}</view>
+		<view class="item3">{{user.profession||"未填写"}}</view>
 	</view>
 	<view class='item'>
 		<view class='flex-view-item'>学院</view>
 		<view class="item3">
-			<view>{{user.userSCHOOL||"未填写"}}</view>
+			<view>{{user.college||"未填写"}}</view>
 		</view>
 	</view>
   <view class='item'>
 		<view class='flex-view-item'>办公地址</view>
-		<view class="item3">{{user.userPLACE||"未填写"}}</view>
+		<view class="item3">{{user.office||"未填写"}}</view>
 	</view>
 	<view class='item'>
 		<view class='flex-view-item'>Email</view>
-		<view class="item3">{{user.userEMAIL||"未填写"}}</view>
+		<view class="item3">{{user.email||"未填写"}}</view>
 	</view>
   <view class='item'>
 		<view class='flex-view-item'>教师寄语</view>
-		<view class="item3">{{user.userWISH||"未填写"}}</view>
+		<view class="item3">{{user.message||"未填写"}}</view>
 	</view>
 	<view class='item'>
 		<view class='flex-view-item'>研究领域</view>
-		<view class="item3">{{user.userAREA||"未填写"}}</view>
+		<view class="item3">{{user.department||"未填写"}}</view>
 	</view>
 	<view class='item'>
 		<view class='flex-view-item'>科研成果</view>
-		<view class="item3">{{user.userACHIEVE||"未填写"}}</view>
+		<view class="item3">{{user.sci_information||"未填写"}}</view>
 	</view>
 	<view class='item'>
 		<view class='flex-view-item'>个人主页网址</view>
-		<view class="item3">{{user.userHOMEPAGE||"未填写"}}</view>
+		<view class="item3">{{user.per_homepage||"未填写"}}</view>
 	</view>
 	<view class='item4'>
 		<button bindtap="jumpTochangeinfoPage">修改教师信息</button>
