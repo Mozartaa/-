@@ -29,7 +29,7 @@ Page({
       return
     }
     console.log(this.data)
-    await utils.updateUserInfo({
+    await utils.updateTeacherInfo({
       profession: that.data.profession || '', //职称
       office: that.data.office || '', //办公地址
       email: that.data.email || '',

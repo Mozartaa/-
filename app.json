@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/change_tea_self/change_tea_self",
     "pages/login/login",
     "pages/myrecruit/myrecruit",
     "pages/iden/iden",
@@ -18,8 +19,7 @@
     "pages/ChangeInfo/ChangeInfo",
     "pages/favourite/favourite",
     "pages/see_tea/see_tea",
-    "pages/tea_self/tea_self",
-    "pages/change_tea_self/change_tea_self"
+    "pages/tea_self/tea_self"
   ],
   "window": {
     "backgroundTextStyle": "light",

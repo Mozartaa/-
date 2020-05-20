@@ -1,3 +1,4 @@
+<!-- 教师信息修改页面 -->
 <view class='changeinfo-title'>修改教师个人信息</view>
 <!-- 姓名和学院锁定编辑 -->
 <view class='changeinfo-body'>

@@ -39,6 +39,15 @@ const updateUserInfo = async(data) => {
     return 'error'
   }
 }
+// 修改老师个人信息
+const updateTeacherInfo = async(data) => {
+  let res = await requestPromise('PUT', '/api/teacher/info/userInfo', data)
+  if (res.data.retCode === 0) {
+    return 'success'
+  } else {
+    return 'error'
+  }
+}
 // 多文件上传
 
 
