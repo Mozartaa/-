@@ -114,5 +114,6 @@ module.exports = {
   // user
   getUserInfo,
   updateUserInfo,
-  upload
+  upload,
+  updateTeacherInfo
 }

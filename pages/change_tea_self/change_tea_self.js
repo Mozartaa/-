@@ -13,7 +13,7 @@ Page({
   check: function() {
     // 检查邮箱
     let email = this.data.email||''
-    if (!(/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(email))) {
+    if (!(/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(email))||email=='') {
       wx.showToast({
         title: '邮箱格式有误',
         icon: 'none',

@@ -6,27 +6,7 @@ const app = getApp()
 Page({
   data: {
     searchValue: '',
-    hotwords: [{
-      name: "3D打印"
-    }, {
-      name: "人工智能"
-    }, {
-      name: "大数据"
-    }, {
-      name: "纳米材料"
-    }, {
-      name: "太阳能电池"
-    }, {
-      name: "新能源"
-    }, {
-      name: "神经调节芯片"
-    }, {
-      name: "等离子体"
-    }, {
-      name: "数学模型"
-    }, {
-      name: "管理"
-    }],
+    hotwords: []
   },
   search: function(e) {
     console.log(e)
@@ -49,11 +29,15 @@ Page({
       }
     })
   },
-  onLoad: async(options) => {
+  onLoad: async function(options) {
+    const that = this
     await utils.requestPromise('GET', '/getHotWords', {
       size: 10,
     }).then(res => {
       console.log('加载热词', res.data)
+      that.setData({
+        hotwords: res.data
+      })
     })
   }
 

@@ -21,7 +21,7 @@
     <view class='dep'>研究方向：{{item.department}}</view>
     <!-- 主页 -->
     <view class='homepage' bindtap='copyTBL' data-url="{{item.perHomepage}}">{{item.perHomepage}}</view>
-     <view class="detailBtn">
+     <view class="detailBtn" wx:if="{{user.authenticate===1}}">
       <text bindtap='bindDetail' data-index='{{item.proId}}'>阅读详情-></text>
     </view>
     <!-- 收藏 -->
@@ -32,16 +32,4 @@
 
   </view>
 
-  <!-- <view class='teaformation' wx:for="{{postList}}" wx:key="{{item.id}}">
-    <view class='name'>{{item.username}}</view>
-    <view class='dep'>研究方向：{{item.department}}</view>
-    <view class='homepage'>{{item.perHomepage}}</view>
-
-
-    <view class="favor">
-      <image catchtap='open_tap' wx:if="{{item.flag}}" src="../../images/starEnd.png" data-id='{{item.id}}'></image>
-      <image wx:else catchtap='close_tap' data-id='{{item.id}}' src='../../images/starBgn.png'></image>
-    </view>
-
-  </view> -->
 </scroll-view>

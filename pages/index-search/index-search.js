@@ -23,7 +23,7 @@ Page({
       searchValue: e.detail.value
     })
   },
-  bindDetail: function (option) {
+  bindDetail: function(option) {
     let index = option.currentTarget.dataset.index
     wx.navigateTo({
       url: `../see_tea/see_tea?index=${index}`,
@@ -70,6 +70,7 @@ Page({
     let favor = await utils.requestPromise('GET', '/api/favorites', {
       type: 0,
     })
+    console.log('收藏', favor)
     // 添加收藏标记
     for (let item of data.data) {
       let flag = favor.data.data.teachers.findIndex((i) => i.id === item.id);
