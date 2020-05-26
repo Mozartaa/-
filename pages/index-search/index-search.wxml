@@ -25,7 +25,7 @@
       <text bindtap='bindDetail' data-index='{{item.proId}}'>阅读详情-></text>
     </view>
     <!-- 收藏 -->
-    <view class="favor">
+    <view class="favor" hidden='{{!islogin}}'>
       <image catchtap='open_tap' wx:if="{{item.flag}}" src="../../images/starEnd.png" data-id='{{item.id}}'></image>
       <image wx:else catchtap='close_tap' data-id='{{item.id}}' src='../../images/starBgn.png'></image>
     </view>

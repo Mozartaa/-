@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/login/login",
     "pages/change_tea_self/change_tea_self",
     "pages/myrecruit/myrecruit",
@@ -7,7 +8,6 @@
     "pages/index-search/index-search",
     "pages/recruit_issue/recruit_issue",
     "pages/modify_issue/modify_issue",
-    "pages/index/index",
     "pages/search/search",
     "pages/logs/logs",
     "pages/stuiden/stuiden",

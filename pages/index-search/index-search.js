@@ -1,5 +1,6 @@
 // pages/index-search/index-search.js
 import utils from '../../utils/util.js'
+var app = getApp();
 const Max = 10;
 
 Page({
@@ -16,6 +17,13 @@ Page({
     postList: [],
     end: false,
     page: 1,
+    islogin: false
+  },
+  onShow: function() {
+    // 从app中获取是否已经登录
+    this.setData({
+      islogin: app.globalData.islogin
+    })
   },
   bindInput: function(e) {
     // console.log(e);
@@ -42,12 +50,14 @@ Page({
       size: Max,
     })
     // 添加收藏标记
-    for (let item of data.data) {
-      let flag = this.data.favor.findIndex((i) => i.id === item.id);
-      if (flag !== -1) {
-        item.flag = true;
-      } else {
-        item.flag = false;
+    if (app.globalData.islogin) {
+      for (let item of data.data) {
+        let flag = this.data.favor.findIndex((i) => i.id === item.id);
+        if (flag !== -1) {
+          item.flag = true;
+        } else {
+          item.flag = false;
+        }
       }
     }
     this.setData({
@@ -72,12 +82,14 @@ Page({
     })
     console.log('收藏', favor)
     // 添加收藏标记
-    for (let item of data.data) {
-      let flag = favor.data.data.teachers.findIndex((i) => i.id === item.id);
-      if (flag !== -1) {
-        item.flag = true;
-      } else {
-        item.flag = false;
+    if (app.globalData.islogin) {
+      for (let item of data.data) {
+        let flag = favor.data.data.teachers.findIndex((i) => i.id === item.id);
+        if (flag !== -1) {
+          item.flag = true;
+        } else {
+          item.flag = false;
+        }
       }
     }
     // 同步数据
@@ -102,12 +114,15 @@ Page({
         start: this.data.page * Max + 1,
         size: Max,
       })
-      for (let item of data.data) {
-        let flag = this.data.favor.findIndex((i) => i.id === item.id);
-        if (flag !== -1) {
-          item.flag = true;
-        } else {
-          item.flag = false;
+      // 收藏
+      if (app.globalData.islogin) {
+        for (let item of data.data) {
+          let flag = this.data.favor.findIndex((i) => i.id === item.id);
+          if (flag !== -1) {
+            item.flag = true;
+          } else {
+            item.flag = false;
+          }
         }
       }
       this.setData({
@@ -129,17 +144,17 @@ Page({
     wx.setClipboardData({
       data: url,
       success: () => {
-        // wx.showModal({
-        //   title: '提示',
-        //   content: '复制成功',
-        //   success: function(res) {
-        //     if (res.confirm) {
-        //       console.log('确定')
-        //     } else if (res.cancel) {
-        //       console.log('取消')
-        //     }
-        //   }
-        // })
+        wx.showModal({
+          title: '提示',
+          content: '复制成功',
+          success: function(res) {
+            if (res.confirm) {
+              console.log('确定')
+            } else if (res.cancel) {
+              console.log('取消')
+            }
+          }
+        })
 
       }
     })

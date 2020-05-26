@@ -13,7 +13,14 @@ button::after {
   border-radius: 50%;
   display: flex;
   overflow: hidden;
-  margin-top: 85px;
+  margin-top: 185rpx;
+}
+
+.login {
+  width: 200rpx;
+  height: 200rpx;
+  margin: 0 auto;
+  margin-top: 185rpx;
 }
 
 .my-body {

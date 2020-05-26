@@ -81,7 +81,7 @@
   border-bottom: 1px solid #f5f8f9;
   margin: 35rpx;
   padding-top: 20rpx;
-  padding-bottom: 10rpx;
+  padding-bottom: 20rpx;
   border-radius: 15rpx;
   /* align-content: center; */
 }

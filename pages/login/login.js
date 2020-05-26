@@ -22,10 +22,11 @@ Page({
                 duration: 2000,
               })
               setTimeout(() => {
+                app.globalData.islogin = true
                 wx.switchTab({
                   url: '/pages/index/index',
                 })
-              }, 1000)
+              }, 2000)
             })
             .catch(() => {
               // token失效后重新登录
@@ -55,6 +56,7 @@ Page({
                               title: '登录成功',
                               duration: 2000,
                               success: () => {
+                                app.globalData.islogin = true
                                 wx.switchTab({
                                   url: '/pages/index/index',
                                 })
@@ -90,7 +92,7 @@ Page({
   },
   bindGetUserInfo: async function(e) {
     var that = this;
-    console.log('正在登录',e)
+    console.log('正在登录', e)
     wx.showLoading({
       title: '正在登录中...',
     })
@@ -125,6 +127,7 @@ Page({
                   title: '登录成功',
                   duration: 2000,
                   success: () => {
+                    app.globalData.islogin = true
                     wx.switchTab({
                       url: '/pages/index/index',
                     })

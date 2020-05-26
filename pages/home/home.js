@@ -3,7 +3,14 @@ var app = getApp();
 
 Page({
   data: {
-    searchValue: ''
+    searchValue: '',
+    islogin: false
+  },
+  onShow: function() {
+    this.setData({
+      islogin: app.globalData.islogin
+    })
+    console.log('global Data:', app.globalData)
   },
   SearchKeyWord: function(e) {
     let type = e.currentTarget.dataset.type;
@@ -18,6 +25,14 @@ Page({
     })
   },
   bindSearch: function() {
+    // 判断是否已经登录
+    if(!this.data.islogin){
+      wx.showToast({
+        icon:'none',
+        title: '请先注册/登录后使用该功能',
+      })
+      return
+    }
     wx.showLoading({
       title: '搜索中',
     })
@@ -28,5 +43,6 @@ Page({
         wx.hideLoading()
       }
     })
+    wx.hideLoading()
   }
 })

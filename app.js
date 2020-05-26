@@ -1,6 +1,8 @@
 //app.js
 App({
-  globalData: {},
+  globalData: {
+    islogin: false
+  },
   // onLaunch: function(options) {
   //   // 判断用户是否登录
   //   var token = wx.getStorageSync('token')
